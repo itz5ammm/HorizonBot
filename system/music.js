@@ -22,10 +22,23 @@ module.exports = {
         module.exports.play(queue.songs[0], message)
       }
       
-      if(error.message.includes === "copyright") //back in 5 min
+      if(error.message.includes === "copyright") {
+        return message.channel.send("THIS VIDEO CONTAINS COPYRIGHT CONTENT")
+      } else {
+        console.error(error)
+      }
     }
     
-    
+    const dispatcher = queue.connection
+    .play(stream, {type: "opus"}).on("finish", () => {
+      if(queue.loop) {
+        let lastsong = queue.songs.shift()
+        queue.songs.push(lastsong)
+        module.exports.play(queue.songs[0], message)
+      } else {
+        queue.songs.shift()
+      }
+    })
     
   }
 }

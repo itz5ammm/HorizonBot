@@ -83,7 +83,7 @@ module.exports = {
       try {
         queueBase.connection = await channel.join()
       //  play(queueBase.songs[0], message) WE DIDENT DEFINED PLAY YET
-      } catch (erorr) {
+      } catch (error) {
         console.error("I am unable to join voice channel")
         message.client.queue.delete(message.guild.id)
         await channel.leave();
