@@ -3,7 +3,7 @@ const { YOUTUBE_API_KEY } = require("../config.json");
 const ytdl = require("ytdl-core");
 const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
-
+const { play } = require("../system/music") 
 module.exports = {
   name: "play",
   description: "PLAY THE SOFTNESS OF THE SOUND",
@@ -82,7 +82,7 @@ module.exports = {
     if(!serverQueue) {
       try {
         queueBase.connection = await channel.join()
-      //  play(queueBase.songs[0], message) WE DIDENT DEFINED PLAY YET
+      play(queueBase.songs[0], message)
       } catch (error) {
         console.error("I am unable to join voice channel")
         message.client.queue.delete(message.guild.id)

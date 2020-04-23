@@ -37,8 +37,18 @@ module.exports = {
         module.exports.play(queue.songs[0], message)
       } else {
         queue.songs.shift()
+        module.exports.play(queue.songs[0], message)
       }
-    })
+    }).on("error", console.error)
+    dispatcher.setVolumeLogarithmic(queue.volume / 100); //VOLUME
+    
+    
+    try {
+      var playingMsg = await queue.textChannel.send(`**STARTED PLAYING** - [${song.title}](${song.url})`)
+      
+    } catch (error) {
+      console.error(error)
+    }  
     
   }
 }
