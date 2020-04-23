@@ -5,6 +5,7 @@ dependencies:
   path: 0.12.7
   simple-youtube-api: 5.2.1
   ytdl-core: 2.1.0
+  ytdl-core-discord: 1.2.0
 packages:
   /@discordjs/collection/0.1.5:
     dev: false
@@ -20,6 +21,10 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-ZfFsbgEXW71Rw/6EtBdrP5VxBJy4dthyC0tpQKGKmYFImlmmrykO14Za+BiIVduwjte0jXEBlhSKf0MWbFp9Eg==
+  /@types/node/13.13.2:
+    dev: false
+    resolution:
+      integrity: sha512-LB2R1Oyhpg8gu4SON/mfforE525+Hi/M1ineICEDftqNVTyFg1aRIeGuTvXAoWHc4nbrFncWtJgMmoyRvuGh7A==
   /abort-controller/3.0.0:
     dependencies:
       event-target-shim: 5.0.1
@@ -565,6 +570,14 @@ packages:
       utf-8-validate: ^5.0.2
     resolution:
       integrity: sha512-HTDl9G9hbkNDk98naoR/cHDws7+EyYMOdL1BmjsZXRUjf7d+MficC4B7HLUPlSiho0vg+CWKrGIt/VJBd1xunQ==
+  /ytdl-core-discord/1.2.0:
+    dependencies:
+      '@types/node': 13.13.2
+      prism-media: 1.2.1
+      ytdl-core: 2.1.0
+    dev: false
+    resolution:
+      integrity: sha512-BTE0eslSZzovThOAXbT9KZjsh2spu9y0nl9ZNrGNn4rLip8xocmYpDUEN8X03tTcGUybpzyN8J7wwM2/gNLRiA==
   /ytdl-core/2.1.0:
     dependencies:
       html-entities: 1.3.1
@@ -586,3 +599,4 @@ specifiers:
   path: ^0.12.7
   simple-youtube-api: ^5.2.1
   ytdl-core: ^2.1.0
+  ytdl-core-discord: ^1.2.0
