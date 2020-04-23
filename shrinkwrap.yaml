@@ -1031,7 +1031,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   '@discordjs/opus': ^0.1.0
-  discord.js: ^12.2.0
+  discord.js: ^12.1.1
   express: ^4.17.1
   fs: ^0.0.2
   path: ^0.12.7

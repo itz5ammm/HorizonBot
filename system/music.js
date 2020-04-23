@@ -3,12 +3,12 @@ const ytdlDiscord = require("ytdl-core-discord");
 
 module.exports = {
   async play(song, message) {
-    const queue = message.client.queue.get(message.guild.id)
+    const queue = message.client.queue.get(message.guild.id);
     
     if(!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id)
-      return message.textChannel.send("Music Queue is Ended Now 😌")
+      return queue.textChannel.send("Music Queue is Ended Now 😌")
     }
     
     try {

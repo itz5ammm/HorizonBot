@@ -3,7 +3,7 @@ const { YOUTUBE_API_KEY } = require("../config.json");
 const ytdl = require("ytdl-core");
 const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
-const { play } = require("../system/music") 
+const { play } = require("../system/music.js") 
 module.exports = {
   name: "play",
   description: "PLAY THE SOFTNESS OF THE SOUND",
@@ -27,7 +27,7 @@ module.exports = {
     const playlistPattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
     const urlcheck = videoPattern.test(args[0]);
 
-    if (!videoPattern.test(args[0]) && !playlistPattern.test(args[0])) {
+    if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       return message.channel.send("PLAYLIST CANNOT BE PLAYED");
     }
 
