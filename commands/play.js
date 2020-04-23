@@ -77,6 +77,12 @@ module.exports = {
       }
     }
     
+    if(serverQueue) {
+      serverQueue.songs.push(song)
+      return serverQueue.textChannel.send(`\`${song.title}\`, Song Added to queue`)
+      .catch(console.error)
+    }
+    
     if(!serverQueue) message.client.queue.set(message.guild.id, queueBase)
     
     if(!serverQueue) {

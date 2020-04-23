@@ -8,7 +8,7 @@ module.exports = {
     if(!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id)
-      return queue.textChannel.send("Music Queue is Ended Now 😌")
+      return queue.textChannel.send("Music Queue is Ended Now 😌").catch(console.error)
     }
     
     try {
@@ -43,12 +43,9 @@ module.exports = {
     dispatcher.setVolumeLogarithmic(queue.volume / 100); //VOLUME
     
     
-    try {
-      var playingMsg = await queue.textChannel.send(`**STARTED PLAYING** - [${song.title}](${song.url})`)
-      
-    } catch (error) {
-      console.error(error)
-    }  
+    
+      queue.textChannel.send(`**STARTED PLAYING** - [${song.title}](${song.url})`)
+    
     
   }
 }
