@@ -1,3 +1,11 @@
+const { Util } = require("discord.js")
+const { YOUTUBE_API_}
+
+
+
+
+
+
 module.exports = {
   name: "play",
   description: "PLAY THE SOFTNESS OF THE SOUND",
@@ -17,8 +25,37 @@ module.exports = {
     const targetsong = args.join(" ") 
      const videoPattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
     const playlistPattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
-const url = args[0];
-    const urlcheck = videoPattern.test()
+    const urlcheck = videoPattern.test(args[0])
     
-  }
-}
+    if(!videoPattern.test(args[0]) && !playlistPattern.test(args[0])) {
+      return message.channel.send("PLAYLIST CANNOT BE PLAYED")
+    }
+    
+    const serverQueue = message.client.queue.get(message.guild.id);
+    
+    const queueBase = {
+      textChannel : message.channel,
+      channel,
+      connection: null,
+      songs: [],
+      loop: false,
+      volume: 100,
+      playing: true
+    }
+    
+    let songData = null
+    let song = null
+    
+    if(urlcheck) {
+      try {
+       
+        
+        
+      } catch (err) {
+        
+      }
+    }
+    
+    
+    
+  }}
