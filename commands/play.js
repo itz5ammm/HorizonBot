@@ -33,7 +33,7 @@ module.exports = {
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
-    const queueBase = {
+    const queueConstruct = {
       textChannel: message.channel,
       channel,
       connection: null,
@@ -82,20 +82,20 @@ module.exports = {
       return serverQueue.textChannel.send(`\`${song.title}\`, Song Added to queue`)
       .catch(console.error)
     } else {
-      queueBase.songs.push(song);
+      queueConstruct.songs.push(song);
     }
     
-    if(!serverQueue) message.client.queue.set(message.guild.id, queueBase)
+    if(!serverQueue) message.client.queue.set(message.guild.id, queueConstruct)
     
-    if(!serverQueue) {
+     if (!serverQueue) {
       try {
-        queueBase.connection = await channel.join()
-      play(queueBase.songs[0], message)
+        queueConstruct.connection = await channel.join();
+        play(queueConstruct.songs[0], message);
       } catch (error) {
-        console.error("I am unable to join voice channel")
-        message.client.queue.delete(message.guild.id)
+        console.error(`Could not join voice channel: ${error}`);
+        message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send("I AM UNABLE TO JOIN VOICE CHANNEL").catch(console.error)
+        return message.channel.send({embed: {"description": `😭 | Could not join the channel: ${error}`, "color": "#ff2050"}}).catch(console.error);
       }
     }
     

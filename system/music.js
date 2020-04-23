@@ -12,10 +12,10 @@ module.exports = {
     }
     
     try {
-      var stream = ytdlDiscord(song.url, {
-          filter: "audioonly",
-        quality: "highestaudio"
-      })
+      var stream = await ytdlDiscord(song.url, {
+        highWaterMark: 1 << 25,
+      });
+      
     } catch (error) {
       if(queue) {
         queue.songs.shift()
