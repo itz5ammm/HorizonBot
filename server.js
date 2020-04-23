@@ -1,34 +1,26 @@
-// server.js
-// where your node app starts
+const discord = require("discord.js")
+const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
+const { readdirSync } = require("fs");
+const { join } = require("path");
 
-// we've started you off with Express (https://expressjs.com/)
-// but feel free to use whatever libraries or frameworks you'd like through `package.json`.
-const express = require("express");
-const app = express();
 
-// our default array of dreams
-const dreams = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
-];
+//CLIENT EVENTS
+client.on("ready", () => {
+  console.log('Ready TO play some soft songs')
+  client.user.setActivity("x!help | Musix")
+})
 
-// make all the files in 'public' available
-// https://expressjs.com/en/starter/static-files.html
-app.use(express.static("public"));
+client.on("warn", info => console.log(info));
 
-// https://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/index.html");
+client.on("error", console.error)
+
+client.on("message", message => {
+   if (message.author.bot) return;
+  if (!message.guild) return;
 });
 
-// send the default array of dreams to the webpage
-app.get("/dreams", (request, response) => {
-  // express helps us take JS objects and send them as JSON
-  response.json(dreams);
-});
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
-});
+
+
+//DONT DO ANYTHING WITH THIS TOKEN lol
+client.login("NjQwMTk3ODA2MzEyOTE0OTYz.XqGITA.andWQ59uXgafpdOYlyz1q3xAgTE")
