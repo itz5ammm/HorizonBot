@@ -19,6 +19,15 @@ client.commands = new discord.Collection()
 client.prefix = PREFIX
 client.queue = new Map();
 
+
+//LETS LOAD ALL FILES
+const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"))
+for (const file of cmdFiles) {
+  const command = require(join(__dirname, "commands", file))
+  client.commands.set(command.name, command)
+} //LOADING DONE
+
+
 //WHEN SOMEONE MESSAGE
 client.on("message", message => {
    if (message.author.bot) return;
@@ -33,7 +42,12 @@ client.on("message", message => {
       return;
     } 
     
-    
+  try  { //TRY TO GET COMMAND AND EXECUTE
+      client.commands.get(command).execute(client, message, args)
+    } catch (err) { //IF IT CATCH ERROR
+      console.log(err)
+      message.reply("I am getting error on using this command")
+    }
     
   }
   
