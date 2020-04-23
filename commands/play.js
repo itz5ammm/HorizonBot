@@ -1,15 +1,14 @@
 const { Util } = require("discord.js")
-const { YOUTUBE_API_}
-
-
-
-
+const { YOUTUBE_API_KEY } = require("../config.json")
+const ytdl = require("ytdl-core")
+const YoutubeAPI = require("simple-youtube-api")
+const youtube = new YoutubeAPI(YOUTUBE_API_KEY)
 
 
 module.exports = {
   name: "play",
   description: "PLAY THE SOFTNESS OF THE SOUND",
-  execute(client, message, args) {
+  async execute(client, message, args) {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if(!args.length) { //IF AUTHOR DIDENT GIVE URL OR NAME
       return message.channel.send("WRONG SYNTAX : Type `play <URL> or text`")
@@ -48,12 +47,24 @@ module.exports = {
     
     if(urlcheck) {
       try {
-       
+       songData = await ytdl.getInfo(args[0]);
+        song = {
+          title: songData.title,
+          url: songData.video_url,
+          duration: songData.length_seconds
+        }
         
-        
-      } catch (err) {
+      } catch (error) {
+        if(message.include === "copyright") {
+          return message.reply("THERE IS COPYRIGHT CONTENT IN VIDEO -_-")
+          .catch(console.error)
+        } else {
+          console.error(error);
+        }
         
       }
+    } else {
+      
     }
     
     
