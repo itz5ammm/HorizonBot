@@ -13,7 +13,7 @@ module.exports = {
     
     try {
       var stream = ytdlDiscord(song.url, {
-        filter: "audioonly",
+          filter: "audioonly",
         quality: "highestaudio"
       })
     } catch (error) {
