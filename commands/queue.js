@@ -15,7 +15,7 @@ module.exports = {
       return message.channel.send("There is nothing in the queue")
     }
     
-   message.channel.send(`${serverQueue.songs.map((song, index) => index + 1 + '. ' + song.title).join("/n/n")}`, {split: true})
+   message.channel.send(`${serverQueue.songs.map((song, index) => index + 1 + '. ' + song.title).join("\n\n")}`, {split: true})
     
 
     
