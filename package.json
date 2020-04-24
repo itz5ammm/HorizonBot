@@ -17,7 +17,8 @@
     "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^2.1.0",
     "ytdl-core-discord": "^1.2.0",
-    "@discordjs/opus": "^0.1.0"
+    "@discordjs/opus": "^0.1.0",
+    "genius-lyrics": "^2.0.0"
   },
   "engines": {
     "node": "12.x"
