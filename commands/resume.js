@@ -9,15 +9,14 @@ module.exports = {
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
-
-    if (!serverQueue) {
-      return message.channel.send("There is nothing playing that i could pause");
-    }
+ if(serverQueue && !serverQueue.playing) {
+      serverQueue.playing = true;
+      serverQueue.connection.dispatcher.resume()
+  
+  return message.channel.send("✅ | Resumed the Paused Song") 
+ }
     
-    
-    
-    
-    
+    message.channel.send("There is nothing paused that i can resume")
     
   }
 }
