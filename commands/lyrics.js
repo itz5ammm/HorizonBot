@@ -27,12 +27,16 @@ module.exports = {
     song.lyrics()
     .then(lyrics => {
       if (lyrics.length > 4095) {
-        
+        return message.channel.send("LYRICS ARE TOO LONG")
       }
       
-      //NOw make it pretty good
-      message.channel.send(lyrics)
-      m.delete()
+      if (lyrics.length < 2048) {
+        const lyricsEmbed = new MessageEmbed()
+          .setColor("#ff2050")
+          .setDescription(lyrics.trim());
+        return m.edit('', lyricsEmbed);
+      }
+  m.delete()
       
     })
 }).catch(err => message.channel.send("Unable to find lyrics"));
