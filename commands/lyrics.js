@@ -1,9 +1,9 @@
 const Genius = new (require("genius-lyrics"))("ApavK7sxIw4WfaTNVe1g9Hc8civ8WqGW0NWx_akrti6Bcg3Nc7ILibv9LoVDoT0-");
-
+const { MessageEmbed } = require("discord.js")
 module.exports = {
   name: "lyrics", 
   description: "Get lyrics of Song",
-  execute (client, message, args) {
+  async execute (client, message, args) {
     
      const { channel } = message.member.voice;
     if (!channel) {
@@ -17,6 +17,8 @@ module.exports = {
       return message.channel.send("There is nothing that bot is playing");
     }
     
+  let m = await message.channel.send("Finding lyrics")  
+    
     
     //NOw we gonna see on playing song
   Genius.tracks.search(serverQueue.songs[0].title)
@@ -24,14 +26,14 @@ module.exports = {
     const song = results[0];
     song.lyrics()
     .then(lyrics => {
-      
-      
-      if(lyrics.length > 2000) {
-          message.channel.send(lyrics.slice(0, 2000))
+      if (lyrics.length > 4095) {
+        
       }
       
+      //NOw make it pretty good
+      message.channel.send(lyrics)
+      m.delete()
       
-        message.channel.send(lyrics)
     })
 }).catch(err => message.channel.send("Unable to find lyrics"));
     
