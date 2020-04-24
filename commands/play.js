@@ -3,7 +3,7 @@ const { YOUTUBE_API_KEY } = require("../config.json");
 const ytdl = require("ytdl-core");
 const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
-const { play } = require("../system/music.js") 
+const { play } = require("../system/music.js");
 module.exports = {
   name: "play",
   description: "PLAY THE SOFTNESS OF THE SOUND",
@@ -65,29 +65,31 @@ module.exports = {
       }
     } else {
       try {
-        const result = await youtube.searchVideos(targetsong, 1)
-        songData = await ytdl.getInfo(result[0].url)
-         song = {
+        const result = await youtube.searchVideos(targetsong, 1);
+        songData = await ytdl.getInfo(result[0].url);
+        song = {
           title: songData.title,
           url: songData.video_url,
           duration: songData.length_seconds
         };
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }
-    
-    if(serverQueue) {
-      serverQueue.songs.push(song)
-      return serverQueue.textChannel.send(`\`${song.title}\`, Song Added to queue`)
-      .catch(console.error)
+
+    if (serverQueue) {
+      serverQueue.songs.push(song);
+      return serverQueue.textChannel
+        .send(`\`${song.title}\`, Song Added to queue`)
+        .catch(console.error);
     } else {
       queueConstruct.songs.push(song);
     }
-    
-    if(!serverQueue) message.client.queue.set(message.guild.id, queueConstruct)
-    
-     if (!serverQueue) {
+
+    if (!serverQueue)
+      message.client.queue.set(message.guild.id, queueConstruct);
+
+    if (!serverQueue) {
       try {
         queueConstruct.connection = await channel.join();
         play(queueConstruct.songs[0], message);
@@ -95,10 +97,15 @@ module.exports = {
         console.error(`Could not join voice channel: ${error}`);
         message.client.queue.delete(message.guild.id);
         await channel.leave();
-        return message.channel.send({embed: {"description": `😭 | Could not join the channel: ${error}`, "color": "#ff2050"}}).catch(console.error);
+        return message.channel
+          .send({
+            embed: {
+              description: `😭 | Could not join the channel: ${error}`,
+              color: "#ff2050"
+            }
+          })
+          .catch(console.error);
       }
     }
-    
-    
   }
 };
