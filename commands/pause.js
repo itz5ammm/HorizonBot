@@ -1,7 +1,5 @@
 const { MessageEmbed } = require("discord.js")
 
-let embed = new MessageEmbed()
-.setColor("RANDOM");
 
 
 module.exports = {
@@ -9,7 +7,9 @@ module.exports = {
   description: "Pause the cureent playing Song",
   execute (client, message, args) {
   const { channel } = message.member.voice;
-   
+   let embed = new MessageEmbed()
+.setColor("RANDOM");
+
     
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL

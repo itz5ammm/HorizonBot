@@ -1,8 +1,5 @@
 const { MessageEmbed } = require("discord.js")
 
-let embed = new MessageEmbed()
-.setColor("RANDOM");
-
 
 
 
@@ -16,6 +13,10 @@ module.exports = {
   name: "play",
   description: "Play the song and feel the music",
   async execute(client, message, args) {
+    let embed = new MessageEmbed()
+.setColor("RANDOM");
+
+
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME

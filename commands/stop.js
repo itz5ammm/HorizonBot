@@ -1,8 +1,5 @@
 const { MessageEmbed } = require("discord.js")
 
-let embed = new MessageEmbed()
-.setColor("RANDOM");
-
 
 
 
@@ -12,6 +9,11 @@ module.exports = {
   name: "stop",
   description: "Stop the music and take rest ;)",
   execute(client, message, args) {
+    
+    
+let embed = new MessageEmbed()
+.setColor("RANDOM");
+
     const { channel } = message.member.voice;
       
     if (!channel) {

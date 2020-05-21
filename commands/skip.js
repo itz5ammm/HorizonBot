@@ -1,9 +1,5 @@
 const { MessageEmbed } = require("discord.js")
 
-let embed = new MessageEmbed()
-.setColor("RANDOM");
-
-
 
 
 
@@ -11,6 +7,14 @@ module.exports = {
   name: "skip",
   description: "Skip the song or shift yourself to next song",
   execute(client, message, args) {
+    if(!message.member.hasPermission("ADMINISTRATOR"))
+    
+    
+    
+let embed = new MessageEmbed()
+.setColor("RANDOM");
+
+
     const { channel } = message.member.voice;
 
        

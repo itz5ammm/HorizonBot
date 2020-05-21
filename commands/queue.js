@@ -1,11 +1,12 @@
 const { MessageEmbed } = require("discord.js");
 
-let embed = new MessageEmbed().setColor("RANDOM");
+
 
 module.exports = {
   name: "queue",
   description: "Get all the song name which are in queue",
   execute: (client, message, args) => {
+    let embed = new MessageEmbed().setColor("RANDOM");
     const { channel } = message.member.voice;
 
     if (!channel) {

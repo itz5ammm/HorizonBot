@@ -1,12 +1,12 @@
 const { MessageEmbed } = require("discord.js");
 
-let embed = new MessageEmbed().setColor("RANDOM");
 
 module.exports = {
   name: "volume",
   description: "Manage the volume of the song",
   execute(client, message, args) {
-    
+    let embed = new MessageEmbed().setColor("RANDOM");
+
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
@@ -31,7 +31,10 @@ module.exports = {
       return message.channel.send(embed)
     }
     
-    if(args[0] 
+    if(args[0] > 200) {
+      embed.setAuthor("You will die if you reach the limit of 200 :)")
+      return message.channel.send(embed)
+    }
     
     serverQueue.volume = args[0]
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100)

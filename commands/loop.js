@@ -1,13 +1,13 @@
 const { MessageEmbed } = require("discord.js")
 
-let embed = new MessageEmbed()
-.setColor("RANDOM");
 
 module.exports = {
   name: "loop",
   description: "Loop Your Queue and have fun",
   execute (client, message, args) {
-    
+    let embed = new MessageEmbed()
+.setColor("RANDOM");
+
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
