@@ -56,7 +56,7 @@ module.exports = {
       playing: true
     };
     
-    let voteConstruct = {
+    const voteConstruct = {
       vote: 0,
       voters: []
     }
@@ -109,7 +109,7 @@ module.exports = {
 
     if (!serverQueue)
       message.client.queue.set(message.guild.id, queueConstruct);
-
+        message.client.queue.set(message.guild.id, voteConstruct);
     if (!serverQueue) {
       try {
         queueConstruct.connection = await channel.join();

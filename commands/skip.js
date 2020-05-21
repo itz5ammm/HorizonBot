@@ -31,8 +31,7 @@ let embed = new MessageEmbed()
     }
     
      if(message.member.hasPermission("ADMINISTRATOR")) {
-      let msg = await message.channel.send("Please Vote Here to Skip the Song")
-      return msg.react("👍")
+//SOMETHING WRONG
        
     }
 
