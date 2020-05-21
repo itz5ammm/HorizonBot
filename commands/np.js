@@ -1,21 +1,30 @@
+const { MessageEmbed } = require("discord.js")
+
+let embed = new MessageEmbed()
+.setColor("RANDOM")
+
 module.exports = {
   name: "np",
   description: "send the name of on going song",
   execute (client, message, args) {
     
-      const { channel } = message.member.voice;
+      
+    const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
+      embed.setAuthor("YOU NEED TO BE IN VOICE CHANNEL :/")
+      return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("Bot is not playing anything");
+      embed.setAuthor("Bot is not playing anything")
+      return message.channel.send(embed);
     }
-    
-    message.channel.send(serverQueue.songs[0].title)
+    embed.setDescription(`**NOW PLAYING** - ${serverQueue.songs[0].title}`)
+    embed.setThumbnail(client.user.avatarURL())
+    message.channel.send(embed)
 
     
     

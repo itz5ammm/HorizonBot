@@ -26,8 +26,8 @@ module.exports = {
     serverQueue.loop = !serverQueue.loop
     
     
-    embed.setDescription()
-    message.channel.send(`Loop is now **${serverQueue.loop ? "Enabled" : "Disabled"}**`)
+    embed.setDescription(`Loop is now **${serverQueue.loop ? "Enabled" : "Disabled"}**`)
+    message.channel.send(embed)
     
     
     

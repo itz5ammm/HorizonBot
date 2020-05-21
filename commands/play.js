@@ -1,3 +1,11 @@
+const { MessageEmbed } = require("discord.js")
+
+let embed = new MessageEmbed()
+.setColor("RANDOM");
+
+
+
+
 const { Util } = require("discord.js");
 const { YOUTUBE_API_KEY } = require("../config.json");
 const ytdl = require("ytdl-core");
@@ -15,9 +23,11 @@ module.exports = {
     }
 
     const { channel } = message.member.voice;
+        
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      return message.channel.send("YOU NEED TO BE IN VOICE CHANNEL :/");
+      embed.setAuthor("YOU NEED TO BE IN VOICE CHANNEL :/")
+      return message.channel.send(embed);
     }
 
     //WE WILL ADD PERMS ERROR LATER :(

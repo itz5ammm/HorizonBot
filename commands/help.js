@@ -9,6 +9,7 @@ module.exports = {
     
 let embed = new MessageEmbed()
 .setAuthor("HELP SECTION")
+.setThumbnail(client.user.displayAvatarURL())
 .setColor("RANDOM")
 .setDescription(`These are the command ${client.user.username} Bot, INVITE ME - LINK`)
 let command = readdirSync("./commands")    
