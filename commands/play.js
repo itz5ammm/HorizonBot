@@ -77,10 +77,8 @@ module.exports = {
           return message
             .reply("THERE IS COPYRIGHT CONTENT IN VIDEO -_-")
             .catch(console.error);
-        } else if(message.include === "usageLimits") {
-          return message.channel.send("API LIMIT IS OVER")
         } else {
-          console.log(error)
+          console.error(error);
         }
       }
     } else {
@@ -93,7 +91,10 @@ module.exports = {
           duration: songData.length_seconds
         };
       } catch (error) {
-        console.error(error);
+        console.log(error)
+        if(error.errors[0].domain === "usageLimits") {
+          return message.channel.send("Your YT API limit is over and it will be restored under 24 hours")
+        }
       }
     }
 
