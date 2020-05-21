@@ -8,7 +8,7 @@ module.exports = {
   description: "Resume the Cureent Playing Song",
   execute (client, message, args) {
     let embed = new MessageEmbed()
-.setColor("RANDOM");
+.setColor(COLOR);
 
       const { channel } = message.member.voice;
       

@@ -6,7 +6,7 @@ module.exports = {
   name: "queue",
   description: "Get all the song name which are in queue",
   execute: (client, message, args) => {
-    let embed = new MessageEmbed().setColor("RANDOM");
+    let embed = new MessageEmbed().setColor(COLOR);
     const { channel } = message.member.voice;
 
     if (!channel) {

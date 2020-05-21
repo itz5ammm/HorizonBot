@@ -1,13 +1,13 @@
 //I WILL BE BACK AFTER 5 min
 const ytdlDiscord = require("ytdl-core-discord");
 const { MessageEmbed } = require("discord.js")
-const { QUEUE_LIMIT } = require("../config.json");
+const { QUEUE_LIMIT, COLOR } = require("../config.json");
 
 module.exports = {
   async play(song, message) {
     const queue = message.client.queue.get(message.guild.id);
 let embed = new MessageEmbed()
-.setColor("RANDOM");
+.setColor(COLOR);
 
     if (!song) {
       queue.channel.leave();

@@ -12,7 +12,7 @@ module.exports = {
     
 
     
-    let embed = new MessageEmbed().setColor("RANDOM");
+    let embed = new MessageEmbed().setColor(COLOR);
 
     
     const { channel } = message.member.voice;
