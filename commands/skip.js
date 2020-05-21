@@ -33,7 +33,7 @@ const vote = message.client.vote.get(message.guild.id)
     const vcvote = Math.floor(message.guild.me.voice.channel.members.size / 2)
     const okie = Math.floor(message.guild.me.voice.channel.members.size / 2 - 1)
     console.log(message.guild.me.voice.channel.members.size)
-     if(message.member.hasPermission("ADMINISTRATOR")) {
+     if(!message.member.hasPermission("ADMINISTRATOR")) {
        if(vote.vote > okie) {
          serverQueue.connection.dispatcher.end();
     embed.setDescription("VOTE - SKIP | Skipping The Song")

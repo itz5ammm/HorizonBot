@@ -5,8 +5,16 @@ module.exports = {
   name: "volume",
   description: "Manage the volume of the song",
   execute(client, message, args) {
+    
+    if(!message.member.hasPermission("ADMINISTRATOR")) {
+      return message.channel.send("You are not allowed to change the volume of the music")
+    }
+    
+
+    
     let embed = new MessageEmbed().setColor("RANDOM");
 
+    
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
