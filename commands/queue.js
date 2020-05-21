@@ -1,33 +1,33 @@
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js");
 
-let embed = new MessageEmbed()
-.setColor("RANDOM");
-
-
+let embed = new MessageEmbed().setColor("RANDOM");
 
 module.exports = {
   name: "queue",
   description: "get list of added songs",
   execute: (client, message, args) => {
     const { channel } = message.member.voice;
-      
+
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      embed.setAuthor("YOU NEED TO BE IN VOICE CHANNEL :/")
+      embed.setAuthor("YOU NEED TO BE IN VOICE CHANNEL :/");
       return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      return message.channel.send("There is nothing in the queue");
+      embed.setAuthor("There is nothing in the queue");
+      return message.channel.send(embed);
     }
 
-    message.channel.send(
+    embed.setDescription(
       `${serverQueue.songs
         .map((song, index) => index + 1 + ". " + song.title)
         .join("\n\n")}`,
       { split: true }
     );
+    embed.setThumbnail(client.user.displayAvatarURL())
+    message.channel.send(embed);
   }
 };

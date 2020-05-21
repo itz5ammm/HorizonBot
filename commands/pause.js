@@ -30,7 +30,7 @@ module.exports = {
       serverQueue.connection.dispatcher.pause(true)
       
       embed.setDescription("✅ | Paused The Current Playing Song")
-      embed.setThumbnail(client.user.avatarURL())
+      embed.setThumbnail(client.user.displayAvatarURL())
       return message.channel.send(embed)
   }  
   }

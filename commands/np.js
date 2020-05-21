@@ -23,7 +23,7 @@ module.exports = {
       return message.channel.send(embed);
     }
     embed.setDescription(`**NOW PLAYING** - ${serverQueue.songs[0].title}`)
-    embed.setThumbnail(client.user.avatarURL())
+    embed.setThumbnail(client.user.displayAvatarURL())
     message.channel.send(embed)
 
     

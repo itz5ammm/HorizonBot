@@ -22,6 +22,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
+      embed.setAuthor("There is nothing playing that i could skip")
       return message.channel.send("There is nothing playing that i could skip");
     }
 

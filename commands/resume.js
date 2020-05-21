@@ -21,11 +21,12 @@ module.exports = {
  if(serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume()
-  
-  return message.channel.send("✅ | Resumed the Paused Song") 
+  embed.setAuthor("✅ | Resumed the Paused Song")
+   embed.setThumbnail(client.user.displayAvatarURL())
+  return message.channel.send(embed)
  }
-    
-    message.channel.send("There is nothing paused that i can resume")
+    embed.setDescription("There is nothing paused that i can resume")
+    message.channel.send(embed)
     
   }
 }

@@ -27,6 +27,7 @@ module.exports = {
     
     
     embed.setDescription(`Loop is now **${serverQueue.loop ? "Enabled" : "Disabled"}**`)
+    embed.setThumbnail(client.user.displayAvatarURL())
     message.channel.send(embed)
     
     
