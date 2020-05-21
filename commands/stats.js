@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-const moment = require("moment")
+
 
 
 
@@ -13,10 +13,12 @@ module.exports = {
     .setAuthor(`STATS AND INFORMATION`, client.user.displayAvatarURL())
     .setDescription(`My name is **${client.user.username}** and My work is to play Music`)
     .addField("SERVERS", client.guilds.cache.size, true)
-    .addField("ID", client.user.id)
-    .addField("PRESENCE", client.user.presence.name)
-    .addField("UPTIME", client.uptime, true);
-    
+    .addField("ID", client.user.id, true)
+    .addField("PRESENCE", client.user.presence.activities[0].name, true)
+    .addField("UPTIME", client.uptime, true)
+    .addField("STATUS", client.user.presence.status, true)
+    .addField("TOTAL MEMBERS", client.guilds.member.size)
+ console.log(client.user.presence)
     message.channel.send(embed)
   }
 };
