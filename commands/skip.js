@@ -23,10 +23,12 @@ module.exports = {
 
     if (!serverQueue) {
       embed.setAuthor("There is nothing playing that i could skip")
-      return message.channel.send("There is nothing playing that i could skip");
+      return message.channel.send(embed);
     }
 
     serverQueue.connection.dispatcher.end();
-    message.channel.send("✔ | Skipping The Song");
+    embed.setDescription("✔ | Skipping The Song")
+    embed.setThumbnail(client.user.displayAvatarURL())
+    message.channel.send(embed);
   }
 };

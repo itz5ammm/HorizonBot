@@ -19,7 +19,8 @@ module.exports = {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME
-      return message.channel.send("WRONG SYNTAX : Type `play <URL> or text`");
+      embed.setAuthor("WRONG SYNTAX : Type `play <URL> or text`")
+      return message.channel.send(embed);
     }
 
     const { channel } = message.member.voice;
@@ -38,7 +39,8 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      return message.channel.send("PLAYLIST CANNOT BE PLAYED");
+      embed.setAuthor("I am Unable To Play Playlist for now")
+      return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -89,8 +91,11 @@ module.exports = {
 
     if (serverQueue) {
       serverQueue.songs.push(song);
+      embed.setDescription(`\`${song.title}\`, Song Added to queue`)
+      embed.setThumbnail(client.user.displayAvatarURL())
+      
       return serverQueue.textChannel
-        .send(`\`${song.title}\`, Song Added to queue`)
+        .send(embed)
         .catch(console.error);
     } else {
       queueConstruct.songs.push(song);
