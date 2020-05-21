@@ -30,7 +30,8 @@ const vote = message.client.vote.get(message.guild.id)
       return message.channel.send(embed);
     }
     
-    const vcvote = Math.floor(message.guild.me.voice.channel.size / 2)
+    const vcvote = Math.floor(message.guild.me.voice.channel.members.size / 2)
+    console.log(message.guild.me.voice.channel.members.size)
      if(message.member.hasPermission("ADMINISTRATOR")) {
 vote.vote++
        vote.voters.push(message.author.id)
