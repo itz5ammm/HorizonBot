@@ -3,7 +3,7 @@ const { readdirSync } = require("fs")
 
 module.exports = {
   name: "help",
-  description: "Get all commands",
+  description: "Get all commands name and description",
   execute (client, message, args) {
     
     

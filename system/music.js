@@ -1,5 +1,9 @@
 //I WILL BE BACK AFTER 5 min
 const ytdlDiscord = require("ytdl-core-discord");
+const { MessageEmbed } = require("discord.js")
+
+let embed = new MessageEmbed()
+.setColor("RANDOM");
 
 module.exports = {
   async play(song, message) {
@@ -8,8 +12,9 @@ module.exports = {
     if (!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id);
+      embed.setAuthor("MUSIC QUEUE IS ENDED NOW :/")
       return queue.textChannel
-        .send("Music Queue is Ended Now 😌")
+        .send(embed)
         .catch(console.error);
     }
 
@@ -44,9 +49,10 @@ module.exports = {
       })
       .on("error", console.error);
     dispatcher.setVolumeLogarithmic(queue.volume / 100); //VOLUME
-
+embed.setDescription(`**STARTED PLAYING** - ${song.title}`)
+    
     queue.textChannel
-      .send(`**STARTED PLAYING** - [${song.title}](${song.url})`)
+      .send(embed)
       .catch(err => message.channel.send("UNABLE TO PLAY SONG"));
   }
 };
