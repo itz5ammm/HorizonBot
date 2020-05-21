@@ -6,8 +6,8 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
   name: "skip",
   description: "Skip the song or shift yourself to next song",
-  execute(client, message, args) {
-    if(!message.member.hasPermission("ADMINISTRATOR"))
+  async execute(client, message, args) {
+   
     
     
     
@@ -28,6 +28,12 @@ let embed = new MessageEmbed()
     if (!serverQueue) {
       embed.setAuthor("There is nothing playing that i could skip")
       return message.channel.send(embed);
+    }
+    
+     if(message.member.hasPermission("ADMINISTRATOR")) {
+      let msg = await message.channel.send("Please Vote Here to Skip the Song")
+      return msg.react("👍")
+       
     }
 
     serverQueue.connection.dispatcher.end();

@@ -55,6 +55,11 @@ module.exports = {
       volume: 100,
       playing: true
     };
+    
+    let voteConstruct = {
+      vote: 0,
+      voters: []
+    }
 
     let songData = null;
     let song = null;
