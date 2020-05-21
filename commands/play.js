@@ -77,8 +77,10 @@ module.exports = {
           return message
             .reply("THERE IS COPYRIGHT CONTENT IN VIDEO -_-")
             .catch(console.error);
+        } else if(message.include === "usageLimits") {
+          return message.channel.send("API LIMIT IS OVER")
         } else {
-          console.error(error);
+          console.log(error)
         }
       }
     } else {

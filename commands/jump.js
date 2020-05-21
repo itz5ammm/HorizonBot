@@ -23,6 +23,8 @@ module.exports = {
       return message.channel.send(embed);
     }
     
+  if(serverQueue < args[0]) return message.channel.send("ERROR: 252")  
+  
     serverQueue.songs.splice(0, args[0] - 1)
     serverQueue.connection.dispatcher.end()
     
