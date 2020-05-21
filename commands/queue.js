@@ -29,6 +29,7 @@ module.exports = {
       { split: true }
     );
     embed.setThumbnail(client.user.displayAvatarURL())
+    
     message.channel.send(embed);
   }
 };

@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js")
 
 
 const { Util } = require("discord.js");
-const { YOUTUBE_API_KEY } = require("../config.json");
+const { YOUTUBE_API_KEY, QUEUE_LIMIT } = require("../config.json");
 const ytdl = require("ytdl-core");
 const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
@@ -96,6 +96,9 @@ module.exports = {
     }
 
     if (serverQueue) {
+        if(serverQueue.songs.length > QUEUE_LIMIT) {
+      return message.channel.send("YOU LIMIT IS REACHED")
+    }
       serverQueue.songs.push(song);
       embed.setDescription(`\`${song.title}\`, Song Added to queue`)
       embed.setThumbnail(client.user.displayAvatarURL())
