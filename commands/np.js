@@ -1,13 +1,13 @@
 const { MessageEmbed } = require("discord.js")
 
-
+const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "np",
   description: "Get the name of current playing song",
   execute (client, message, args) {
     let embed = new MessageEmbed()
-.setColor("RANDOM")
+.setColor(COLOR)
       
     const { channel } = message.member.voice;
     if (!channel) {

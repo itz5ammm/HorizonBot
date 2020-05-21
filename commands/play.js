@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js")
 
 
 const { Util } = require("discord.js");
-const { YOUTUBE_API_KEY, QUEUE_LIMIT } = require("../config.json");
+const { YOUTUBE_API_KEY, QUEUE_LIMIT, COLOR } = require("../config.json");
 const ytdl = require("ytdl-core");
 const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
@@ -14,7 +14,7 @@ module.exports = {
   description: "Play the song and feel the music",
   async execute(client, message, args) {
     let embed = new MessageEmbed()
-.setColor("RANDOM");
+.setColor(COLOR);
 
 
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
@@ -96,8 +96,8 @@ module.exports = {
     }
 
     if (serverQueue) {
-        if(serverQueue.songs.length > QUEUE_LIMIT) {
-      return message.channel.send("YOU LIMIT IS REACHED")
+        if(serverQueue.songs.length > Math.floor(QUEUE_LIMIT - 1) && QUEUE_LIMIT !== 0) {
+      return message.channel.send(`You can not add songs more than ${QUEUE_LIMIT} in queue`)
     }
       serverQueue.songs.push(song);
       embed.setDescription(`\`${song.title}\`, Song Added to queue`)

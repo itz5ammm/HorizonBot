@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const { readdirSync } = require("fs")
-
+const { COLOR } = require("../config.json");
 module.exports = {
   name: "help",
   description: "Get all commands name and description",
@@ -10,7 +10,7 @@ module.exports = {
 let embed = new MessageEmbed()
 .setAuthor("HELP SECTION")
 .setThumbnail(client.user.displayAvatarURL())
-.setColor("RANDOM")
+.setColor(COLOR)
 .setDescription(`These are the command ${client.user.username} Bot, INVITE ME - LINK`)
 let command = readdirSync("./commands")    
 

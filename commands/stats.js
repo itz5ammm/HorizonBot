@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-
+const { COLOR } = require("../config.json");
 
 
 

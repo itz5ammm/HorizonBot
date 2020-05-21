@@ -1,12 +1,12 @@
 const { MessageEmbed } = require("discord.js")
-
+const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "loop",
   description: "Loop Your Queue and have fun",
   execute (client, message, args) {
     let embed = new MessageEmbed()
-.setColor("RANDOM");
+.setColor(COLOR);
 
     const { channel } = message.member.voice;
     if (!channel) {
