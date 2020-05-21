@@ -9,7 +9,7 @@ let embed = new MessageEmbed()
 
 module.exports = {
   name: "skip",
-  description: "Skip the song or shift song to next",
+  description: "Skip the song or shift yourself to next song",
   execute(client, message, args) {
     const { channel } = message.member.voice;
 

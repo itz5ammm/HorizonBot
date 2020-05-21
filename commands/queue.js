@@ -4,7 +4,7 @@ let embed = new MessageEmbed().setColor("RANDOM");
 
 module.exports = {
   name: "queue",
-  description: "get list of added songs",
+  description: "Get all the song name which are in queue",
   execute: (client, message, args) => {
     const { channel } = message.member.voice;
 

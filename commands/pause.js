@@ -6,7 +6,7 @@ let embed = new MessageEmbed()
 
 module.exports = {
   name: "pause",
-  description: "pause the song",
+  description: "Pause the cureent playing Song",
   execute (client, message, args) {
   const { channel } = message.member.voice;
    

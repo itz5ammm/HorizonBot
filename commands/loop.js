@@ -5,7 +5,7 @@ let embed = new MessageEmbed()
 
 module.exports = {
   name: "loop",
-  description: "Loop ",
+  description: "Loop Your Queue and have fun",
   execute (client, message, args) {
     
     const { channel } = message.member.voice;

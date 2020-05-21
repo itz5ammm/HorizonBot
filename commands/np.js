@@ -5,7 +5,7 @@ let embed = new MessageEmbed()
 
 module.exports = {
   name: "np",
-  description: "send the name of on going song",
+  description: "Get the name of current playing song",
   execute (client, message, args) {
     
       

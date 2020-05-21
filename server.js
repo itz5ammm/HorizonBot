@@ -44,6 +44,8 @@ client.on("message", message => {
     
   try  { //TRY TO GET COMMAND AND EXECUTE
       client.commands.get(command).execute(client, message, args)
+    //COMMAND LOGS
+    console.log(`${message.guild.name}: ${message.author.tag} Used ${client.commands.get(command).name} in #${message.channel.name}`)
     } catch (err) { //IF IT CATCH ERROR
       console.log(err)
       message.reply("I am getting error on using this command")

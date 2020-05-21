@@ -7,7 +7,7 @@ let embed = new MessageEmbed()
 
 module.exports = {
   name: "resume", 
-  description: "Resume the paused Song",
+  description: "Resume the Cureent Playing Song",
   execute (client, message, args) {
       const { channel } = message.member.voice;
       

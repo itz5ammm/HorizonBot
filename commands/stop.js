@@ -10,7 +10,7 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "stop",
-  description: "Stop the music",
+  description: "Stop the music and take rest ;)",
   execute(client, message, args) {
     const { channel } = message.member.voice;
       
