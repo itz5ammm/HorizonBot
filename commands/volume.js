@@ -26,6 +26,18 @@ module.exports = {
       return message.channel.send(embed)
     }
     
+    if(isNaN(args[0])) {
+      embed.setAuthor("Please Use Numerical Values Only")
+      return message.channel.send(embed)
+    }
+    
+    if(args[0] 
+    
+    serverQueue.volume = args[0]
+    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100)
+    embed.setDescription(`Seted Volume to ${args[0]}`)
+    embed.setThumbnail(client.user.displayAvatarURL())
+    message.channel.send(embed)
     
   }
 };
