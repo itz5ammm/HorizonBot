@@ -109,7 +109,7 @@ module.exports = {
 
     if (!serverQueue)
       message.client.queue.set(message.guild.id, queueConstruct);
-        message.client.queue.set(message.guild.id, voteConstruct);
+       message.client.vote.set(message.guild.id, voteConstruct);
     if (!serverQueue) {
       try {
         queueConstruct.connection = await channel.join();

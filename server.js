@@ -18,7 +18,7 @@ client.on("error", console.error)
 client.commands = new discord.Collection()
 client.prefix = PREFIX
 client.queue = new Map();
-
+client.vote = new Map();
 
 //LETS LOAD ALL FILES
 const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"))

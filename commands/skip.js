@@ -24,15 +24,17 @@ let embed = new MessageEmbed()
       return message.channel.send(embed);
     }
     const serverQueue = message.client.queue.get(message.guild.id);
-
+const vote = message.client.vote.get(message.guild.id)
     if (!serverQueue) {
       embed.setAuthor("There is nothing playing that i could skip")
       return message.channel.send(embed);
     }
     
+    const vcvote = Math.floor(message.guild.me.voice.channel.size / 2)
      if(message.member.hasPermission("ADMINISTRATOR")) {
-//SOMETHING WRONG
-       
+vote.vote++
+       vote.voters.push(message.author.id)
+       return message.channel.send(`You Voted for the Song to Skip, btw we currently need ${Math.floor(vcvote - vote.vote)} votes`)
     }
 
     serverQueue.connection.dispatcher.end();
