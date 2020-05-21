@@ -10,7 +10,10 @@ module.exports = {
     .setColor("RANDOM")
     .setAuthor(`STATS AND INFORMATION`, client.user.displayAvatarURL())
     .setDescription(`My name is **${client.user.username}** and My work is to play Music`)
-    .addField("")
+    .addField("SERVERS", client.guilds.cache.size, true)
+    .addField("STATUS", client.user.presence.game.name, true)
+    .addField("UPTIME", client.uptime, true);
     
+    message.channel.send(embed)
   }
 };
