@@ -22,12 +22,21 @@ module.exports = {
       embed.setAuthor("There is nothing playing that i could loop")
       return message.channel.send(embed);
     }
+     if(!args[0]) {
+      embed.setAuthor(`Please Give The Song Number`)
+      return message.channel.send(embed)
+    }
     
-  if(serverQueue < args[0]) return message.channel.send("ERROR: 252")  
+      if(isNaN(args[0])) {
+      embed.setAuthor("Please Use Numerical Values Only")
+      return message.channel.send(embed)
+    }
+    
+  if(serverQueue.songs.length < args[0]) return message.channel.send("Unable to Find this song in queue")  
   
-    serverQueue.songs.splice(0, args[0] - 1)
+    serverQueue.songs.splice(0, Math.floor(args[0] - 1))
     serverQueue.connection.dispatcher.end()
     
-    
+    message.channel.send(`JUMPED TO THE SONG NUMBER - ${args[0]}`)
   }
 }
