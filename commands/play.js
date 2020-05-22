@@ -104,6 +104,7 @@ module.exports = {
     }
       serverQueue.songs.push(song);
       embed.setDescription(`\`${song.title}\`, Song Added to queue`)
+      embed.setFooter(`${song.duration} Seconds`)
       embed.setThumbnail(client.user.displayAvatarURL())
       
       return serverQueue.textChannel
