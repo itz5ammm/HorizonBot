@@ -32,11 +32,15 @@ module.exports = {
       return message.channel.send(embed)
     }
     
-  if(serverQueue.songs.length < args[0]) return message.channel.send("Unable to Find this song in queue")  
-  
+  if(serverQueue.songs.length < args[0]) {
+    embed.setAuthor("Unable To Find This Song in Queue")
+    return message.channel.send(embed)  
+                                         }
     serverQueue.songs.splice(0, Math.floor(args[0] - 1))
     serverQueue.connection.dispatcher.end()
     
-    message.channel.send(`JUMPED TO THE SONG NUMBER - ${args[0]}`)
+    embed.setDescription(`JUMPED TO THE SONG NUMBER - ${args[0]}`)
+    message.channel.send(embed)
+    
   }
 }
