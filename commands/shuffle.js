@@ -21,9 +21,11 @@ module.exports = {
       return message.channel.send(embed);
     }
 
+    
+    suffleQueue(serverQueue)
     let title = [];
 
-    serverQueue.slice(0, 10).forEach(obj => {
+    serverQueue.songs.slice(0, 10).forEach(obj => {
       title.push(obj.title)
       
     });
@@ -41,3 +43,11 @@ module.exports = {
     message.channel.send(embed)
   }
 };
+
+
+function suffleQueue(queue) {
+  for(let i = queue.length - 1; i > 0; i--) {
+    const s = Math.floor(Math.random() * (i -1))
+    [queue[i], queue[s]] = [queue[s], queue[i]]
+  }
+}
