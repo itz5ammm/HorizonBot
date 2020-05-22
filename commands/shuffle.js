@@ -22,7 +22,7 @@ module.exports = {
     }
 
     
-    suffleQueue(serverQueue)
+    shuffleQueue(serverQueue)
     let title = [];
 
     serverQueue.songs.slice(0, 10).forEach(obj => {
@@ -42,12 +42,12 @@ module.exports = {
     }
     message.channel.send(embed)
   }
-};
+}; //NOT WORKING FOR NOW
 
 
-function suffleQueue(queue) {
-  for(let i = queue.length - 1; i > 0; i--) {
-    const s = Math.floor(Math.random() * (i -1))
-    [queue[i], queue[s]] = [queue[s], queue[i]]
+function shuffleQueue(queue) {
+  for (let i = queue.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [queue[i], queue[j]] = [queue[j], queue[i]];
   }
 }
