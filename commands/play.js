@@ -68,9 +68,9 @@ module.exports = {
       try {
         songData = await ytdl.getInfo(args[0]);
         song = {
-             title: songData.videoDetails.title,
-          url: songData.videoDetails.video_url,
-          duration: songData.videoDetails.lengthSeconds
+          title: songData.title,
+          url: songData.video_url,
+          duration: songData.length_seconds
         };
       } catch (error) {
         if (message.include === "copyright") {
@@ -90,14 +90,14 @@ module.exports = {
 Calling `ytdl.getInfo` with a callback will be removed in a near future release. Use async/await.
 `info.length_seconds` will be removed in a near future release, use `info.videoDetails.lengthSeconds` instead.
       
-      */
+      /
       try {
         const result = await youtube.searchVideos(targetsong, 1);
         songData = await ytdl.getInfo(result[0].url);
         song = {
           title: songData.videoDetails.title,
-          url: songData.videoDetails.video_url,
-          duration: songData.videoDetails.lengthSeconds
+          url: songData.video_url,
+          duration: songData.length_seconds
         };
       } catch (error) {
         console.log(error)
