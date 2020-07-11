@@ -67,6 +67,7 @@ module.exports = {
     if (urlcheck) {
       try {
         songData = await ytdl.getInfo(args[0]);
+        console.log(songData)
         song = {
              title: songData.videoDetails.title,
           url: songData.videoDetails.video_url,
