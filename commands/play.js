@@ -88,7 +88,7 @@ module.exports = {
       try {
         const result = await youtube.searchVideos(targetsong, 1);
         songData = await ytdl.getInfo(result[0].url);
-       console.log(songData.videoDetails)
+      
         song = {
           title: songData.videoDetails.title,
           url: songData.videoDetails.video_url,
