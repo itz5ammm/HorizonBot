@@ -19,7 +19,8 @@
     "ytdl-core-discord": "https://github.com/CTK-WARRIOR/ytdl-core-discord",
     "@discordjs/opus": "^0.3.2",
     "genius-lyrics": "^3.0.0",
-    "moment": "^2.27.0"
+    "moment": "^2.27.0",
+    "ms": "^2.1.2"
   },
   "engines": {
     "node": "12.x"

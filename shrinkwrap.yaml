@@ -5,6 +5,7 @@ dependencies:
   fs: 0.0.2
   genius-lyrics: 3.0.0
   moment: 2.27.0
+  ms: 2.1.2
   path: 0.12.7
   simple-youtube-api: 5.2.1
   ytdl-core: 3.1.2
@@ -1215,6 +1216,7 @@ packages:
     dev: false
     name: ytdl-core-discord
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/CTK-WARRIOR/ytdl-core-discord/tar.gz/fa754ad75333f9ecf1dd837809cb3d25d6977d70'
     version: 1.2.1
 registry: 'https://registry.npmjs.org/'
@@ -1227,6 +1229,7 @@ specifiers:
   fs: ^0.0.2
   genius-lyrics: ^3.0.0
   moment: ^2.27.0
+  ms: ^2.1.2
   path: ^0.12.7
   simple-youtube-api: ^5.2.1
   ytdl-core: ^3.1.2

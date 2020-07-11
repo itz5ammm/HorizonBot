@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 
-
+const ms = require("ms")
 
 
 const { Util } = require("discord.js");
@@ -67,7 +67,7 @@ module.exports = {
     if (urlcheck) {
       try {
         songData = await ytdl.getInfo(args[0]);
-        console.log(songData)
+      
         song = {
              title: songData.videoDetails.title,
           url: songData.videoDetails.video_url,
@@ -87,10 +87,12 @@ module.exports = {
       try {
         const result = await youtube.searchVideos(targetsong, 1);
         songData = await ytdl.getInfo(result[0].url);
+       
         song = {
           title: songData.videoDetails.title,
           url: songData.videoDetails.video_url,
-          duration: songData.videoDetails.lengthSeconds
+          duration: songData.videoDetails.lengthSeconds,
+          thumbnail: songData.videoDetails.thumbnail.thumbnails[3].url
         };
       } catch (error) {
         console.log(error)
@@ -104,10 +106,13 @@ module.exports = {
         if(serverQueue.songs.length > Math.floor(QUEUE_LIMIT - 1) && QUEUE_LIMIT !== 0) {
       return message.channel.send(`You can not add songs more than ${QUEUE_LIMIT} in queue`)
     }
+      var num = song.duration
+      num.toString()
+      console.log(ms(num))
       serverQueue.songs.push(song);
       embed.setDescription(`\`${song.title}\`, Song Added to queue`)
-      embed.setFooter(`${song.duration} Seconds`)
-      embed.setThumbnail(client.user.displayAvatarURL())
+      embed.setFooter(`${ms(song.duration.toString())}`)
+      embed.setThumbnail(song.thumbnail)
       
       return serverQueue.textChannel
         .send(embed)
