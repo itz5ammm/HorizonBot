@@ -93,7 +93,7 @@ module.exports = {
           title: songData.videoDetails.title,
           url: songData.videoDetails.video_url,
           duration: songData.videoDetails.lengthSeconds,
-          thumbnail: songData.videoDetails.thumbnail.thumbnails[3].url
+          thumbnail: songData.videoDetails.thumbnail.thumbnails[3].url,
         };
       } catch (error) {
         console.log(error)
@@ -110,8 +110,10 @@ module.exports = {
       
     
       serverQueue.songs.push(song);
-      embed.setDescription(`\`${song.title}\`, Song Added to queue`)
+      embed.setAuthor("Added New Song To Queue", client.user.displayAvatarURL())
+      embed.setDescription(`**[${song.title}](${song.url})**`)
       embed.setThumbnail(song.thumbnail)
+      .setFooter("Likes - " + songData.videoDetails.likes + ", Dislikes - " +  songData.videoDetails.dislikes)
       
       return serverQueue.textChannel
         .send(embed)
