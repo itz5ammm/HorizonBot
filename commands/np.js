@@ -22,8 +22,9 @@ module.exports = {
       embed.setAuthor("Bot is not playing anything")
       return message.channel.send(embed);
     }
+    
     embed.setDescription(`**NOW PLAYING** - ${serverQueue.songs[0].title}`)
-    embed.setThumbnail(client.user.displayAvatarURL())
+    .setThumbnail(serverQueue.songs[0].thumbnail)
     message.channel.send(embed)
 
     

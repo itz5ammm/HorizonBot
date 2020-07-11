@@ -71,7 +71,8 @@ module.exports = {
         song = {
              title: songData.videoDetails.title,
           url: songData.videoDetails.video_url,
-          duration: songData.videoDetails.lengthSeconds
+          duration: songData.videoDetails.lengthSeconds,
+          thumbnail: songData.videoDetails.thumbnail.thumbnails[3].url
         };
       } catch (error) {
         if (message.include === "copyright") {
@@ -87,7 +88,7 @@ module.exports = {
       try {
         const result = await youtube.searchVideos(targetsong, 1);
         songData = await ytdl.getInfo(result[0].url);
-       
+       console.log(songData.videoDetails)
         song = {
           title: songData.videoDetails.title,
           url: songData.videoDetails.video_url,
@@ -106,12 +107,10 @@ module.exports = {
         if(serverQueue.songs.length > Math.floor(QUEUE_LIMIT - 1) && QUEUE_LIMIT !== 0) {
       return message.channel.send(`You can not add songs more than ${QUEUE_LIMIT} in queue`)
     }
-      var num = song.duration
-      num.toString()
-      console.log(ms(num))
+      
+    
       serverQueue.songs.push(song);
       embed.setDescription(`\`${song.title}\`, Song Added to queue`)
-      embed.setFooter(`${ms(song.duration.toString())}`)
       embed.setThumbnail(song.thumbnail)
       
       return serverQueue.textChannel
