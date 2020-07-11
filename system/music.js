@@ -50,7 +50,8 @@ let embed = new MessageEmbed()
       .on("error", console.error);
   
     dispatcher.setVolumeLogarithmic(queue.volume / 100); //VOLUME
-embed.setDescription(`**STARTED PLAYING** - ${song.title}`)
+embed.setAuthor("Started Playing Song", message.client.user.displayAvatarURL())
+    .setDescription(`**[${song.title}](${song.url})**`)
     
     queue.textChannel
       .send(embed)
