@@ -32,6 +32,8 @@ module.exports = {
       return message.channel.send(embed)
     }
     
+    
+    //LETS FIX JUMP COMMAND :D
   if(serverQueue.songs.length < args[0]) {
     embed.setAuthor("Unable To Find This Song in Queue")
     return message.channel.send(embed)  
