@@ -10,7 +10,9 @@ module.exports = {
     .setDescription("Looking For Lyrics ...")
     .setColor("YELLOW")
     
-    
+    if(!args.length) {
+      return message.channel.send("Please Give The Song Name")
+    }
     
     const msg = await message.channel.send(embed)
      try {
@@ -18,7 +20,8 @@ module.exports = {
           const lyrics = await songs[0].lyrics();
           
            if (lyrics.length > 4095) {
-        return message.say('Lyrics are too long to be returned as embed');
+             msg.delete()
+        return message.channel.send('Lyrics are too long to be returned as embed');
      }
       if (lyrics.length < 2048) {
         const lyricsEmbed = new MessageEmbed()
@@ -33,13 +36,12 @@ module.exports = {
         const secondLyricsEmbed = new MessageEmbed()
           .setColor(COLOR)
           .setDescription(lyrics.slice(2048, lyrics.length));
-        msg.edit('', firstLyricsEmbed);
+        msg.edit(firstLyricsEmbed);
         message.channel.send(secondLyricsEmbed);
         return;
       }
-       embed.setDescription(lyrics).setColor("GREEN")
+      
        
-       msg.edit(embed)
      } catch(e) {
        
        embed.setDescription("Got err : " + e)
