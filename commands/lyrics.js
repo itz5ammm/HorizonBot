@@ -7,13 +7,43 @@ module.exports = {
   description: "Get lyrics of song :v",
   async execute (client, message, args) {
     let embed = new MessageEmbed()
-    .set
+    .setDescription("Looking For Lyrics ...")
+    .setColor("YELLOW")
     
+    
+    
+    const msg = await message.channel.send(embed)
      try {
           const songs = await Genius.tracks.search(args.join(" "));
           const lyrics = await songs[0].lyrics();
-          console.log(lyrics);
+          
+           if (lyrics.length > 4095) {
+        return message.say('Lyrics are too long to be returned as embed');
+     }
+      if (lyrics.length < 2048) {
+        const lyricsEmbed = new MessageEmbed()
+          .setColor(COLOR)
+          .setDescription(lyrics.trim());
+        return msg.edit(lyricsEmbed);
+      } else {
+        // lyrics.length > 2048
+        const firstLyricsEmbed = new MessageEmbed()
+          .setColor(COLOR)
+          .setDescription(lyrics.slice(0, 2048));
+        const secondLyricsEmbed = new MessageEmbed()
+          .setColor(COLOR)
+          .setDescription(lyrics.slice(2048, lyrics.length));
+        msg.edit('', firstLyricsEmbed);
+        message.channel.send(secondLyricsEmbed);
+        return;
+      }
+       embed.setDescription(lyrics).setColor("GREEN")
+       
+       msg.edit(embed)
      } catch(e) {
+       
+       embed.setDescription("Got err : " + e)
+       msg.edit(embed)
           console.log(e);
      }
     
