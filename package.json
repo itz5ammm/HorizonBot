@@ -15,7 +15,7 @@
     "fs": "^0.0.2",
     "path": "^0.12.7",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^3.1.2",
+    "ytdl-core": "^3.2.1",
     "ytdl-core-discord": "https://github.com/CTK-WARRIOR/ytdl-core-discord",
     "@discordjs/opus": "^0.3.2",
     "genius-lyrics": "^3.0.0",
