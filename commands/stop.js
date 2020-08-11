@@ -5,7 +5,7 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "stop",
-  description: "Stops The ",
+  description: "Stops The Player",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
 
