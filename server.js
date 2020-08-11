@@ -9,7 +9,7 @@ const { TOKEN, PREFIX } = require("./config.json");
 
 //CLIENT EVENTS
 client.on("ready", () => {
-  console.log("Ready to play song | Bot created by CTK WARRIOR");
+  console.log("Ready to play song | Bot created by SAM");
   client.user.setActivity("!help | FaNG");
 });
 
@@ -69,3 +69,10 @@ client.on("message", message => {
 
 //DONT DO ANYTHING WITH THIS TOKEN lol
 client.login(TOKEN);
+
+const express = require("express");
+const app = express();
+app.get("/", (req, res) => {
+  res.sendStatus(200);
+});
+app.listen(3000);
