@@ -20,7 +20,8 @@
     "@discordjs/opus": "^0.3.2",
     "genius-lyrics": "^3.0.0",
     "moment": "^2.27.0",
-    "ms": "^2.1.2"
+    "ms": "^2.1.2",
+    "got": "^11.5.1"
   },
   "engines": {
     "node": "12.x"
