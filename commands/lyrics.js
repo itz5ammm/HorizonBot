@@ -1,28 +1,32 @@
-const { MessageEmbed } = require("discord.js")
-const Genius = new (require("genius-lyrics")).Client("ZD_lLHBwRlRRfQvVLAnHKHksDHQv9W1wm1ZAByPaYo1o2NuAw6v9USBUI1vEssjq");
+const { MessageEmbed } = require("discord.js");
+const Genius = new (require("genius-lyrics")).Client(
+  "ZD_lLHBwRlRRfQvVLAnHKHksDHQv9W1wm1ZAByPaYo1o2NuAw6v9USBUI1vEssjq"
+);
 const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "lyrics",
   description: "Get lyrics of song :v",
-  async execute (client, message, args) {
+  async execute(client, message, args) {
     let embed = new MessageEmbed()
-    .setDescription("Looking For Lyrics ...")
-    .setColor("YELLOW")
-    
-    if(!args.length) {
-      return message.channel.send("Please Give The Song Name")
+      .setDescription("Looking For Lyrics ...")
+      .setColor("YELLOW");
+
+    if (!args.length) {
+      return message.channel.send("Please Give The Song Name");
     }
-    
-    const msg = await message.channel.send(embed)
-     try {
-          const songs = await Genius.tracks.search(args.join(" "));
-          const lyrics = await songs[0].lyrics();
-          
-           if (lyrics.length > 4095) {
-             msg.delete()
-        return message.channel.send('Lyrics are too long to be returned as embed');
-     }
+
+    const msg = await message.channel.send(embed);
+    try {
+      const songs = await Genius.tracks.search(args.join(" "));
+      const lyrics = await songs[0].lyrics();
+
+      if (lyrics.length > 4095) {
+        msg.delete();
+        return message.channel.send(
+          "Lyrics are too long to be returned as embed"
+        );
+      }
       if (lyrics.length < 2048) {
         const lyricsEmbed = new MessageEmbed()
           .setColor(COLOR)
@@ -40,16 +44,10 @@ module.exports = {
         message.channel.send(secondLyricsEmbed);
         return;
       }
-      
-       
-     } catch(e) {
-       
-       embed.setDescription("Got err : " + e)
-       msg.edit(embed)
-          console.log(e);
-     }
-    
-    
+    } catch (e) {
+      embed.setDescription("Got err : " + e);
+      msg.edit(embed);
+      console.log(e);
+    }
   }
-  
-}
+};
