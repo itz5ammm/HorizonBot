@@ -5,7 +5,7 @@ module.exports = {
   description: "invite the bot in your server",
   execute(client, message, args) {
     let embed = new MessageEmbed()
-      .setTitle("Invite Me Or Die")
+      .setTitle("Invite Me or die")
       .setColor("RED")
       .setDescription(`[CLICK ME](${inviteURL}) OR **DIE**`); //Looks Cool
 
