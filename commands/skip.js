@@ -39,7 +39,7 @@ module.exports = {
         return message.channel.send("You already voted for this song");
       }
 
-      if (vcvote === 2) {
+      if (vcvote === 0) {
         serverQueue.connection.dispatcher.end();
         embed.setDescription("✔ | Skipping The Song");
         embed.setThumbnail(client.user.displayAvatarURL());
