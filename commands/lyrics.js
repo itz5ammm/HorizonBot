@@ -6,7 +6,7 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "lyrics",
-  description: "Get lyrics of song :v",
+  description: "Get Lyrics Of Any Song",
   async execute(client, message, args) {
     let embed = new MessageEmbed()
       .setDescription("Looking For Lyrics ...")
