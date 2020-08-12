@@ -6,10 +6,10 @@ module.exports = {
   description: "All The Commands Are Displayed Here.",
   execute(client, message, args) {
     let embed = new MessageEmbed()
-      .setAuthor("HELP SECTION", client.user.displayAvatarURL())
+      .setAuthor("COMMANDS SECTION", client.user.displayAvatarURL())
       .setThumbnail(client.user.displayAvatarURL())
       .setColor(COLOR)
-      .setDescription(`These are the command ${client.user.username} Bot,`);
+      .setDescription(`These Are The Commands Of ${client.user.username} Bot.`);
     let command = readdirSync("./commands");
 
     let i;

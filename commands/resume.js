@@ -20,7 +20,7 @@ module.exports = {
     if (serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
-      embed.setAuthor("✅ | Resuming Now."); // halu xDDDD
+      embed.setAuthor("✅ | Resuming Now.");
       embed.setThumbnail(client.user.displayAvatarURL());
       return message.channel.send(embed);
     }

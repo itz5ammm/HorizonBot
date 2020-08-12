@@ -14,7 +14,7 @@ module.exports = {
     const serverQueue = client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("The Queue is empty");
+      embed.setAuthor("The Queue is empty.");
       return message.channel.send(embed);
     }
 
@@ -29,7 +29,7 @@ module.exports = {
     }
 
     serverQueue.songs.splice(args[0] - 1, 1);
-    embed.setDescription("DROPED THE SONG FROM QUEUE");
+    embed.setDescription("REMOVED THE SONG FROM QUEUE");
     embed.setThumbnail(client.user.displayAvatarURL());
     return message.channel.send(embed);
   }

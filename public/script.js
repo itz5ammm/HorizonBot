@@ -20,10 +20,10 @@ fetch("/dreams")
   .then(dreams => {
     // remove the loading text
     dreamsList.firstElementChild.remove();
-  
+
     // iterate through every dream and add it to our page
     dreams.forEach(appendNewDream);
-  
+
     // listen for the form to be submitted and add a new dream when it is
     dreamsForm.addEventListener("submit", event => {
       // stop our form submission from refreshing the page

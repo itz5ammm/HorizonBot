@@ -4,7 +4,7 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "skip",
-  description: "Skip the song or shift yourself to next song",
+  description: "Skip The Song.",
   async execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
 
@@ -18,7 +18,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
     const vote = message.client.vote.get(message.guild.id);
     if (!serverQueue) {
-      embed.setAuthor("There is nothing playing that i could skip");
+      embed.setAuthor("There Is Currently Nothing Playing.");
       return message.channel.send(embed);
     }
 
@@ -36,10 +36,10 @@ module.exports = {
       }
 
       if (vote.voters.includes(message.author.id)) {
-        return message.channel.send("You already voted for this song");
+        return message.channel.send("You Already Voted For This Song.");
       }
 
-      if (vcvote === 0) {
+      if (vcvote === 2) {
         serverQueue.connection.dispatcher.end();
         embed.setDescription("✔ | Skipping The Song");
         embed.setThumbnail(client.user.displayAvatarURL());
