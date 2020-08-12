@@ -4,7 +4,7 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "resume",
-  description: "Resume the Current Playing Song.",
+  description: "Resume The Current Playing Song.",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
 

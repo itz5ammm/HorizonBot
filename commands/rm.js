@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { COLOR } = require("../config.json");
 module.exports = {
   name: "rm",
-  description: "Remove The Song From Queue",
+  description: "Remove The Song From Queue.",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
     const { channel } = message.member.voice;

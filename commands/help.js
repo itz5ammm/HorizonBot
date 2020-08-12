@@ -9,7 +9,7 @@ module.exports = {
       .setAuthor("COMMANDS SECTION", client.user.displayAvatarURL())
       .setThumbnail(client.user.displayAvatarURL())
       .setColor(COLOR)
-      .setDescription(`These Are The Commands Of ${client.user.username} Bot.`);
+      .setDescription(`Commands List Of ${client.user.username}.`);
     let command = readdirSync("./commands");
 
     let i;
