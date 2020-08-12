@@ -6,8 +6,8 @@ module.exports = {
   execute(client, message, args) {
     let embed = new MessageEmbed()
       .setTitle("Invite Me!")
-      .setColor("RED")
-      .setDescription(`[CLICK ME](${inviteURL}) OR **DIE**`); //Looks Cool
+      .setColor("CYAN")
+      .setDescription(`[CLICK ME](${inviteURL})`); //Looks Cool
 
     return message.channel.send(embed);
   }

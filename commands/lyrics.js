@@ -6,7 +6,7 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "lyrics",
-  description: "Get Lyrics Of Any Song",
+  description: "Get Lyrics Of Any Song.",
   async execute(client, message, args) {
     let embed = new MessageEmbed()
       .setDescription("Looking For Lyrics ...")
@@ -21,11 +21,9 @@ module.exports = {
       const songs = await Genius.tracks.search(args.join(" "));
       const lyrics = await songs[0].lyrics();
 
-      if (lyrics.length > 4095) {
+      if (lyrics.length > 5000) {
         msg.delete();
-        return message.channel.send(
-          "Lyrics are too long to be returned as embed"
-        );
+        return message.channel.send("Can't Find Lyrics Of This Song.");
       }
       if (lyrics.length < 2048) {
         const lyricsEmbed = new MessageEmbed()
