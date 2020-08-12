@@ -14,14 +14,14 @@ module.exports = {
     const { channel } = message.member.voice;
     if (!channel) {
       //IF AUTHOR IS NOT IN VOICE CHANNEL
-      embed.setAuthor("YOU NEED TO BE IN VOICE CHANNEL");
+      embed.setAuthor("YOU NEED TO BE IN VOICE CHANNEL.");
       return message.channel.send(embed);
     }
 
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("Bot Is Not Playing Anything");
+      embed.setAuthor("Bot Is Not Playing Anything.");
       return message.channel.send(embed);
     }
 
@@ -42,7 +42,7 @@ module.exports = {
 
     serverQueue.volume = args[0];
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
-    embed.setDescription(`Seted Volume to ${args[0]}`);
+    embed.setDescription(`Set Volume to ${args[0]}`);
     embed.setThumbnail(client.user.displayAvatarURL());
     message.channel.send(embed);
   }
