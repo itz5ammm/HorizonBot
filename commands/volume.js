@@ -35,8 +35,8 @@ module.exports = {
       return message.channel.send(embed);
     }
 
-    if (args[0] > 200) {
-      embed.setAuthor("You Can't Increase Volume More Than 200.");
+    if (args[0] > 100) {
+      embed.setAuthor("You Can't Increase Volume More Than 100.");
       return message.channel.send(embed);
     }
 
