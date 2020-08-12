@@ -3,7 +3,7 @@ const { readdirSync } = require("fs");
 const { COLOR } = require("../config.json");
 module.exports = {
   name: "help",
-  description: "Get all commands name and description",
+  description: ,
   execute(client, message, args) {
     let embed = new MessageEmbed()
       .setAuthor("HELP SECTION", client.user.displayAvatarURL())
