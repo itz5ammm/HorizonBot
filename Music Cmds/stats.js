@@ -10,9 +10,9 @@ module.exports = {
     let embed = new MessageEmbed()
       .setColor(COLOR)
       .setThumbnail(client.user.displayAvatarURL())
-      .setAuthor(`STATS AND INFORMATION`, client.user.displayAvatarURL())
+      .setAuthor(`STATS & INFO`, client.user.displayAvatarURL())
       .setDescription(
-        `My name is **${client.user.username}** and My work is to play Music`
+        `My Name Is **${client.user.username}** And My Work Is To Play Music.`
       )
       .addField("SERVERS", client.guilds.cache.size, true)
       .addField("PRESENCE", client.user.presence.activities[0].name, true)
