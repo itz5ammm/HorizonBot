@@ -10,7 +10,7 @@ const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
 const { play } = require("../system/music.js");
 module.exports = {
   name: "play",
-  description: "Play the song and feel the music",
+  description: "Play The Song You Like.",
   async execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
 
@@ -37,7 +37,7 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      embed.setAuthor("I am Unable To Play Playlist for now");
+      embed.setAuthor("Can't Play The Song.");
       return message.channel.send(embed);
     }
 
@@ -49,7 +49,7 @@ module.exports = {
       connection: null,
       songs: [],
       loop: false,
-      volume: 100,
+      volume: 250,
       playing: true
     };
 
@@ -74,7 +74,7 @@ module.exports = {
       } catch (error) {
         if (message.include === "copyright") {
           return message
-            .reply("THERE IS COPYRIGHT CONTENT IN VIDEO -_-")
+            .reply("THERE IS COPYRIGHT CONTENT IN VIDEO")
             .catch(console.error);
         } else {
           console.error(error);
@@ -113,7 +113,7 @@ module.exports = {
 
       serverQueue.songs.push(song);
       embed.setAuthor(
-        "Added New Song To Queue",
+        "Added Song To The Queue.",
         client.user.displayAvatarURL()
       );
       embed.setDescription(`**[${song.title}](${song.url})**`);
@@ -145,7 +145,7 @@ module.exports = {
         return message.channel
           .send({
             embed: {
-              description: `😭 | Could not join the channel: ${error}`,
+              description: `Could Not Join The Channel: ${error}`,
               color: "#ff2050"
             }
           })

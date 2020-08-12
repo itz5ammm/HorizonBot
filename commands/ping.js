@@ -3,7 +3,6 @@ module.exports = {
   name: "ping",
   description: "Ping & Latency Of The Bot.",
   execute(client, message) {
-    message.channel.send("Pong!)
-                        
+    message.channel.send("Pong!)");
   }
 };
