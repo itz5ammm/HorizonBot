@@ -10,7 +10,7 @@ const { TOKEN, PREFIX } = require("./config.json");
 //CLIENT EVENTS
 client.on("ready", () => {
   console.log("Ready to play song | Bot created by SAM");
-  client.user.setActivity("+help | FaNG - A Cool Music Bot.");
+  client.user.setActivity("+help | Clxud BeatZ - A Cool Music Bot.");
 });
 
 client.on("warn", info => console.log(info));
