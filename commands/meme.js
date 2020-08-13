@@ -6,7 +6,7 @@ module.exports = {
   description: "Have Some Fun.",
   execute: async (client, message, args) => {
     const embed = new MessageEmbed();
-    got("https://www.reddit.com/r/memes/random/.json").then(response => {
+    got("https://www.reddit.com/r/dankmemes/random/.json").then(response => {
       let content = JSON.parse(response.body);
       let permalink = content[0].data.children[0].data.permalink;
       let memeUrl = `https://reddit.com${permalink}`;
@@ -18,7 +18,7 @@ module.exports = {
       embed.addField(`${memeTitle}`, `[View thread](${memeUrl})`);
       embed.setImage(memeImage);
       embed.setFooter(`
-       👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | Credits to r/memes
+       👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | Credits to r/dankmemes
        `);
       embed.setColor("RANDOM");
       message.channel.send(embed);
