@@ -5,6 +5,7 @@ const { COLOR } = require("../config.json");
 module.exports = {
   name: "queue",
   description: "Get All Song Names Which Are In Queue.",
+  category: "Music",
   execute: (client, message, args) => {
     let embed = new MessageEmbed().setColor(COLOR);
     const { channel } = message.member.voice;

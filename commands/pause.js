@@ -5,6 +5,7 @@ const { COLOR } = require("../config.json");
 module.exports = {
   name: "pause",
   description: "Pause The Current Playing Song.",
+  category: "Music",
   execute(client, message, args) {
     const { channel } = message.member.voice;
     let embed = new MessageEmbed().setColor(COLOR);

@@ -4,6 +4,7 @@ const { COLOR } = require("../config.json");
 module.exports = {
   name: "jump",
   description: "Jump To Any Song In Queue.",
+  category: "Music",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
 

@@ -4,6 +4,7 @@ const got = require("got");
 module.exports = {
   name: "meme",
   description: "Have Some Fun.",
+  category: "Fun",
   execute: async (client, message, args) => {
     const embed = new MessageEmbed();
     got("https://www.reddit.com/r/dankmemes/random/.json").then(response => {

@@ -3,6 +3,7 @@ const { COLOR } = require("../config.json");
 module.exports = {
   name: "rm",
   description: "Remove The Song From Queue.",
+  category: "Music",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
     const { channel } = message.member.voice;

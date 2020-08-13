@@ -6,6 +6,7 @@ const discord = require("discord.js");
 module.exports = {
   name: "stop",
   description: "Stops The Player.",
+  category: "Music",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
 

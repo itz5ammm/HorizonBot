@@ -3,6 +3,7 @@ const { inviteURL } = require("../config.json");
 module.exports = {
   name: "invite",
   description: "Invite The Bot In Your Server.",
+  category: "Utility",
   execute(client, message, args) {
     let embed = new MessageEmbed()
       .setTitle("Invite Me!")
