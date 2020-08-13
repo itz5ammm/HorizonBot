@@ -18,6 +18,8 @@ module.exports = {
 
       const cmd = client.commands.get(command[i].replace(".js", ""));
       embed.addField(`**${cmd.name}**`, cmd.description, true);
+      embed.setFooter(`
+Made By 丂ᴀᴍ#2385 & тнєℓαѕтgαмєя18◥▶_◀◤#3502 `);
     }
 
     message.channel.send(embed);
