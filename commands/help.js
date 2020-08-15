@@ -22,17 +22,17 @@ module.exports = {
       .forEach(cmd => fun.push(cmd.name));
 
     let embed = new MessageEmbed()
-      .setAuthor("✔ Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ", client.user.displayAvatarURL())
+      .setAuthor("✯ Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ", client.user.displayAvatarURL())
       .setThumbnail(client.user.displayAvatarURL())
       .setColor(COLOR)
-      .setDescription(`✓ Cᴏᴍᴍᴀɴᴅ Lɪsᴛ Oғ ${client.user.username}.`)
+      .setDescription(`♪ Cᴏᴍᴍᴀɴᴅ Lɪsᴛ Oғ ${client.user.username}.`)
       .addField(
-        `♪ Mᴜsɪᴄ Cᴏᴍᴍᴀɴᴅs`,
+        `➜ Mᴜsɪᴄ Cᴏᴍᴍᴀɴᴅs`,
         "``" + prefix + music.join("``, " + "``" + prefix) + "``",
         true
       )
       .addField(
-        `✯ Uᴛɪʟɪᴛʏ Cᴏᴍᴍᴀɴᴅs`,
+        `➜ Uᴛɪʟɪᴛʏ Cᴏᴍᴍᴀɴᴅs`,
         "``" + prefix + utility.join("``, " + "``" + prefix) + "``",
         true
       )
