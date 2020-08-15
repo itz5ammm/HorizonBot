@@ -20,10 +20,10 @@ module.exports = {
       .setAuthor("COMMANDS SECTION", client.user.displayAvatarURL())
       .setThumbnail(client.user.displayAvatarURL())
       .setColor(COLOR)
-      .setDescription(`Commands List Of ${client.user.username}.`)
-      .addField(`Music Commands`, "``" + prefix + music.join("``, " + "``" + prefix) + "``", true)
-      .addField(`Utility Commands`, "``" + prefix + utility.join("``, " + "``" + prefix) + "``", true)
-      .addField(`Fun Commands`, "``" + prefix + fun.join("``, " + "``" + prefix) + "``", true)
+      .setDescription(`Cᴏᴍᴍᴀɴᴅ Lɪsᴛ Oғ ${client.user.username}.`)
+      .addField(`Mᴜsɪᴄ Cᴏᴍᴍᴀɴᴅs`, "``" + prefix + music.join("``, " + "``" + prefix) + "``", true)
+      .addField(`Uᴛɪʟɪᴛʏ Cᴏᴍᴍᴀɴᴅs`, "``" + prefix + utility.join("``, " + "``" + prefix) + "``", true)
+      .addField(`Fun Cᴏᴍᴍᴀɴᴅs`, "``" + prefix + fun.join("``, " + "``" + prefix) + "``", true)
     message.channel.send(embed).catch(console.log);
     
     /* let command = readdirSync("./commands");
