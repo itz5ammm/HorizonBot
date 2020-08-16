@@ -15,10 +15,12 @@ module.exports = {
       
       let command = args[0];
       if(client.commands.has(command)) {
+        command = client.commands.get(command) || client.commands.get(client.aliases.get(command));
         let embed = new MessageEmbed()
         .setAuthor(message.author.username, message.author.avatarURL())
+        .setThumbnail(message.guild.iconURL())
         .setTitle('Help!')
-        .addField('Command Name', command.name || 'No Name', true)
+        .addField('Command Name', `${client.capitalize(command.name) || 'No Name'}`, true)
         .addField('Command Description', command.description || 'No Description', true)
         .addField('Command Category', command.category || 'No Category', true)
         .setColor("RANDOM")

@@ -22,6 +22,23 @@ client.commands = new discord.Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
 client.vote = new Map();
+client.capitalize = (string) => {
+  let str = '';
+  string = string.split(' ');
+  for (let i = 0; i < string.length; i++) {
+    str += string[i].charAt(0).toUpperCase() + string[i].slice(1).toLowerCase() + ' ';
+    if (i == string.length - 1) {
+      string = str.split('-');
+      str = '';
+      for (let i = 0; i < string.length; i++) {
+        str += string[i].charAt(0).toUpperCase() + string[i].slice(1) + '-';
+        if (i == string.length - 1) {
+          return str.slice(0, -2);
+        }
+      }
+    }
+  }
+}
 
 //LETS LOAD ALL FILES
 const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file =>
