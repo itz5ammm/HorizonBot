@@ -3,7 +3,7 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "jump",
-  description: "Jump To Any Song In Queue.",
+  description: "Jᴜᴍᴘ Tᴏ Aɴʏ Sᴏɴɢ Iɴ Tʜᴇ Qᴜᴇᴜᴇ.",
   category: "Music",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
@@ -18,7 +18,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("There Is Currently Nothing Playing In This Server.");
+      embed.setAuthor("Tʜᴇʀᴇ Is Cᴜʀʀᴇɴᴛʟʏ Nᴏᴛʜɪɴɢ Pʟᴀʏɪɴɢ.");
       return message.channel.send(embed);
     }
     if (!args[0]) {
@@ -27,13 +27,13 @@ module.exports = {
     }
 
     if (isNaN(args[0])) {
-      embed.setAuthor("Please Use Numerical Values Only");
+      embed.setAuthor("Pʟᴇᴀsᴇ Usᴇ Nᴜᴍᴇʀɪᴄ Vᴀʟᴜᴇ Oɴʟʏ.");
       return message.channel.send(embed);
     }
 
     //LETS FIX JUMP COMMAND :D
     if (serverQueue.songs.length < args[0]) {
-      embed.setAuthor("Unable To Find This Song in Queue");
+      embed.setAuthor("Uɴᴀʙʟᴇ Tᴏ Fɪɴᴅ Tʜᴇ Sᴏɴɢ Iɴ Qᴜᴇᴜᴇ.");
       return message.channel.send(embed);
     }
     serverQueue.songs.splice(0, Math.floor(parseInt(args[0]) - 1));

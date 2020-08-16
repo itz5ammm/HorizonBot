@@ -3,63 +3,70 @@ const { readdirSync } = require("fs");
 const { COLOR } = require("../config.json");
 module.exports = {
   name: "help",
-  description: "All The Commands Are Displayed Here.",
+  description: "Aʟʟ Tʜᴇ Cᴏᴍᴍᴀᴍᴅs Aʀᴇ Dɪsᴘʟᴀʏᴇᴅ Hᴇʀᴇ.",
   category: "Utility",
-  execute(client, message, args) { 
+  execute(client, message, args) {
     let music = [];
     let utility = [];
     let fun = [];
     let prefix = "+";
-    
-    if(args[0]) {
-      
+
+    if (args[0]) {
       let command = args[0];
-      if(client.commands.has(command)) {
-        command = client.commands.get(command) || client.commands.get(client.aliases.get(command));
+      if (client.commands.has(command)) {
+        command =
+          client.commands.get(command) ||
+          client.commands.get(client.aliases.get(command));
         let embed = new MessageEmbed()
-        .setAuthor(message.author.username, message.author.avatarURL())
-        .setThumbnail(message.guild.iconURL())
-        .setTitle('Help!')
-        .addField('Command Name', `${client.capitalize(command.name) || 'No Name'}`, true)
-        .addField('Command Description', command.description || 'No Description', true)
-        .addField('Command Category', command.category || 'No Category', true)
-        .setColor("RANDOM")
+          .setAuthor(message.author.username, message.author.avatarURL())
+          .setThumbnail(message.guild.iconURL())
+          .setTitle("Help!")
+          .addField(
+            "Command Name",
+            `${client.capitalize(command.name) || "No Name"}`,
+            true
+          )
+          .addField(
+            "Command Description",
+            command.description || "No Description",
+            true
+          )
+          .addField("Command Category", command.category || "No Category", true)
+          .setColor("RANDOM");
         message.channel.send(embed).catch(console.log);
       }
-      
     } else {
+      client.commands
+        .filter(cmd => cmd.category === "Music")
+        .forEach(cmd => music.push(cmd.name));
+      client.commands
+        .filter(cmd => cmd.category === "Utility")
+        .forEach(cmd => utility.push(cmd.name));
+      client.commands
+        .filter(cmd => cmd.category === "Fun")
+        .forEach(cmd => fun.push(cmd.name));
 
-    client.commands
-      .filter(cmd => cmd.category === "Music")
-      .forEach(cmd => music.push(cmd.name));
-    client.commands
-      .filter(cmd => cmd.category === "Utility")
-      .forEach(cmd => utility.push(cmd.name));
-    client.commands
-      .filter(cmd => cmd.category === "Fun")
-      .forEach(cmd => fun.push(cmd.name));
-
-    let embed = new MessageEmbed()
-      .setAuthor("✯ Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ", client.user.displayAvatarURL())
-      .setThumbnail(client.user.displayAvatarURL())
-      .setColor(COLOR)
-      .setDescription(`♪ Cᴏᴍᴍᴀɴᴅ Lɪsᴛ Oғ ${client.user.username}.`)
-      .addField(
-        `➜ Mᴜsɪᴄ Cᴏᴍᴍᴀɴᴅs`,
-        "``" + prefix + music.join("``, " + "``" + prefix) + "``",
-        true
-      )
-      .addField(
-        `➜ Uᴛɪʟɪᴛʏ Cᴏᴍᴍᴀɴᴅs`,
-        "``" + prefix + utility.join("``, " + "``" + prefix) + "``",
-        true
-      )
-      .addField(
-        `➜ Fᴜɴ Cᴏᴍᴍᴀɴᴅs`,
-        "``" + prefix + fun.join("``, " + "``" + prefix) + "``",
-        true
-      );
-    message.channel.send(embed).catch(console.log);
+      let embed = new MessageEmbed()
+        .setAuthor("✯ Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ", client.user.displayAvatarURL())
+        .setThumbnail(client.user.displayAvatarURL())
+        .setColor(COLOR)
+        .setDescription(`♪ Cᴏᴍᴍᴀɴᴅ Lɪsᴛ Oғ ${client.user.username}.`)
+        .addField(
+          `➜ Mᴜsɪᴄ Cᴏᴍᴍᴀɴᴅs`,
+          "``" + prefix + music.join("``, " + "``" + prefix) + "``",
+          true
+        )
+        .addField(
+          `➜ Uᴛɪʟɪᴛʏ Cᴏᴍᴍᴀɴᴅs`,
+          "``" + prefix + utility.join("``, " + "``" + prefix) + "``",
+          true
+        )
+        .addField(
+          `➜ Fᴜɴ Cᴏᴍᴍᴀɴᴅs`,
+          "``" + prefix + fun.join("``, " + "``" + prefix) + "``",
+          true
+        );
+      message.channel.send(embed).catch(console.log);
     }
 
     /* let command = readdirSync("./commands");
