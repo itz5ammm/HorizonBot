@@ -10,7 +10,7 @@ const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
 const { play } = require("../system/music.js");
 module.exports = {
   name: "play",
-  description: "Play The Song You Like.",
+  description: "Pʟᴀʏ Tʜᴇ Sᴏɴɢ Yᴏᴜ Lɪᴋᴇ.",
   category: "Music",
   async execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
@@ -38,7 +38,7 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      embed.setAuthor("Can't Play The Song.");
+      embed.setAuthor("Cᴀɴɴᴏᴛ Pʟᴀʏ Tʜᴇ Sᴏɴɢ.");
       return message.channel.send(embed);
     }
 

@@ -1,9 +1,9 @@
 //FIRST TEST HANDLER IS WORKING OR NOT
 module.exports = {
   name: "ping",
-  description: "Pinging The Bot.",
+  description: "Pɪɴɢɪɴɢ Tʜᴇ Bᴏᴛ.",
   category: "Utility",
   execute(client, message) {
-    message.channel.send("Pong! 69ms");
+    message.channel.send("Pᴏɴɢ! 69ᴍs");
   }
 };

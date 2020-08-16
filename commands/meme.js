@@ -3,7 +3,7 @@ const got = require("got");
 
 module.exports = {
   name: "meme",
-  description: "Have Some Fun.",
+  description: "Hᴀᴠᴇ Sᴏᴍᴇ Fᴜɴ.",
   category: "Fun",
   execute: async (client, message, args) => {
     const embed = new MessageEmbed();
@@ -19,7 +19,7 @@ module.exports = {
       embed.addField(`${memeTitle}`, `[View thread](${memeUrl})`);
       embed.setImage(memeImage);
       embed.setFooter(`
-       👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | Credits to r/dankmemes
+       👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} | Cʀᴇᴅɪᴛs Tᴏ r/dankmemes
        `);
       embed.setColor("RANDOM");
       message.channel.send(embed);

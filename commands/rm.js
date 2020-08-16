@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const { COLOR } = require("../config.json");
 module.exports = {
   name: "rm",
-  description: "Remove The Song From Queue.",
+  description: "Rᴇᴍᴏᴠᴇ Tʜᴇ Sᴏɴɢ Fʀᴏᴍ Qᴜᴇᴜᴇ.",
   category: "Music",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
@@ -15,17 +15,17 @@ module.exports = {
     const serverQueue = client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("The Queue is empty.");
+      embed.setAuthor("Tʜᴇ Qᴜᴇᴜᴇ Is Eᴍᴘᴛʏ.");
       return message.channel.send(embed);
     }
 
     if (isNaN(args[0])) {
-      embed.setAuthor("Please Use Numerical Values Only");
+      embed.setAuthor("Pʟᴇᴀsᴇ Usᴇ Nᴜᴍᴇʀɪᴄ Vᴀʟᴜᴇ Oɴʟᴜ");
       return message.channel.send(embed);
     }
 
     if (args[0] > serverQueue.songs.length) {
-      embed.setAuthor("Unable to find this song");
+      embed.setAuthor("Uɴᴀʙʟᴇ Tᴏ Fɪɴᴅ Tʜᴇ Sᴏɴɢ.");
       return message.channel.send(embed);
     }
 

@@ -4,7 +4,7 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "skip",
-  description: "Skip The Song.",
+  description: "Sᴋɪᴘ Tʜᴇ Sᴏɴɢ.",
   category: "Music",
   async execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
@@ -19,7 +19,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
     const vote = message.client.vote.get(message.guild.id);
     if (!serverQueue) {
-      embed.setAuthor("There Is Currently Nothing Playing.");
+      embed.setAuthor(".");
       return message.channel.send(embed);
     }
 

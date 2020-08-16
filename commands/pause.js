@@ -4,7 +4,7 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "pause",
-  description: "Pause The Current Playing Song.",
+  description: "Pᴀᴜsᴇ Tʜᴇ Cᴜʀʀᴇɴᴛ Pʟᴀʏɪɴɢ Sᴏɴɢ.",
   category: "Music",
   execute(client, message, args) {
     const { channel } = message.member.voice;
@@ -19,7 +19,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("There Is Currently Nothing Playing In This Server.");
+      embed.setAuthor("Tʜᴇʀᴇ Is Cᴜʀʀᴇɴᴛʟʏ Nᴏᴛʜɪɴɢ Pʟᴀʏɪɴɢ.");
       return message.channel.send(embed);
     }
 
@@ -27,7 +27,7 @@ module.exports = {
       serverQueue.playing = false;
       serverQueue.connection.dispatcher.pause(true);
 
-      embed.setDescription("✅ | Paused The Current Playing Song");
+      embed.setDescription("✅ | Pᴀᴜsᴇᴅ Tʜᴇ Pʟᴀʏᴇʀ.");
       embed.setThumbnail(client.user.displayAvatarURL());
       return message.channel.send(embed);
     }

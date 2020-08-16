@@ -4,7 +4,7 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "np",
-  description: "Get The Name Of Current Playing Song.",
+  description: "Gᴇᴛ Tʜᴇ Nᴀᴍᴇ Oғ Tʜᴇ Cᴜʀʀᴇɴᴛ Sᴏɴɢ.",
   category: "Music",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
@@ -19,7 +19,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("There Is Nothing Playing In This Server Currently.");
+      embed.setAuthor("Tᴇʀᴇ Is Cᴜʀʀᴇɴᴛʟʏ Nᴏᴛʜɪɴɢ Pʟᴀʏɪɴɢ.");
       return message.channel.send(embed);
     }
 

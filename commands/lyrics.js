@@ -6,15 +6,15 @@ const { COLOR } = require("../config.json");
 
 module.exports = {
   name: "lyrics",
-  description: "Get Lyrics Of Any Song.",
+  description: "Gᴇᴛ Lʏʀɪᴄs Oғ Aɴʏ Sᴏɴɢ.",
   category: "Music",
   async execute(client, message, args) {
     let embed = new MessageEmbed()
-      .setDescription("Looking For Lyrics ...")
-      .setColor("YELLOW");
+      .setDescription("Lᴏᴏᴋɪɴɢ Fᴏʀ Lʏʀɪᴄs ...")
+      .setColor("RED");
 
     if (!args.length) {
-      return message.channel.send("Please Give The Song Name");
+      return message.channel.send("Pʟᴇᴀsᴇ Gɪᴠᴇ Tʜᴇ Sᴏɴɢ Nᴀᴍᴇ!");
     }
 
     const msg = await message.channel.send(embed);
@@ -24,7 +24,7 @@ module.exports = {
 
       if (lyrics.length > 5000) {
         msg.delete();
-        return message.channel.send("Can't Find Lyrics Of This Song.");
+        return message.channel.send("Cᴀɴɴᴏᴛ Fɪɴᴅ Tʜᴇʏ Lʏʀɪᴄs Fᴏʀ Tʜɪs Sᴏɴɢ.");
       }
       if (lyrics.length < 2048) {
         const lyricsEmbed = new MessageEmbed()
