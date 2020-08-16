@@ -5,6 +5,7 @@ dependencies:
   fs: 0.0.2
   genius-lyrics: 3.0.0
   got: 11.5.2
+  mathjs: 7.1.0
   moment: 2.27.0
   ms: 2.1.2
   path: 0.12.7
@@ -262,6 +263,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
+  /complex.js/2.0.11:
+    dev: false
+    resolution:
+      integrity: sha512-6IArJLApNtdg1P1dFtn3dnyzoZBEF0MwMnrfF1exSBRpZYoy4yieMkpZhQDC0uwctw48vii0CFVyHfpgZ/DfGw==
   /concat-map/0.0.1:
     dev: false
     resolution:
@@ -329,6 +334,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
+  /decimal.js/10.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-vDPw+rDgn3bZe1+F/pyEwb1oMG2XTlRVgAa6B4KccTEpYgF8w6eQllVbQcfIJnZyvzFtFpxnpGtx8dd7DJp/Rw==
   /decompress-response/6.0.0:
     dependencies:
       mimic-response: 3.1.0
@@ -468,6 +477,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+  /escape-latex/1.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-nV5aVWW1K0wEiUIEdZ4erkGGH8mDxGyxSeqPzRNtWP7ataw+/olFObw7hujFWlVjNsaDFw5VZ5NzVSIqRgfTiw==
   /etag/1.8.1:
     dev: false
     engines:
@@ -545,6 +558,10 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
+  /fraction.js/4.0.12:
+    dev: false
+    resolution:
+      integrity: sha512-8Z1K0VTG4hzYY7kA/1sj4/r1/RWLBD3xwReT/RCrUCbzPszjNQCCsy3ktkU/eaEqX3MYa4pY37a52eiBlPMlhA==
   /fresh/0.5.2:
     dev: false
     engines:
@@ -742,6 +759,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ErTBd++b17E8nmWII1K1uZtBgD1E8RjyvwmxlCjPHNqHMD7gmcMHOw0E8Ro/6+QT4PhHRSnnMo7bxa1vFPkwhg==
+  /javascript-natural-sort/0.7.1:
+    dev: false
+    resolution:
+      integrity: sha1-+eIwPUUH9tdDVac2ZNFED7Wg71k=
   /json-buffer/3.0.1:
     dev: false
     resolution:
@@ -771,6 +792,22 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-z6ldnAdhbuWOL6LmMkwptSZGzj+qbRytMKLTbNicwF/bJMjf9U9lqD57RNQUFecvWadEkzy6PDjcNJFFgi19uQ==
+  /mathjs/7.1.0:
+    dependencies:
+      complex.js: 2.0.11
+      decimal.js: 10.2.0
+      escape-latex: 1.2.0
+      fraction.js: 4.0.12
+      javascript-natural-sort: 0.7.1
+      seed-random: 2.2.0
+      tiny-emitter: 2.1.0
+      typed-function: 2.0.0
+    dev: false
+    engines:
+      node: '>= 10'
+    hasBin: true
+    resolution:
+      integrity: sha512-Km6PO2UR+COs5mru5auKQKi84GKBryuL5JDdKeAxAi0QV8mH/qwpZKLnzrycxBacQ/X/4Z4Kn+gtYc5gEeWsDQ==
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -1186,6 +1223,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
+  /seed-random/2.2.0:
+    dev: false
+    resolution:
+      integrity: sha1-KpsZ4lCoFwmSMaW5mk2vgLf77VQ=
   /semver/7.3.2:
     dev: false
     engines:
@@ -1319,6 +1360,10 @@ packages:
       node: '>= 10'
     resolution:
       integrity: sha512-Glo3jkRtPcvpDlAs/0+hozav78yoXKFr+c4wgw62NNMO3oo4AaJdCo21Uu7lcwr55h39W2XD1LMERc64wtbItg==
+  /tiny-emitter/2.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
   /toidentifier/1.0.0:
     dev: false
     engines:
@@ -1338,6 +1383,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==
+  /typed-function/2.0.0:
+    dev: false
+    engines:
+      node: '>= 8'
+    resolution:
+      integrity: sha512-Hhy1Iwo/e4AtLZNK10ewVVcP2UEs408DS35ubP825w/YgSBK1KVLwALvvIG4yX75QJrxjCpcWkzkVRB0BwwYlA==
   /unpipe/1.0.0:
     dev: false
     engines:
@@ -1432,6 +1483,7 @@ specifiers:
   fs: ^0.0.2
   genius-lyrics: ^3.0.0
   got: ^11.5.1
+  mathjs: ^7.1.0
   moment: ^2.27.0
   ms: ^2.1.2
   path: ^0.12.7
