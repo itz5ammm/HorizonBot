@@ -5,7 +5,7 @@ module.exports = {
   name: "help",
   description: "All The Commands Are Displayed Here.",
   category: "Utility",
-  execute(client, message, args) {
+  execute(client, message, args) { 
     let music = [];
     let utility = [];
     let fun = [];
