@@ -10,6 +10,22 @@ module.exports = {
     let utility = [];
     let fun = [];
     let prefix = "+";
+    
+    if(args[0]) {
+      
+      let command = args[0];
+      if(client.commands.has(command)) {
+        let embed = new MessageEmbed()
+        .setAuthor(message.author.username, message.author.avatarURL())
+        .setTitle('Help!')
+        .addField('Command Name', command.name || 'No Name', true)
+        .addField('Command Description', command.description || 'No Description', true)
+        .addField('Command Category', command.category || 'No Category', true)
+        .setColor("RANDOM")
+        message.channel.send(embed).catch(console.log);
+      }
+      
+    } else {
 
     client.commands
       .filter(cmd => cmd.category === "Music")
@@ -42,6 +58,7 @@ module.exports = {
         true
       );
     message.channel.send(embed).catch(console.log);
+    }
 
     /* let command = readdirSync("./commands");
 
