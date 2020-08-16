@@ -10,7 +10,7 @@ const { TOKEN, PREFIX } = require("./config.json");
 //CLIENT EVENTS
 client.on("ready", () => {
   console.log("Ready to play song | Bot created by SAM");
-  client.user.setActivity("+help | Horizon - A Cool Music Bot.");
+  client.user.setActivity("+help | Horizon - A Cᴏᴏʟ Mᴜsɪᴄ Bᴏᴛ.");
 });
 
 client.on("warn", info => console.log(info));
@@ -22,23 +22,26 @@ client.commands = new discord.Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
 client.vote = new Map();
-client.capitalize = (string) => {
-  let str = '';
-  string = string.split(' ');
+client.capitalize = string => {
+  let str = "";
+  string = string.split(" ");
   for (let i = 0; i < string.length; i++) {
-    str += string[i].charAt(0).toUpperCase() + string[i].slice(1).toLowerCase() + ' ';
+    str +=
+      string[i].charAt(0).toUpperCase() +
+      string[i].slice(1).toLowerCase() +
+      " ";
     if (i == string.length - 1) {
-      string = str.split('-');
-      str = '';
+      string = str.split("-");
+      str = "";
       for (let i = 0; i < string.length; i++) {
-        str += string[i].charAt(0).toUpperCase() + string[i].slice(1) + '-';
+        str += string[i].charAt(0).toUpperCase() + string[i].slice(1) + "-";
         if (i == string.length - 1) {
           return str.slice(0, -2);
         }
       }
     }
   }
-}
+};
 
 //LETS LOAD ALL FILES
 const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file =>
@@ -79,7 +82,7 @@ client.on("message", message => {
     } catch (err) {
       //IF IT CATCH ERROR
       console.log(err);
-      message.reply("I am getting error on using this command");
+      message.reply("I'm getting error on using this command!");
     }
   }
 });

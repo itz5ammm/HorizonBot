@@ -5,7 +5,7 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "stop",
-  description: "Stops The Player.",
+  description: "Sᴛᴏᴘs Tʜᴇ Pʟᴀʏᴇʀ.",
   category: "Music",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
@@ -21,7 +21,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("There is nothing Playing.");
+      embed.setAuthor("Tʜᴇʀᴇ ɪs Nᴏᴛʜɪɴɢ Pʟᴀʏɪɴɢ.");
       return message.channel.send(embed);
     }
 

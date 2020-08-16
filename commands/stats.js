@@ -4,7 +4,7 @@ const ms = require("ms");
 
 module.exports = {
   name: "stats",
-  description: "Get The Detailed Information Of Bot.",
+  description: "Gᴇᴛ Tʜᴇ Dᴇᴛᴀɪʟᴇᴅ Iɴғᴏʀᴍᴀᴛɪᴏɴ Oғ Bᴏᴛ.",
   category: "Utility",
   execute(client, message, args) {
     console.log(client.queue.size);
@@ -15,13 +15,13 @@ module.exports = {
       .setDescription(
         `My Name Is **${client.user.username}** And My Work Is To Play Music.`
       )
-      .addField("SERVERS", client.guilds.cache.size, true)
-      .addField("PRESENCE", client.user.presence.activities[0].name, true)
-      .addField("ID", client.user.id, true)
-      .addField("UPTIME", ms(client.uptime), true)
-      .addField("STATUS", client.user.presence.status, true)
-      .addField("TOTAL MEMBERS", client.users.cache.size, true)
-      .addField("NO. OF GUILD IN BOT IS PLAYING", client.queue.size);
+      .addField("Sᴇʀᴠᴇʀs", client.guilds.cache.size, true)
+      .addField("Pʀᴇsᴄᴇɴᴄᴇ", client.user.presence.activities[0].name, true)
+      .addField("Iᴅ", client.user.id, true)
+      .addField("Uᴘᴛɪᴍᴇ", ms(client.uptime), true)
+      .addField("Sᴛᴀᴛᴜs", client.user.presence.status, true)
+      .addField("Tᴏᴛᴀʟ Usᴇʀs", client.users.cache.size, true)
+      .addField("Nᴏ. Oғ Gᴜɪʟᴅ Iɴ Bᴏᴛ Is Pʟᴀʏɪɴɢ", client.queue.size);
     console.log(client.user.presence);
     message.channel.send(embed);
   }

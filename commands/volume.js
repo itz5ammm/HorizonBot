@@ -3,11 +3,11 @@ const { MessageEmbed } = require("discord.js");
 const { COLOR } = require("../config.json");
 module.exports = {
   name: "volume",
-  description: "Manage The Volume.",
+  description: "Mᴀɴᴀɢᴇ Tʜᴇ Vᴏʟᴜᴍᴇ.",
   category: "Music",
   execute(client, message, args) {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
-      return message.channel.send("You're Not Allowed To Change The Volume.");
+      return message.channel.send("Yᴏᴜ'ʀᴇ Nᴏᴛ AʟʟᴏᴡᴇᴅTᴏ Cʜᴀɴɢᴇ Tʜᴇ Vᴏʟᴜᴍᴇ.");
     }
 
     let embed = new MessageEmbed().setColor(COLOR);
@@ -22,7 +22,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
 
     if (!serverQueue) {
-      embed.setAuthor("Bot Is Not Playing Anything.");
+      embed.setAuthor("Tʜᴇʀᴇ ɪs Nᴏᴛʜɪɴɢ Pʟᴀʏɪɴɢ.");
       return message.channel.send(embed);
     }
 
@@ -32,12 +32,12 @@ module.exports = {
     }
 
     if (isNaN(args[0])) {
-      embed.setAuthor("Please Use Numerical Values Only");
+      embed.setAuthor("Pʟᴇᴀsᴇ Usᴇ Nᴜᴍᴇʀɪᴄᴀʟ Vᴀʟᴜᴇ Oɴʟʏ");
       return message.channel.send(embed);
     }
 
     if (args[0] > 100) {
-      embed.setAuthor("You Can't Increase Volume More Than 100.");
+      embed.setAuthor("Yᴏᴜ Cᴀɴ'ᴛ Iɴᴄʀᴇᴀsᴇ Vᴏʟᴜᴍᴇ Mᴏʀᴇ Tʜᴀɴ 100.");
       return message.channel.send(embed);
     }
 

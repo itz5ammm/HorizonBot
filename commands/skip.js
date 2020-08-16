@@ -19,7 +19,7 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
     const vote = message.client.vote.get(message.guild.id);
     if (!serverQueue) {
-      embed.setAuthor(".");
+      embed.setAuthor("Tʜᴇʀᴇ Is Nᴏᴛʜɪɴɢ Pʟᴀʏɪɴɢ.");
       return message.channel.send(embed);
     }
 
@@ -31,18 +31,18 @@ module.exports = {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
       if (vote.vote > okie) {
         serverQueue.connection.dispatcher.end();
-        embed.setDescription("VOTE - SKIP | Skipping The Song");
+        embed.setDescription("VOTE - SKIP | Sᴋɪᴘᴘɪɴɢ Tʜᴇ Sᴏɴɢ.");
         embed.setThumbnail(client.user.displayAvatarURL());
         return message.channel.send(embed);
       }
 
       if (vote.voters.includes(message.author.id)) {
-        return message.channel.send("You Already Voted For This Song.");
+        return message.channel.send("Yᴏᴜ Aʟʀᴇᴀᴅʏ Vᴏᴛᴇᴅ Fᴏʀ Tʜᴇ Sᴏɴɢ.");
       }
 
       if (vcvote === 2) {
         serverQueue.connection.dispatcher.end();
-        embed.setDescription("✔ | Skipping The Song");
+        embed.setDescription("✓ | Sᴋɪᴘᴘɪɴᴠ Tʜᴇ Sᴏɴɢ");
         embed.setThumbnail(client.user.displayAvatarURL());
         return message.channel.send(embed);
       }
@@ -57,7 +57,7 @@ module.exports = {
     }
 
     serverQueue.connection.dispatcher.end();
-    embed.setDescription("✔ | Skipping The Song");
+    embed.setDescription("✓ | Sᴋɪᴘᴘɪɴɢ Tʜᴇ Sᴏɴɢ");
     embed.setThumbnail(client.user.displayAvatarURL());
     message.channel.send(embed);
   }
