@@ -65,6 +65,7 @@ module.exports = {
           `➜ Fᴜɴ Cᴏᴍᴍᴀɴᴅs`,
           "``" + prefix + fun.join("``, " + "``" + prefix) + "``",
           true
+        .addField(`
         );
       message.channel.send(embed).catch(console.log);
     }
