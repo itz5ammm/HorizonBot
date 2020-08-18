@@ -6,7 +6,7 @@ module.exports = {
   usage: "cwarns <@user>",
   description: "Reset warnings of mentioned person",
   execute: async (client, message, args) => {
-    if (!message.member.hasPermission("MANAGE_SERVER")) {
+    if (!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send(
         "Yopu should have admin perms to use this command"
       );
