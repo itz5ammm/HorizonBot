@@ -6,7 +6,7 @@ module.exports = {
   description: "Mᴀɴᴀɢᴇ Tʜᴇ Vᴏʟᴜᴍᴇ.",
   category: "Music",
   execute(client, message, args) {
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
       return message.channel.send("Yᴏᴜ'ʀᴇ Nᴏᴛ AʟʟᴏᴡᴇᴅTᴏ Cʜᴀɴɢᴇ Tʜᴇ Vᴏʟᴜᴍᴇ.");
     }
 
