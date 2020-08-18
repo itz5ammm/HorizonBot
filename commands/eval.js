@@ -5,7 +5,11 @@ module.exports = {
   description: "Eᴠᴀʟᴜᴀᴛᴇs Cᴏᴍᴍᴀɴᴅs (Bᴏᴛ Oᴡɴᴇʀ Oɴʟʏ!)",
   usage: "eval <code>",
   execute(client, message, args) {
-    let owners = ["488245609539829781", "606305489772609558"];
+    let owners = [
+      "488245609539829781",
+      "606305489772609558",
+      "481502279103676458"
+    ];
     if (!owners.includes(message.author.id)) {
       return message.channel.send(`Only the bot-devs can run this command!`);
     }
