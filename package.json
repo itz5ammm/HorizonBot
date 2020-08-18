@@ -24,7 +24,9 @@
     "got": "^11.5.1",
     "mathjs": "^7.1.0",
     "quick.db": "^7.1.1",
-    "quick.db-extended": "^7.1.11"
+    "quick.db-extended": "^7.1.11",
+    "kitsu": "^9.1.14",
+    "node-kitsu": "^1.1.1"
   },
   "engines": {
     "node": "12.x"
