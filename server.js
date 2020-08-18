@@ -96,3 +96,9 @@ app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 app.listen(3000);
+
+client.snipes = new Map()
+client.on('messageDelete'), function(message, channel){
+  
+  client.snipes.set(message.channel.id, {
+    content:message
