@@ -5,7 +5,7 @@ module.exports = {
   category: "Utility",
   description: "Kick anyone with one shot xD",
   usage: "kick <@user> <raeson>",
-  run: (client, message, args) => {
+  execute: (client, message, args) => {
     if (!message.member.hasPermission("KICK_MEMBERS")) {
       return message.channel.send(
         `**${message.author.username}**, You do not have enough permission to use this command`

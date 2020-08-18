@@ -9,6 +9,7 @@ module.exports = {
     let music = [];
     let utility = [];
     let fun = [];
+    let moderation = [];
     let prefix = "+";
 
     if (args[0]) {
@@ -45,6 +46,9 @@ module.exports = {
       client.commands
         .filter(cmd => cmd.category === "Fun")
         .forEach(cmd => fun.push(cmd.name));
+      client.commands
+        .filter(cmd => cmd.category === "Moderation")
+        .forEach(cmd => moderation.push(cmd.name));
 
       let embed = new MessageEmbed()
         .setAuthor("✯ Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ", client.user.displayAvatarURL())
@@ -64,6 +68,11 @@ module.exports = {
         .addField(
           `➜ Fᴜɴ Cᴏᴍᴍᴀɴᴅs`,
           "``" + prefix + fun.join("``, " + "``" + prefix) + "``",
+          true
+        )
+        .addField(
+          `➜ Mᴏᴅᴇʀᴀᴛɪᴏɴ Cᴏᴍᴍᴀɴᴅs`,
+          "``" + prefix + moderation.join("``," + "``" + prefix) + "``",
           true
         );
       message.channel.send(embed).catch(console.log);
