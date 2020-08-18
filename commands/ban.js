@@ -8,7 +8,7 @@ module.exports = {
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("BAN_MEMBERS")) {
       return message.channel.send(
-        `**${message.author.username}**, You do not have perms to ban someone`
+        `**${message.author.username}**, Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.`
       );
     }
 
@@ -22,19 +22,19 @@ module.exports = {
 
     if (!target) {
       return message.channel.send(
-        `**${message.author.username}**, Please mention the person who you want to ban.`
+        `**${message.author.username}**, Pʟᴇᴀsᴇ Mᴇᴍᴛɪᴏɴ Tʜᴇ Pᴇʀsᴏɴ Wʜᴏ Yᴏᴜ Wᴀɴᴛ Tᴏ Bᴀɴ.`
       );
     }
 
     if (target.id === message.author.id) {
       return message.channel.send(
-        `**${message.author.username}**, You can not ban yourself!`
+        `**${message.author.username}**, Yᴏᴜ Cᴀɴ'ᴛ Bᴀᴍ Yᴏᴜʀsᴇʟғ!`
       );
     }
 
     if (!args[1]) {
       return message.channel.send(
-        `**${message.author.username}**, Please Give Reason To ban Member`
+        `**${message.author.username}**, Pʟᴇᴀᴢᴇ Gɪᴠᴇ Rᴇᴀsᴏɴ Tᴏ Bᴀɴ Mᴇᴍʙᴇʀ.`
       );
     }
 
