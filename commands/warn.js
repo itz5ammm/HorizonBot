@@ -6,8 +6,8 @@ module.exports = {
   category: "Utility",
   usage: "warn <@mention> <reason>",
   description: "Warn anyone who do not obey the rules",
-  run: async (client, message, args) => {
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
+  execute: async (client, message, args) => {
+    if (!message.member.hasPermission("MANAGE_SERVER")) {
       return message.channel.send(
         "You should have admin perms to use this command!"
       );
@@ -17,7 +17,7 @@ module.exports = {
 
     if (!user) {
       return message.channel.send(
-        "Please Mention the person to who you want to warn - warn @mention <reaosn>"
+        "Please Mention the person to who you want to warn - warn @mention <reason>"
       );
     }
 

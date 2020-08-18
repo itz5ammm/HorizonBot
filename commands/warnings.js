@@ -4,7 +4,7 @@ module.exports = {
   name: "warnings",
   description: "Get the warnings of yours or mentioned person",
   category: "Utility",
-  run: (client, message, args) => {
+  execute: (client, message, args) => {
     const user = message.mentions.members.first() || message.author;
 
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
