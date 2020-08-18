@@ -45,7 +45,8 @@ module.exports = {
       client.commands
         .filter(cmd => cmd.category === "Fun")
         .forEach(cmd => fun.push(cmd.name));
-
+      client.commands
+        .filterEach(cmd => cmd.category === "
       let embed = new MessageEmbed()
         .setAuthor("✯ Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ", client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL())
