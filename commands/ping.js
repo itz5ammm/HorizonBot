@@ -4,6 +4,6 @@ module.exports = {
   description: "Pɪɴɢɪɴɢ Tʜᴇ Bᴏᴛ.",
   category: "Utility",
   execute(client, message) {
-    message.channel.send("Pᴏɴɢ! 69ᴍs");
+    message.channel.send(`Pᴏɴɢ! ${client.ws.ping}ms`);
   }
 };
