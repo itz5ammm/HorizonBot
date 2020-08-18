@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "kick",
-  category: "Utility",
+  category: "Moderation",
   description: "Kick anyone with one shot xD",
   usage: "kick <@user> <raeson>",
   execute: (client, message, args) => {

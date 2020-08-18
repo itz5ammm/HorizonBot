@@ -2,7 +2,7 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "ban",
-  category: "Utility",
+  category: "Moderation",
   description: "Bᴀɴ Aɴʏᴏɴᴇ Iɴ Oɴᴇ Sʜᴏᴛ.",
   usage: "ban <@user> <reason>",
   execute: async (client, message, args) => {
