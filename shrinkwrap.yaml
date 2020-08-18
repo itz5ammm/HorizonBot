@@ -10,6 +10,7 @@ dependencies:
   ms: 2.1.2
   path: 0.12.7
   quick.db: 7.1.1
+  quick.db-extended: 7.1.11
   simple-youtube-api: 5.2.1
   ytdl-core: 3.2.1
   ytdl-core-discord: github.com/CTK-WARRIOR/ytdl-core-discord/fa754ad75333f9ecf1dd837809cb3d25d6977d70
@@ -1285,6 +1286,13 @@ packages:
       node: '>=10'
     resolution:
       integrity: sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
+  /quick.db-extended/7.1.11:
+    dependencies:
+      better-sqlite3: 6.0.1
+      lodash: 4.17.15
+    dev: false
+    resolution:
+      integrity: sha512-ZXSwNh53A79jH+BxJQiQvXBUR9uRP/3ZMg0OvhLw7TrL0oaQRx0N2dDVKBBEbRCUr1H73TyJjQ9o72U71GsfiA==
   /quick.db/7.1.1:
     dependencies:
       better-sqlite3: 6.0.1
@@ -1705,6 +1713,7 @@ specifiers:
   ms: ^2.1.2
   path: ^0.12.7
   quick.db: ^7.1.1
+  quick.db-extended: ^7.1.11
   simple-youtube-api: ^5.2.1
   ytdl-core: ^3.2.1
   ytdl-core-discord: 'git+https://github.com/CTK-WARRIOR/ytdl-core-discord.git'
