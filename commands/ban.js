@@ -3,9 +3,9 @@ const discord = require("discord.js");
 module.exports = {
   name: "ban",
   category: "Utility",
-  description: "Ban anyone with one shot whithout knowing anyone xD",
+  description: "Bᴀɴ Aɴʏᴏɴᴇ Iɴ Oɴᴇ Sʜᴏᴛ.",
   usage: "ban <@user> <reason>",
-  run: async (client, message, args) => {
+  execute: async (client, message, args) => {
     if (!message.member.hasPermission("BAN_MEMBERS")) {
       return message.channel.send(
         `**${message.author.username}**, You do not have perms to ban someone`
@@ -14,7 +14,7 @@ module.exports = {
 
     if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
       return message.channel.send(
-        `**${message.author.username}**, I am do not have perms to ban someone`
+        `**${message.author.username}**, I Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Bᴀɴ Sᴏᴍᴇᴏɴᴇ.`
       );
     }
 

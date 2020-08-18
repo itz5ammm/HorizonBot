@@ -4,7 +4,7 @@ module.exports = {
   name: "clearwarns",
   aliases: ["cwarns"],
   usage: "cwarns <@user>",
-  description: "Reset warnings of mentioned person",
+  description: "Rᴇsᴇᴛ Wᴀʀɴs Oғ Tʜᴇ Mᴇɴᴛɪᴏɴᴇᴅ Usᴇʀ.",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send(
