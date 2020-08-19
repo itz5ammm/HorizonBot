@@ -28,7 +28,7 @@ module.exports = {
       message.guild.me.voice.channel.members.size / 2 - 1
     );
     console.log(message.guild.me.voice.channel.members.size);
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
       if (vote.vote > okie) {
         serverQueue.connection.dispatcher.end();
         embed.setDescription("VOTE - SKIP | Sᴋɪᴘᴘɪɴɢ Tʜᴇ Sᴏɴɢ.");
