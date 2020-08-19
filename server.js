@@ -1,4 +1,4 @@
-const discord = require("discord.js");
+const discord = require("discord.js"); // fixed enjoi
 const client = new discord.Client({
   disableEveryone: true,
   disabledEvents: ["TYPING_START"]
@@ -14,8 +14,6 @@ client.on("ready", () => {
 });
 
 client.on("warn", info => console.log(info));
-
-client.on("debug", info => console.log(info));
 
 client.on("error", console.error);
 
