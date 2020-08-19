@@ -15,6 +15,8 @@ client.on("ready", () => {
 
 client.on("warn", info => console.log(info));
 
+client.on("debug", info => console.log(info));
+
 client.on("error", console.error);
 
 //DEFINIING
