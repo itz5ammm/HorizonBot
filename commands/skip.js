@@ -28,7 +28,7 @@ module.exports = {
       message.guild.me.voice.channel.members.size / 2 - 1
     );
     console.log(message.guild.me.voice.channel.members.size);
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+    if (!message.member.hasPermission("SEND_MESSAGES")) {
       if (vote.vote > okie) {
         serverQueue.connection.dispatcher.end();
         embed.setDescription("VOTE - SKIP | Sᴋɪᴘᴘɪɴɢ Tʜᴇ Sᴏɴɢ.");
@@ -42,7 +42,7 @@ module.exports = {
 
       if (vcvote === 2) {
         serverQueue.connection.dispatcher.end();
-        embed.setDescription("✓ | Sᴋɪᴘᴘɪɴᴠ Tʜᴇ Sᴏɴɢ");
+        embed.setDescription("✓ | Sᴋɪᴘᴘɪɴɢ Tʜᴇ Sᴏɴɢ");
         embed.setThumbnail(client.user.displayAvatarURL());
         return message.channel.send(embed);
       }
@@ -50,7 +50,7 @@ module.exports = {
       vote.vote++;
       vote.voters.push(message.author.id);
       return message.channel.send(
-        `You Voted for the Song to Skip, btw we currently need ${Math.floor(
+        `Yᴏᴜ Vᴏᴛᴇᴅ Fᴏʀ Tʜs Sᴏɴɢ Tᴏ Sᴋɪᴘ, Bᴛᴡ Wᴇ Cᴜʀʀᴇɴᴛʟʏ Nᴇᴇᴅ ${Math.floor(
           vcvote - vote.vote
         )} votes`
       );
