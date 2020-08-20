@@ -124,8 +124,10 @@ module.exports = {
           "Likes - " +
             songData.videoDetails.likes +
             ", Dislikes - " +
-            songData.videoDetails.dislikes
-        );
+            songData.videoDetails.dislikes +
+            ", Views - " +
+           
+    );
 
       return serverQueue.textChannel.send(embed).catch(console.error);
     } else {
@@ -147,7 +149,7 @@ module.exports = {
           .send({
             embed: {
               description: `Could Not Join The Channel: ${error}`,
-              color: "#ff2050"
+              color: "#00ffff"
             }
           })
           .catch(console.error);
