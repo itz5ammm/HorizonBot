@@ -124,10 +124,8 @@ module.exports = {
           "Likes - " +
             songData.videoDetails.likes +
             ", Dislikes - " +
-            songData.videoDetails.dislikes +
-            ", Views - " +
-           
-    );
+            songData.videoDetails.dislikes
+        );
 
       return serverQueue.textChannel.send(embed).catch(console.error);
     } else {

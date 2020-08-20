@@ -5,19 +5,17 @@ module.exports = {
   name: "warn",
   category: "Moderation",
   usage: "warn <@mention> <reason>",
-  description: "Warn anyone who do not obey the rules",
+  description: "Wᴀʀɴ Tʜᴇ Mᴇɴᴛᴏɴᴇᴅ Usᴇʀ",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-      return message.channel.send(
-        "You should have admin perms to use this command!"
-      );
+      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Wᴀʀɴ Aɴʏᴏɴᴇ.");
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
       return message.channel.send(
-        "Please Mention the person to who you want to warn - warn @mention <reason>"
+        "Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ Yᴏᴜ Wᴀɴᴛ Tᴏ Wᴀʀɴ - `warn @mention <reason>`"
       );
     }
 
