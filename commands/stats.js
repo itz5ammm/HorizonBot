@@ -11,9 +11,9 @@ module.exports = {
     let embed = new MessageEmbed()
       .setColor(COLOR)
       .setThumbnail(client.user.displayAvatarURL())
-      .setAuthor(`STATS & INFO`, client.user.displayAvatarURL())
+      .setAuthor(`Sᴛᴀᴛs & Iɴғᴏ`, client.user.displayAvatarURL())
       .setDescription(
-        `My Name Is **${client.user.username}** And My Work Is To Play Music.`
+        `**${client.user.username}** Mᴜsɪᴄ Bᴏᴛ Mᴀᴅᴇ Bʏ ᴺᴼᵀ•丂ᴀᴍ#2385`
       )
       .addField("Sᴇʀᴠᴇʀs", client.guilds.cache.size, true)
       .addField("Pʀᴇsᴄᴇɴᴄᴇ", client.user.presence.activities[0].name, true)
