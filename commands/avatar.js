@@ -8,7 +8,7 @@ module.exports = {
   execute: async (client, message, args) => {
     const user = message.mentions.users.first() || message.author;
     const avatarEmbed = new discord.MessageEmbed()
-      .setColor("RANDOM")
+      .setColor("#00ffff")
       .setAuthor(user.tag)
       .setImage(user.displayAvatarURL({ dynamic: true, size: 2048 }))
       .setFooter(`Requested By: ${message.author.tag}`)
