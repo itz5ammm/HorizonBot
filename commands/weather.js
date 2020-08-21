@@ -30,8 +30,8 @@ module.exports = {
         .setThumbnail(current.imageURL)
         .addField(`Degree Type`, `Celcius`)
         .addField(`Temperature`, `${current.temperature}`) // Spelling mistake sorry
-        .addField(`TimeZone`, `UTC${location.timezone}`) //In discord its by default UTC
-        .addField(`Wind`, current.windisplay)
+        .addField(`TimeZone`, `UTC ${location.timezone}`) //In discord its by default UTC
+        .addField(`Wind`, current.winddisplay)
         .addField(`Humidity`, `${current.humidity}%`)
         .addField(`Feels Like`, `${current.feelslike}°`);
 
