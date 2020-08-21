@@ -2,7 +2,8 @@ const discord = require("discord.js");
 const ms = require("ms");
 
 module.exports = {
-  name: "Utility",
+  name: "giveaway",
+  category: "Utility",
   aliases: [""],
   description: "Giveaway something",
   execute: async (client, message, args) => {
@@ -48,10 +49,10 @@ module.exports = {
 
       const embed = new discord.MessageEmbed()
         .setColor("GREEN")
-        .setDescription(`Winner: ${winner}`);
+        .setDescription(`Winner: ${winner}!`);
       m.edit(embed);
 
-      message.channel.send(`The winnder of the giveaway is ${winner}`);
+      message.channel.send(`The winner of the giveaway is ${winner}`);
     }, ms(args[0]));
   }
 };
