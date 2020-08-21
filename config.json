@@ -3,6 +3,6 @@
   "TOKEN": "NzQyMzc1MTU0NjU0MzgwMDgy.XzFMvQ.-EKu5IOu54smtpo_RiWi4gcuajs",
   "YOUTUBE_API_KEY": "AIzaSyBJ-zF75_PwWVxifAaYEVKd4810o0rWXfk",
   "QUEUE_LIMIT": 0,
-  "COLOR": "GREEN",
+  "COLOR": "#00ffff",
   "inviteURL": "https://discord.com/api/oauth2/authorize?client_id=742375154654380082&permissions=8&scope=bot,"
 }

@@ -33,7 +33,7 @@ module.exports = {
             true
           )
           .addField("Command Category", command.category || "No Category", true)
-          .setColor("RANDOM");
+          .setColor("00ffff");
         message.channel.send(embed).catch(console.log);
       }
     } else {
