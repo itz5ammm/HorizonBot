@@ -51,7 +51,7 @@ module.exports = {
         .forEach(cmd => moderation.push(cmd.name));
 
       let embed = new MessageEmbed()
-        .setAuthor("✯ Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ", client.user.displayAvatarURL())
+        .setAuthor("❝Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ❞", client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL())
         .setColor(COLOR)
         .setDescription(`♪ Cᴏᴍᴍᴀɴᴅ Lɪsᴛ Oғ ${client.user.username}.`)
