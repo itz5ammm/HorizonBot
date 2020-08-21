@@ -25,7 +25,8 @@
     "mathjs": "^7.1.0",
     "quick.db": "^7.1.1",
     "node-fetch": "^2.6.0",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "request-promise-native": "^1.0.9"
   },
   "engines": {
     "node": "12.x"
