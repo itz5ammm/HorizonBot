@@ -37,12 +37,12 @@ module.exports = {
     }
 
     if (args[0] > 100) {
-      embed.setAuthor("Yᴏᴜ Cᴀɴ'ᴛ Iɴᴄʀᴇᴀsᴇ Vᴏʟᴜᴍᴇ Mᴏʀᴇ Tʜᴀɴ 80.");
+      embed.setAuthor("Yᴏᴜ Cᴀɴ'ᴛ Iɴᴄʀᴇᴀsᴇ Vᴏʟᴜᴍᴇ Mᴏʀᴇ Tʜᴀɴ 100.");
       return message.channel.send(embed);
     }
 
     serverQueue.volume = args[0];
-    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 80);
+    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
     embed.setDescription(`Set Volume to ${args[0]}`);
     embed.setThumbnail(client.user.displayAvatarURL());
     message.channel.send(embed);

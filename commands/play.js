@@ -113,10 +113,7 @@ module.exports = {
       }
 
       serverQueue.songs.push(song);
-      embed.setAuthor(
-        "Added Song To The Queue.",
-        client.user.displayAvatarURL()
-      );
+      embed.setAuthor("Aᴅᴅᴇᴅ Sᴏɴɢ Tᴏ Qᴜᴇᴜᴇ.", client.user.displayAvatarURL());
       embed.setDescription(`**[${song.title}](${song.url})**`);
       embed
         .setThumbnail(song.thumbnail)

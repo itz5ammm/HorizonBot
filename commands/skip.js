@@ -50,7 +50,7 @@ module.exports = {
       vote.vote++;
       vote.voters.push(message.author.id);
       return message.channel.send(
-        `Yᴏᴜ Vᴏᴛᴇᴅ Fᴏʀ Tʜs Sᴏɴɢ Tᴏ Sᴋɪᴘ, Bᴛᴡ Wᴇ Cᴜʀʀᴇɴᴛʟʏ Nᴇᴇᴅ ${Math.floor(
+        `Yᴏᴜ Vᴏᴛᴇᴅ Fᴏʀ Tʜs Sᴏɴɢ Tᴏ Sᴋɪᴘ, Wᴇ Cᴜʀʀᴇɴᴛʟʏ Nᴇᴇᴅ ${Math.floor(
           vcvote - vote.vote
         )} votes`
       );
