@@ -8,7 +8,7 @@ module.exports = {
   description: "Cʜᴀɴɢᴇ Sᴏᴍᴇᴏɴᴇ's Nɪᴄᴋɴᴀᴍᴇ.",
   execute: async (client, message, args) => {
     let perm = message.member.hasPermission("ADMINISTRATOR");
-    if (!perm) return message.channel.send("No perms");
+    if (!perm) return message.channel.send("Yᴏᴜ Dᴏɴᴛ Hᴀᴠᴇ Pᴇʀᴍs ᴏ ᴏ Tʜᴀᴛ");
 
     let user = message.mentions.members.first();
     if (!user) return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ!");
