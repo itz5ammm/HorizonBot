@@ -4,6 +4,7 @@ const { COLOR } = require("../config.json");
 module.exports = {
   name: "help",
   description: "Aʟʟ Tʜᴇ Cᴏᴍᴍᴀᴍᴅs Aʀᴇ Dɪsᴘʟᴀʏᴇᴅ Hᴇʀᴇ.",
+  aliases: ["h"],
   category: "Utility",
   execute(client, message, args) {
     let music = [];
