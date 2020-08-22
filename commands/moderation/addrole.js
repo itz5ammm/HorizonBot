@@ -20,7 +20,7 @@ module.exports = {
     if (!role) return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Rᴏʟᴇ.");
 
     let embed = new discord.MessageEmbed()
-      .setColor("GREEN")
+      .setColor("00FFFF")
       .setDescription(`${user} has gotten the ${role}`);
 
     user.roles.add(role);

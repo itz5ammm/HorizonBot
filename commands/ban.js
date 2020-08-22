@@ -1,51 +1,44 @@
 const discord = require("discord.js");
 
-module.exports = {
+module.exports.help = {
   name: "ban",
   category: "Moderation",
-  description: "Bᴀɴ Aɴʏᴏɴᴇ Iɴ Oɴᴇ Sʜᴏᴛ.",
-  usage: "ban <@user> <reason>",
+  aliases: ["banuser"],
+  description: "Bᴀɴ A Usᴇʀ Fʀᴏᴍ Tʜᴇ Usᴇʀ",
+  usage: "<user> (reason)",
   execute: async (client, message, args) => {
-    if (!message.member.hasPermission("BAN_MEMBERS")) {
-      return message.channel.send(
-        `**${message.author.username}**, Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.`
+    if (!message.member.hasPermission("BAN_MEMBERS"))
+      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Bᴀɴ.");
+
+    let logchannel = message.guild.channels.cache.find(
+      ch => ch.name === "modlogs"
+    );
+    if (!logchannel) return message.channel.send("Cᴀɴ'ᴛ Fɪɴᴅ Tʜᴇ Lᴏɢ Cʜᴀɴɴᴇʟ.");
+
+    let user = message.mentions.members.first();
+    if (!user) return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ.");
+
+    let reason = args.slice(1).join(" ");
+    if (!reason) reason = "Nᴏ Rᴇᴀsᴏɴ Pʀᴏᴠɪᴅᴇᴅ.";
+
+    if (user.hasPermission("BAN_MEMBERS"))
+      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Bᴀɴ Mᴇᴍʙᴇʀs.");
+    let logembed = new discord.MessageEmbed()
+      .setColor("00FFFF")
+      .setTitle(`Usᴇʀ Bᴀɴɴᴇᴅ | ${user.user.tag}`)
+      .addField("Sᴛᴀғғ", `${message.author}`)
+      .addField("Rᴇᴀsᴏɴ", `${reason}`);
+
+    try {
+      user.send(
+        `You have been banned in ${message.guild.name} by ${message.author} for ${reason}`
       );
+    } catch (err) {
+      console.log(err);
     }
 
-    if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
-      return message.channel.send(
-        `**${message.author.username}**, I Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Bᴀɴ Sᴏᴍᴇᴏɴᴇ.`
-      );
-    }
-
-    const target = message.mentions.members.first();
-
-    if (!target) {
-      return message.channel.send(
-        `**${message.author.username}**, Pʟᴇᴀsᴇ Mᴇᴍᴛɪᴏɴ Tʜᴇ Pᴇʀsᴏɴ Wʜᴏ Yᴏᴜ Wᴀɴᴛ Tᴏ Bᴀɴ.`
-      );
-    }
-
-    if (target.id === message.author.id) {
-      return message.channel.send(
-        `**${message.author.username}**, Yᴏᴜ Cᴀɴ'ᴛ Bᴀᴍ Yᴏᴜʀsᴇʟғ!`
-      );
-    }
-
-    if (!args[1]) {
-      return message.channel.send(
-        `**${message.author.username}**, Pʟᴇᴀᴢᴇ Gɪᴠᴇ Rᴇᴀsᴏɴ Tᴏ Bᴀɴ Mᴇᴍʙᴇʀ.`
-      );
-    }
-
-    let embed = new discord.MessageEmbed()
-      .setTitle("Action : Ban")
-      .setDescription(`Banned ${target} (${target.id})`)
-      .setColor("#ff2050")
-      .setThumbnail(target.avatarURL)
-      .setFooter(`Banned by ${message.author.tag}`);
-
-    message.channel.send(embed);
-    target.ban(args[1]);
+    await user.ban();
+    logchannel.send(logembed);
+    message.channel.send(`${user} has been successfully banned`);
   }
 };
