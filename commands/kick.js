@@ -3,49 +3,44 @@ const discord = require("discord.js");
 module.exports = {
   name: "kick",
   category: "Moderation",
-  description: "Kick anyone with one shot xD",
-  usage: "kick <@user> <raeson>",
-  execute: (client, message, args) => {
-    if (!message.member.hasPermission("KICK_MEMBERS")) {
+  aliases: ["kickuser"],
+  description: "Kɪᴄᴋ A Usᴇʀ Fʀᴏᴍ Tʜᴇ Sᴇʀᴠᴇʀ.",
+  usage: "<user> (reason)",
+  execute: async (client, message, args) => {
+    if (!message.member.hasPermission("KICK_MEMBERS"))
+      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.");
+
+    let logchannel = message.guild.channels.cache.find(
+      ch => ch.name === "horizon-modlogs"
+    );
+    if (!logchannel) return message.channel.send("Cᴀɴ'ᴛ Fɪɴᴅ Tʜᴇ Lᴏɢ Cʜᴀɴɴᴇʟ.");
+
+    let user = message.mentions.members.first();
+    if (!user) return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ.");
+
+    let reason = args.slice(1).join(" ");
+    if (!reason) reason = "Pʀᴏᴠɪᴅᴇ Tʜᴇ Rᴇᴀsᴏɴ.";
+
+    if (user.hasPermission("KICK_MEMBERS"))
       return message.channel.send(
-        `**${message.author.username}**, You do not have enough permission to use this command`
+        "Yᴏᴜ Cᴀɴᴛ Kɪᴄᴋ Sᴏᴍᴇᴏɴᴇ Wʜᴏ Hᴀs Tʜᴇ Sᴀᴍᴇ/Hɪɢʜᴇʀ Pᴇʀᴍs."
       );
+    let logembed = new discord.MessageEmbed()
+      .setColor("00FFFF")
+      .setTitle(`Usᴇʀ Kɪᴄᴋᴇᴅ | ${user.user.tag}`)
+      .addField("Sᴛᴀғғ", `${message.author}`)
+      .addField("Rᴇᴀsᴏɴ", `${reason}`);
+
+    try {
+      user.send(
+        `Yᴏᴜ Hᴀᴠᴇ Bᴇᴇɴ Wᴀʀɴᴇᴅ Iɴ ${message.guild.name} Bʏ ${message.author} Fᴏʀ ${reason}.`
+      );
+    } catch (err) {
+      console.log(err);
     }
 
-    if (!message.guild.me.hasPermission("KICK_MEMBERS")) {
-      return message.channel.send(
-        `**${message.author.username}**, I do not have enough permission to use this command`
-      );
-    }
-
-    let target = message.mentions.members.first();
-
-    if (!target) {
-      return message.channel.send(
-        `**${message.author.username}**, Please mention the person who you want to kick`
-      );
-    }
-
-    if (target.id === message.author.id) {
-      return message.channel.send(
-        `**${message.author.username}**, You can not kick yourself`
-      );
-    }
-
-    if (!args[1]) {
-      return message.channel.send(
-        `**${message.author.username}**, Please Give Reason to kick`
-      );
-    }
-
-    let embed = new discord.MessageEmbed()
-      .setTitle("Action: Kick")
-      .setDescription(`Kicked ${target} (${target.id})`)
-      .setColor("#ff2050")
-      .setFooter(`Kicked by ${message.author.username}`);
-
-    message.channel.send(embed);
-
-    target.kick(args[1]);
+    await user.kick();
+    logchannel.send(logembed);
+    message.channel.send(`${user} Wᴀs Kɪᴄᴋᴇᴅ.`);
   }
 };
