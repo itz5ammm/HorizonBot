@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.help = {
+module.exports = {
   name: "ban",
   category: "Moderation",
   aliases: ["banuser"],
@@ -11,7 +11,7 @@ module.exports.help = {
       return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Bᴀɴ.");
 
     let logchannel = message.guild.channels.cache.find(
-      ch => ch.name === "modlogs"
+      ch => ch.name === "horizon-modlogs"
     );
     if (!logchannel) return message.channel.send("Cᴀɴ'ᴛ Fɪɴᴅ Tʜᴇ Lᴏɢ Cʜᴀɴɴᴇʟ.");
 
