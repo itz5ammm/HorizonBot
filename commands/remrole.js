@@ -4,7 +4,7 @@ module.exports = {
   name: "remrole",
   category: "Moderation",
   aliases: ["remroles"],
-  description: "Add a role to a user",
+  description: "Rᴇᴍᴏᴠᴇs A Rᴏʟᴇ Fʀᴏᴍ Usᴇʀ.",
   usage: "<user> <role>",
   execute: async (client, message, args) => {
     let perm = message.member.hasPermission("MANAGE_ROLES");

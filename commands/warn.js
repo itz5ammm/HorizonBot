@@ -30,7 +30,7 @@ module.exports = {
 
     try {
       user.send(
-        `Yᴏᴜ Hᴀᴠᴇ Bᴇᴇɴ Wᴀʀɴᴇᴅ Iɴ ${message.guild.name} Bʏ ${message.author} Fᴏʀ ${reason}`
+        `Yᴏᴜ Hᴀᴠᴇ Bᴇᴇɴ Wᴀʀɴᴇᴅ Iɴ ${message.guild.name} Bʏ ${message.author.tag} Fᴏʀ ${reason}`
       );
     } catch (err) {
       console.log(err);
