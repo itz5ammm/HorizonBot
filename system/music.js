@@ -11,7 +11,7 @@ module.exports = {
     if (!song) {
       queue.channel.leave();
       message.client.queue.delete(message.guild.id);
-      embed.setAuthor("Queue Ended, There is nothing more to play");
+      embed.setAuthor("Qᴜᴇᴜᴇ Eɴᴅᴇᴅ, Tʜᴇʀᴇ Is Nᴏᴛʜɪɴɢ Mᴏʀᴇ Tᴏ Pʟᴀʏ.");
       return queue.textChannel.send(embed).catch(console.error);
     }
 
@@ -48,7 +48,10 @@ module.exports = {
 
     dispatcher.setVolumeLogarithmic(queue.volume / 100); //VOLUME
     embed
-      .setAuthor("Started Playing Song", message.client.user.displayAvatarURL())
+      .setAuthor(
+        "Sᴛᴀʀᴛᴇᴅ Pʟᴀʏɪɴɢ Sᴏɴɢ.",
+        message.client.user.displayAvatarURL()
+      )
       .setDescription(`**[${song.title}](${song.url})**`);
 
     queue.textChannel

@@ -36,8 +36,8 @@ module.exports = {
       return message.channel.send(embed);
     }
 
-    if (args[0] > 200) {
-      embed.setAuthor("Yᴏᴜ Cᴀɴᴛ Iɴᴄʀᴇᴀsᴇ Vᴏʟᴜᴍᴇ Mᴏʀᴇ Tʜᴀɴ 200");
+    if (args[0] > 100) {
+      embed.setAuthor("Yᴏᴜ Cᴀɴᴛ Iɴᴄʀᴇᴀsᴇ Vᴏʟᴜᴍᴇ Mᴏʀᴇ Tʜᴀɴ 100");
       return message.channel.send(embed);
     }
 
