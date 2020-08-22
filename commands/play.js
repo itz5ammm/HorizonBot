@@ -50,7 +50,7 @@ module.exports = {
       connection: null,
       songs: [],
       loop: false,
-      volume: 250,
+      volume: 100,
       playing: true
     };
 
@@ -118,10 +118,7 @@ module.exports = {
       embed
         .setThumbnail(song.thumbnail)
         .setFooter(
-          "Likes - " +
-            songData.videoDetails.likes +
-            ", Dislikes - " +
-            songData.videoDetails.dislikes
+         `Requested By: ${message.author.tag}
         );
 
       return serverQueue.textChannel.send(embed).catch(console.error);

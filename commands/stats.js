@@ -21,7 +21,9 @@ module.exports = {
       .addField("Uᴘᴛɪᴍᴇ", ms(client.uptime), true)
       .addField("Sᴛᴀᴛᴜs", client.user.presence.status, true)
       .addField("Tᴏᴛᴀʟ Usᴇʀs", client.users.cache.size, true)
-      .addField("Nᴏ. Oғ Gᴜɪʟᴅ Iɴ Bᴏᴛ Is Pʟᴀʏɪɴɢ", client.queue.size);
+      .addField("Nᴏ. Oғ Gᴜɪʟᴅ Iɴ Bᴏᴛ Is Pʟᴀʏɪɴɢ", client.queue.size)
+      .setFooter(`Requested By: ${message.author.tag}`)
+      .setTimestamp();
     console.log(client.user.presence);
     message.channel.send(embed);
   }
