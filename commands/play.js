@@ -113,12 +113,15 @@ module.exports = {
       }
 
       serverQueue.songs.push(song);
-      embed.setAuthor("Aᴅᴅᴇᴅ Sᴏɴɢ Tᴏ Qᴜᴇᴜᴇ.", client.user.displayAvatarURL());
+      embed.setAuthor("Aᴅᴅᴇᴅ Tᴏ Qᴜᴇᴜᴇ.", client.user.displayAvatarURL());
       embed.setDescription(`**[${song.title}](${song.url})**`);
       embed
         .setThumbnail(song.thumbnail)
         .setFooter(
-         `Requested By: ${message.author.tag}
+          "Likes - " +
+            songData.videoDetails.likes +
+            ", Dislikes - " +
+            songData.videoDetails.dislikes
         );
 
       return serverQueue.textChannel.send(embed).catch(console.error);
