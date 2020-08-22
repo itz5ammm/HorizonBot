@@ -18,6 +18,7 @@ module.exports = {
 
     user.setNickname(name);
 
+    let embed = new MessageEmbed()
     message.channel.send(`${user.user.tag}'s name have changed to ${name}`);
   }
 };
