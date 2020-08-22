@@ -25,7 +25,7 @@ module.exports = {
     let logembed = new discord.MessageEmbed()
       .setColor("00FFFF")
       .setTitle(`Usᴇʀ Wᴀʀɴᴇᴅ | ${user.user.tag}`)
-      .addField("Sᴛᴀғғ", `${message.author}`)
+      .addField("Sᴛᴀғғ", `${message.author.tag}`)
       .addField("Rᴇᴀsᴏɴ", `${reason}`);
 
     try {

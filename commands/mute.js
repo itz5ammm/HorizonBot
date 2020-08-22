@@ -1,63 +1,53 @@
-const { MessageEmbed } = require("discord.js");
+const discord = require("discord.js");
 
 module.exports = {
   name: "mute",
-  description: "Mute anyone who break rules",
   category: "Moderation",
-  usage: "mute <@mention> <reason>",
+  aliases: ["muteuser"],
+  description: "Mᴜᴛᴇ A Usᴇʀ.",
+  usage: "<user> (reason)",
   execute: async (client, message, args) => {
-    if (!message.member.hasPermission("MANAGE_ROLES")) {
+    if (!message.member.hasPermission("MANAGE_ROLES"))
       return message.channel.send(
-        "Sorry but you do not have permission to mute anyone"
+        "Yᴏᴜ Nᴇᴇᴅ Mᴀɴᴀɢᴇ Rᴏʟᴇ Pᴇʀᴍɪssɪᴏɴ Tᴏ Usᴇ Tʜɪs."
       );
-    }
 
-    if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send("I do not have permission to manage roles.");
-    }
-
-    const user = message.mentions.members.first();
-
-    if (!user) {
+    let logchannel = message.guild.channels.cache.find(
+      ch => ch.name === "horizon-modlogs"
+    );
+    if (!logchannel)
       return message.channel.send(
-        "Please mention the member to who you want to mute"
+        "Cᴀɴ'ᴛ Fɪɴᴅ Tʜᴇ Lᴏɢ Cʜᴀɴɴᴇʟ Mᴀᴋᴇ Sᴜʀᴇ Tʜᴇʀᴇ ɪs A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ `horizon-modlogs`."
       );
-    }
 
-    if (user.id === message.author.id) {
-      return message.channel.send("I won't mute you -_-");
-    }
+    let role = message.guild.roles.cache.find(rl => rl.name === "Muted");
+    if (!role) return message.channel.send("Cᴀɴ'ᴛ Fɪɴᴅ Tʜᴇ Mᴜᴛᴇᴅ Rᴏʟᴇ.");
+    let user = message.mentions.members.first();
+    if (!user) return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ.");
 
     let reason = args.slice(1).join(" ");
+    if (!reason) reason = "Nᴏ Rᴇᴀsᴏɴ Pʀᴏᴠɪᴅᴇᴅ";
 
-    if (!reason) {
-      return message.channel.send("Please Give the reason to mute the member");
-    }
-
-    //TIME TO LET MUTED ROLE
-
-    let muterole = message.guild.roles.cache.find(x => x.name === "Muted");
-
-    if (!muterole) {
+    if (user.hasPermission("MANAGE_ROLES"))
       return message.channel.send(
-        "This server do not have role with name `Muted`"
+        "Yᴏᴜ Cᴀɴᴛ Mᴜᴛᴇ Sᴏᴍᴇᴏɴᴇ Wɪᴛʜ Sᴀᴍᴇ Oʀ Hɪɢʜᴇʀ Pᴇʀᴍs."
       );
+    let logembed = new discord.MessageEmbed()
+      .setColor("00FFFF")
+      .setTitle(`Usᴇʀ Mᴜᴛᴇᴅ | ${user.user.tag}`)
+      .addField("Sᴛᴀғғ", `${message.author}`)
+      .addField("Rᴇᴀsᴏɴ", `${reason}`);
+
+    try {
+      user.send(
+        `Yᴏᴜ Hᴀᴠᴇ Bᴇᴇɴ Mᴜᴛᴇᴅ Iɴ ${message.guild.name} Bʏ ${message.author.tag} Fᴏʀ ${reason}`
+      );
+    } catch (err) {
+      console.log(err);
     }
 
-    if (user.roles.cache.has(muterole)) {
-      return message.channel.send("Given User is already muted");
-    }
-
-    user.roles.add(muterole);
-
-    await message.channel.send(
-      `You muted **${
-        message.mentions.users.first().username
-      }** For \`${reason}\``
-    );
-
-    user.send(`You are muted in **${message.guild.name}** For \`${reason}\``);
-
-    //WE ARE DONE HERE
+    await user.roles.add(role);
+    logchannel.send(logembed);
+    message.channel.send(`${user} Is Mᴜᴛᴇᴅ.`);
   }
 };
