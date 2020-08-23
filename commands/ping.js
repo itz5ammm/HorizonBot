@@ -1,17 +1,13 @@
-const { MessageEmbed, Client } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "ping",
   description: "Pɪɴɢɪɴɢ Tʜᴇ Bᴏᴛ",
-  execute(bot, client, message) {
-    let diff = (Date.now() - start);
-    let API = Math.round(bot.ping.toFixed());
+  execute(client, message) {
     let embed = new MessageEmbed()
       .setTitle("Pᴏɴɢ!")
       .setColor("00FFFF")
-      .addField("Lᴀᴛᴇɴᴄʏ", `${diff}ms`, true)
-      .addfield("API", `${API}ms`, true)
-      .setFooter("Requested By:", `
+      .setDescription(`Lᴀᴛᴇɴᴄʏ: ${client.ws.ping}ms!`);
     return message.channel.send(embed);
   }
 };
