@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-const { Embed } = require("discord.js")
+const { Embed } = require("discord.js");
 
 module.exports = {
   name: "warn",
@@ -36,9 +36,8 @@ module.exports = {
       );
     } catch (err) {
       console.log(err);
-    
-    let embed = new MessageEmbed()
-    .setDescription(`${user} Hᴀs Bᴇᴇɴ Sᴜᴄᴄᴇssғᴜʟʟʏ Wᴀʀɴᴇᴅ.`);
+    }
+    message.channel.send(`${user} Hᴀs Bᴇᴇɴ Sᴜᴄᴄᴇssғᴜʟʟʏ Wᴀʀɴᴇᴅ.`);
     logchannel.send(logembed);
   }
 };
