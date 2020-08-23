@@ -30,7 +30,7 @@ module.exports = {
 
     if (user.hasPermission("MANAGE_ROLES"))
       return message.channel.send(
-        "Yᴏᴜ Cᴀɴᴛ Mᴜᴛᴇ Sᴏᴍᴇᴏɴᴇ Wɪᴛʜ Sᴀᴍᴇ Oʀ Hɪɢʜᴇʀ Pᴇʀᴍs."
+        "Yᴏᴜ Cᴀɴ'ᴛ Mᴜᴛᴇ Sᴏᴍᴇᴏɴᴇ Wɪᴛʜ Sᴀᴍᴇ Oʀ Hɪɢʜᴇʀ Pᴇʀᴍs."
       );
     let logembed = new discord.MessageEmbed()
       .setColor("00FFFF")
