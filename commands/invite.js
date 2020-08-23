@@ -9,7 +9,7 @@ module.exports = {
       .setTitle("Aᴅᴅ Tʜᴇ Bᴏᴛ Tᴏ Yᴏᴜʀ Sᴇʀᴠᴇʀ!")
       .setColor("RED")
       .setDescription(
-        `[CLICK ME](https://discord.com/api/oauth2/authorize?client_id=742375154654380082&permissions=8&scope=bot)`,
+        `[Invite Here](https://discord.com/api/oauth2/authorize?client_id=742375154654380082&permissions=8&scope=bot)`,
         true
       );
 
