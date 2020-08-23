@@ -32,7 +32,7 @@ module.exports = {
 
     let time4 = "12s";
     setTimeout(function() {
-      msg.edit(`Password found, password is \`\`\`\**************\`\`\`.`);
+      msg.edit(`Password found, password is \`\`\**************\`\`\.`);
     }, ms(time4));
 
     let time5 = "15s";

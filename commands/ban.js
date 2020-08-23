@@ -13,7 +13,10 @@ module.exports = {
     let logchannel = message.guild.channels.cache.find(
       ch => ch.name === "horizon-modlogs"
     );
-    if (!logchannel) return message.channel.send("Cᴀɴ'ᴛ Fɪɴᴅ Tʜᴇ Lᴏɢ Cʜᴀɴɴᴇʟ.");
+    if (!logchannel)
+      return message.channel.send(
+        "Cᴀɴ'ᴛ Fɪɴᴅ Tʜᴇ Lᴏɢ Cʜᴀɴɴᴇʟ.||Mᴀᴋᴇ Sᴜʀᴇ Yᴏᴜ Hᴀᴠᴇ A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ horizon-modlogs||"
+      );
 
     let user = message.mentions.members.first();
     if (!user) return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ.");
@@ -31,7 +34,7 @@ module.exports = {
 
     try {
       user.send(
-        `You have been banned in ${message.guild.name} by ${message.author} for ${reason}`
+        `Bᴀɴɴᴇᴅ Fʀᴏᴍ ${message.guild.name} Bʏ ${message.author.tag} Fᴏʀ ${reason}`
       );
     } catch (err) {
       console.log(err);
@@ -39,6 +42,6 @@ module.exports = {
 
     await user.ban();
     logchannel.send(logembed);
-    message.channel.send(`${user} has been successfully banned`);
+    message.channel.send(`${user} Wᴀs Bᴀɴɴᴇᴅ.`);
   }
 };
