@@ -39,11 +39,6 @@ module.exports = {
       .setThumbnail(user.displayAvatarURL())
       .addField(`${user.tag}`, `${user}`, true)
       .addField("Iᴅ:", `${user.id}`, true)
-      .addField(
-        "Nɪᴄᴋɴᴀᴍᴇ:",
-        `${user.nickname === null ? `${user.nickname}` : "None"}`,
-        true
-      )
       .addField("Sᴛᴀᴛᴜs:", `${member.user.presence.status}`, true)
       .addField("Iɴ Sᴇʀᴠᴇʀ", message.guild.name, true)
       .addField(
