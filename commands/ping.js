@@ -5,10 +5,11 @@ module.exports = {
   category: "Utility",
   execute(client, message, args) {
   
-    let embed = new MessageEmbed()
+let embed = new MessageEmbed()
     .setColor("00FFFF")
-    .setDescription("Pᴏɴɢ! ${client.ws.ping}ms.")
+    .setDescription(`🎶 Pᴏɴɢ! ${client.ws.ping}ms.`)
+    .setFooter(`Requested By: ${message.author.tag}`)
     
-    return message.channel.send(embed);
+return message.channel.send(embed);
   }
 };
