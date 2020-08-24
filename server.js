@@ -82,7 +82,7 @@ client.on("message", message => {
     } catch (err) {
       //IF IT CATCH ERROR
       console.log(err);
-      message.reply("I'm getting error on using this command!");
+      message.reply("Gᴇᴛᴛɪɴɢ Eʀʀᴏʀ `${error}`");
     }
   }
 });
@@ -96,13 +96,3 @@ app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 app.listen(3000);
-
-  /
-  
-     let blacklist = await db.fetch(`blacklist_${message.author.id}`)
-   
-    if (message.author.bot) return;
-    if (!message.guild) return;
-    if (!message.content.startsWith(prefix)) return;
-      
-    if (blacklist === "Blacklisted") return message.reply("You are blacklisted from the bot!")
