@@ -27,7 +27,8 @@
     "node-fetch": "^2.6.0",
     "weather-js": "^2.0.0",
     "request-promise-native": "^1.0.9",
-    "imdb-api": "^4.2.0"
+    "imdb-api": "^4.2.0",
+    "anime-scraper": "^3.1.1"
   },
   "engines": {
     "node": "12.x"
