@@ -97,8 +97,12 @@ app.get("/", (req, res) => {
 });
 app.listen(3000);
 
-  // if (!command) command = client.commands.get(client.aliases.get(cmd));
-
-    // If a command is finally found, run the command
-   // if (command) 
-       // command.run(client, message, args);
+  /
+  
+     let blacklist = await db.fetch(`blacklist_${message.author.id}`)
+   
+    if (message.author.bot) return;
+    if (!message.guild) return;
+    if (!message.content.startsWith(prefix)) return;
+      
+    if (blacklist === "Blacklisted") return message.reply("You are blacklisted from the bot!")
