@@ -8,7 +8,7 @@ module.exports = {
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_ROLES")) {
       return message.channel.send(
-        "Sorry but you do not have permission to mute anyone"
+        "`Missing Perms, Make Sure You Have The MANAGE_ROLES Perm."
       );
     }
 
