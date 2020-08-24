@@ -8,7 +8,7 @@ module.exports = {
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send(
-        "You Must Have Admin Perms To Use This Command"
+        "Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs."
       );
     }
 
@@ -16,7 +16,7 @@ module.exports = {
 
     if (!user) {
       return message.channel.send(
-        "Please mention the person whose warning you want to reset"
+        "Please mention the"
       );
     }
 
