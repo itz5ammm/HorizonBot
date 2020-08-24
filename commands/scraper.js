@@ -53,8 +53,9 @@ module.exports = {
             episode.videoLinks[5].name,
             `[LINK 6](${episode.videoLinks[5].url})`,
             true
-          );
-
+          )
+          .setFooter(`Requested By: ${message.author.tag}`)
+          .setTimestamp();
         message.channel.send(embed);
 
         msg.delete();
