@@ -19,7 +19,7 @@ const flags = {
 };
 
 module.exports = {
-  name: "info",
+  name: "userinfo",
   category: "Moderation",
   aliases: ["whois"],
   description: "Cʜᴇᴄᴋ Iɴғᴏ Aʙᴏᴜᴛ Yᴏᴜʀsᴇʟғ Oʀ Oᴛʜᴇʀ Mᴇᴍʙᴇʀ.",
