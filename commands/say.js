@@ -1,16 +1,11 @@
 module.exports = {
-name: "say",
-category: "Fun",
-description: "Say The Message Through The Bot",
-usage: "say <text>",
-execute: async (bot, message, args) => {
-    
-    if(message.author.id === "448410421339095041") return
-    if(message.author.id === "485494651835383828") return
-    
+  name: "say",
+  category: "Fun",
+  description: "Say The Message Through The Bot",
+  usage: "say <text>",
+  execute: async (bot, message, args) => {
     const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{}); 
+    message.delete().catch(O_o => {});
     message.channel.send(sayMessage);
-
-}
-}
+  }
+};
