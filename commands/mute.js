@@ -13,7 +13,7 @@ module.exports = {
     }
 
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send("I do not have permission to manage roles.");
+      return message.send("Make Sure I Have Enough Perms To Manage Roles.");
     }
 
     const user = message.mentions.members.first();
