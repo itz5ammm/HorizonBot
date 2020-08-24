@@ -5,6 +5,7 @@ dependencies:
   express: 4.17.1
   fs: 0.0.2
   genius-lyrics: 3.0.0
+  give-me-a-joke: 0.3.2
   got: 11.5.2
   imdb-api: 4.2.0
   mathjs: 7.1.0
@@ -861,6 +862,14 @@ packages:
     dev: false
     resolution:
       integrity: sha1-l/tdlr/eiXMxPyDoKI75oWf6ZM4=
+  /give-me-a-joke/0.3.2:
+    dependencies:
+      body-parser: 1.19.0
+      express: 4.17.1
+      request: 2.88.2
+    dev: false
+    resolution:
+      integrity: sha512-crqm+UGdXSsZPiYJz1SpkHIl/LPd95UCCkku6UcJzeu73MCGZ1ND+tmv/hfRadHQpi8cupg5hI+LrKH6XD0QCQ==
   /glob/7.1.6:
     dependencies:
       fs.realpath: 1.0.0
@@ -2225,6 +2234,7 @@ specifiers:
   express: ^4.17.1
   fs: ^0.0.2
   genius-lyrics: ^3.0.0
+  give-me-a-joke: ^0.3.2
   got: ^11.5.1
   imdb-api: ^4.2.0
   mathjs: ^7.1.0

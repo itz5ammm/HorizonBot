@@ -28,7 +28,8 @@
     "weather-js": "^2.0.0",
     "request-promise-native": "^1.0.9",
     "imdb-api": "^4.2.0",
-    "anime-scraper": "^3.1.1"
+    "anime-scraper": "^3.1.1",
+    "give-me-a-joke": "^0.3.2"
   },
   "engines": {
     "node": "12.x"
