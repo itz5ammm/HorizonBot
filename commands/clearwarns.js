@@ -7,25 +7,23 @@ module.exports = {
   description: "Rᴇsᴇᴛ Wᴀʀɴs Oғ Tʜᴇ Mᴇɴᴛɪᴏɴᴇᴅ Usᴇʀ.",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
-      return message.channel.send(
-        "Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs."
-      );
+      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.");
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send(
-        "Please mention the"
-      );
+      return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ.");
     }
 
     if (message.mentions.users.first().bot) {
-      return message.channel.send("Bot are not allowed to have warnings");
+      return message.channel.send("Bᴏᴛs Dᴏɴᴛ Hᴀᴠᴇ ᴀʀɴs.");
     }
 
     if (message.author.id === user.id) {
-      return message.channel.send("You are not allowed to reset your warnings");
+      return message.channel.send(
+        "Yᴏᴜ'ʀᴇ Nᴏᴛ Aʟʟᴏᴡᴇᴅ Tᴏ Cʟᴇᴀʀ Yᴏᴜʀ Oᴡɴ Wᴀʀɴɪɴɢs."
+      );
     }
 
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
@@ -35,13 +33,8 @@ module.exports = {
         `${message.mentions.users.first().username} do not have any warnings`
       );
     }
-
-    db.delete(`warnings_${message.guild.id}_${user.id}`);
-    user.send(
-      `Your all warnings are reseted by ${message.author.username} from ${message.guild.name}`
-    );
     await message.channel.send(
-      `Reseted all warnings of ${message.mentions.users.first().username}`
+      `Cʟᴇᴀʀᴇᴅ ${warnings} Fᴏʀ ${message.mentions.users.first().username.tag}`
     );
   }
 };

@@ -97,5 +97,9 @@ app.get("/", (req, res) => {
 });
 app.listen(3000);
 
-//______________________________________________________________________________________________________________________________
-// Get the comma
+  // if (!command) command = client.commands.get(client.aliases.get(cmd));
+
+    // If a command is finally found, run the command
+   // if (command) 
+       // command.run(client, message, args);
+  
