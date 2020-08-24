@@ -102,4 +102,3 @@ app.listen(3000);
     // If a command is finally found, run the command
    // if (command) 
        // command.run(client, message, args);
-  
