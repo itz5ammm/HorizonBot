@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const db = require("quick.db");
-const { MessageEmbed } = require("discord.js");
+const { Embed } = require("discord.js");
 
 module.exports = {
   name: "setnick",
