@@ -5,6 +5,7 @@ dependencies:
   fs: 0.0.2
   genius-lyrics: 3.0.0
   got: 11.5.2
+  imdb-api: 4.2.0
   mathjs: 7.1.0
   moment: 2.27.0
   ms: 2.1.2
@@ -398,6 +399,12 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
+  /data-uri-to-buffer/3.0.1:
+    dev: false
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -650,6 +657,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
+  /fetch-blob/2.1.1:
+    dev: false
+    engines:
+      node: ^10.17.0 || >=12.3.0
+    peerDependencies:
+      domexception: ^2.0.1
+    resolution:
+      integrity: sha512-Uf+gxPCe1hTOFXwkxYyckn8iUSk6CFXGy5VENZKifovUTZC9eUODWSBhOBS7zICGrAetKzdwLMr85KhIcePMAQ==
   /file-uri-to-path/1.0.0:
     dev: false
     resolution:
@@ -901,6 +916,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-m7o6xuOaT1aqheYHKf8W6J5pYH85ZI9w077erOzLje3JsB1gkafkAhHHY19dqjulgIZHFm32Cp5uNZgcQqdJKw==
+  /imdb-api/4.2.0:
+    dependencies:
+      ky: 0.23.0
+      ky-universal: /ky-universal/0.8.1/ky@0.23.0
+    dev: false
+    engines:
+      node: '>=6.0'
+    resolution:
+      integrity: sha512-QoNF2E+8hAPR76pGwwy9dikSnDw4EDkA4lP3dzhkMSiQzx/lkczFZjQBbKcLRrtxdBCN6cSozLpCj7PnQp98pw==
   /inflight/1.0.6:
     dependencies:
       once: 1.4.0
@@ -1005,6 +1029,26 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xz6Jv6oNkbhrFCvCP7HQa8AaII8y8LRpoSm661NOKLr4uHuBwhX4epXrPQgF3+xdJnN4Esm5X0xwY4bOlALOtw==
+  /ky-universal/0.8.1/ky@0.23.0:
+    dependencies:
+      abort-controller: 3.0.0
+      ky: 0.23.0
+      node-fetch: 3.0.0-beta.7
+    dev: false
+    engines:
+      node: '>=10.17'
+    id: registry.npmjs.org/ky-universal/0.8.1
+    peerDependencies:
+      ky: '>=0.17.0'
+      web-streams-polyfill: '>=2.0.0'
+    resolution:
+      integrity: sha512-Rds/kzTaDKrvXYPG7xToOUOVJPVTV09VirJ7XDO7gKgy+NrYJjPaBjHI3IqtZL7R3t0DXEbdM5byT+HtNS49jw==
+  /ky/0.23.0:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-+t2CbQsLmpN3HeYPBxN+VbZqBOd86njF3cvnueC77pJKVHRjiMI0Ac+pfkB8e17Bw1dGHbMk9hrHst9Bw7ndgw==
   /lodash/4.17.15:
     dev: false
     resolution:
@@ -1222,6 +1266,15 @@ packages:
       node: 4.x || >=6.0.0
     resolution:
       integrity: sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+  /node-fetch/3.0.0-beta.7:
+    dependencies:
+      data-uri-to-buffer: 3.0.1
+      fetch-blob: 2.1.1
+    dev: false
+    engines:
+      node: '>=10.17'
+    resolution:
+      integrity: sha512-UTmmxR2RCLiGL0q61p8DgMgw1UXd10+XVB77IHG55flJ/tHqQQXloNTm5dd/mB3RNXP3+CJPf++t0nb3whKNkw==
   /noop-logger/0.1.1:
     dev: false
     resolution:
@@ -1981,6 +2034,7 @@ specifiers:
   fs: ^0.0.2
   genius-lyrics: ^3.0.0
   got: ^11.5.1
+  imdb-api: ^4.2.0
   mathjs: ^7.1.0
   moment: ^2.27.0
   ms: ^2.1.2

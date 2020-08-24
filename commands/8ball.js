@@ -7,7 +7,7 @@ module.exports = {
   description: "Asᴋ Mᴇ A Qᴜᴇsᴛɪᴏɴ I'ʟʟ Aɴsᴡᴇʀ Iᴛ.",
   usage: "<question>",
   execute: async (client, message, args) => {
-    let replies = ["Yes", "No", "Maybe", "Ask Someone Else", "I Don't know"];
+    let replies = ["Yes", "No", "Maybe", "Ask Someone Else", "I Don't Know"];
 
     let question = args.slice(0).join(" ");
     const embed1 = new discord.MessageEmbed()
