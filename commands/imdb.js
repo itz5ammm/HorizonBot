@@ -4,7 +4,7 @@ const imdb = require("imdb-api");
 module.exports = {
   name: "imdb",
   description: "Get the information about series and movie",
-  category: "info",
+  category: "Fun",
   usage: "imdb <name>",
   execute: async (client, message, args, color) => {
     if (!args.length) {
@@ -23,8 +23,9 @@ module.exports = {
       .setFooter(`Rᴀᴛɪɴɢ: ${movie.rating}`)
       .addField("Cᴏᴜɴᴛʀʏ", movie.country, true)
       .addField("Lᴀɴɢᴜᴀɢᴇs", movie.languages, true)
-      .addField("Tʏᴘᴇ", movie.type, true);
-
+      .addField("Tʏᴘᴇ", movie.type, true)
+      .setFooter(`Requested By: ${message.author.tag}`)
+      .setTimestamp();
     message.channel.send(embed);
   }
 };
