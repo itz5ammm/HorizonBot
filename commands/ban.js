@@ -22,13 +22,12 @@ module.exports = {
    
     let logembed = new discord.MessageEmbed()
       .setColor("00FFFF")
-      .setTitle(`Usᴇʀ Bᴀɴɴᴇᴅ | ${user.user.tag}`)
-      .addField("Sᴛᴀғғ", `${message.author}`)
-      .addField("Rᴇᴀsᴏɴ", `${reason}`);
-
-    try {
-      user.send(
-        `Bᴀɴɴᴇᴅ Fʀᴏᴍ ${message.guild.name} Bʏ ${message.author.tag} Fᴏʀ ${reason}`
+      .setDescription(`${user.user.tag} ***Was Banned***`)
+ 
+    
+    try {  
+    user.send(
+        `Banned From ${message.guild.name} Bʏ ${message.author.tag}${reason}`
       );
     } catch (err) {
       console.log(err);
