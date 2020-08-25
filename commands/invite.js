@@ -3,7 +3,7 @@ const { inviteURL } = require("../config.json");
 module.exports = {
   name: "invite",
   description: "Iɴᴠɪᴛᴇ Tʜᴇ Bᴏᴛ Tᴏ Yᴏᴜʀ Sᴇʀᴠᴇʀ.",
-  category: "Utility",
+  category: "Info",
   execute(client, message, args) {
     let embed = new MessageEmbed()
       .setTitle("Aᴅᴅ Tʜᴇ Bᴏᴛ Tᴏ Yᴏᴜʀ Sᴇʀᴠᴇʀ!")

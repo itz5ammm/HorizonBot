@@ -4,7 +4,7 @@ const Anime = require("anime-scraper").Anime;
 module.exports = {
   name: "scrap",
   description: "Scrap any anime direct link from gogoanime",
-  category: "Fun",
+  category: "Utility",
   usage: "scrap <anime_name> | <episode_no>",
   execute: async (client, message, args) => {
     const cmd = args.join(" ").split(" | ");

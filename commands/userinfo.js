@@ -20,7 +20,7 @@ const flags = {
 
 module.exports = {
   name: "userinfo",
-  category: "Moderation",
+  category: "Info",
   aliases: ["whois"],
   description: "Cʜᴇᴄᴋ Iɴғᴏ Aʙᴏᴜᴛ Yᴏᴜʀsᴇʟғ Oʀ Oᴛʜᴇʀ Mᴇᴍʙᴇʀ.",
   usage: "(member)",

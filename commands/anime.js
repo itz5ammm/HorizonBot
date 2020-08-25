@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "anime",
-  category: "Fun",
+  category: "Info",
   aliases: ["kitsu"],
   description: "Get anime information",
   usage: "anime <anime_name>",

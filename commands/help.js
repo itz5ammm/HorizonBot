@@ -5,7 +5,7 @@ module.exports = {
   name: "help",
   description: "Aʟʟ Tʜᴇ Cᴏᴍᴍᴀᴍᴅs Aʀᴇ Dɪsᴘʟᴀʏᴇᴅ Hᴇʀᴇ.",
   aliases: ["h"],
-  category: "Utility",
+  category: "Info",
   execute(client, message, args) {
     let info = [];
     let music = [];
@@ -40,7 +40,8 @@ module.exports = {
       }
     } else {
       client.commands
-        .filter(cmd => cmd.category === "
+        .filter(cmd => cmd.category === "Info")
+        .forEach(cmd => info.push(cmd.name));
       client.commands
         .filter(cmd => cmd.category === "Music")
         .forEach(cmd => music.push(cmd.name));
@@ -53,29 +54,34 @@ module.exports = {
       client.commands
         .filter(cmd => cmd.category === "Moderation")
         .forEach(cmd => moderation.push(cmd.name));
-      
+
       let embed = new MessageEmbed()
         .setAuthor("❝Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ❞", client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL())
         .setColor(COLOR)
         .setDescription(`♪ Cᴏᴍᴍᴀɴᴅ Lɪsᴛ Oғ ${client.user.username}.`)
         .addField(
-          `➜ Mᴜsɪᴄ Cᴏᴍᴍᴀɴᴅs`,
+          `➳ Iɴғᴏ`,
+          "``" + prefix + info.join("``, " + "``" + prefix) + "``",
+          true
+        )
+        .addField(
+          `➸ Mᴜsɪᴄ`,
           "``" + prefix + music.join("``, " + "``" + prefix) + "``",
           true
         )
         .addField(
-          `➜ Uᴛɪʟɪᴛʏ Cᴏᴍᴍᴀɴᴅs`,
+          `➸ Uᴛɪʟɪᴛʏ`,
           "``" + prefix + utility.join("``, " + "``" + prefix) + "``",
           true
         )
         .addField(
-          `➜ Fᴜɴ Cᴏᴍᴍᴀɴᴅs`,
+          `➸ Fᴜɴ`,
           "``" + prefix + fun.join("``, " + "``" + prefix) + "``",
           true
         )
         .addField(
-          `➜ Mᴏᴅᴇʀᴀᴛɪᴏɴ Cᴏᴍᴍᴀɴᴅs`,
+          `➸ Mᴏᴅᴇʀᴀᴛɪᴏɴ`,
           "``" + prefix + moderation.join("``," + "``" + prefix) + "``",
           true
         );

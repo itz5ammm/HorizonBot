@@ -3,7 +3,7 @@ const got = require("got");
 
 module.exports = {
   name: "food",
-  category: "Fun",
+  category: "Info",
   aliases: ["foodporn"],
   description: "Sends a random yummy food picture",
   usage: "food",

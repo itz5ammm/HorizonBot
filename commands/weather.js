@@ -2,7 +2,7 @@ const discord = require("discord.js");
 const weather = require("weather-js"); //npm i weather-js
 module.exports = {
   name: "weather",
-  category: "Utility",
+  category: "Info",
   aliases: [""],
   description: "Gᴇᴛ Tʜᴇ Wᴇᴀᴛʜᴇʀ Oғ A Cᴇʀᴛᴀɪɴ Pʟᴀᴄᴇ.",
   execute: async (client, message, args) => {

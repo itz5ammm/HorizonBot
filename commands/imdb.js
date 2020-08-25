@@ -4,7 +4,7 @@ const imdb = require("imdb-api");
 module.exports = {
   name: "imdb",
   description: "Get the information about series and movie",
-  category: "Fun",
+  category: "Info",
   usage: "imdb <name>",
   execute: async (client, message, args, color) => {
     if (!args.length) {
