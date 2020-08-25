@@ -3,6 +3,7 @@ const { COLOR } = require("../config.json");
 module.exports = {
   name: "rm",
   description: "Rᴇᴍᴏᴠᴇ Tʜᴇ Sᴏɴɢ Fʀᴏᴍ Qᴜᴇᴜᴇ.",
+  aliases: "remove",
   category: "Music",
   execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);

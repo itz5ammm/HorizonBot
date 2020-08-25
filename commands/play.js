@@ -11,6 +11,7 @@ const { play } = require("../system/music.js");
 module.exports = {
   name: "play",
   description: "Pʟᴀʏ Tʜᴇ Sᴏɴɢ Yᴏᴜ Lɪᴋᴇ.",
+  aliases: [ "p" ],
   category: "Music",
   async execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
