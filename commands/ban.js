@@ -27,6 +27,11 @@ module.exports = {
 
     const target = message.mentions.members.first();
 
+    if(!target) {
+      let embed =(`**${message.author.username}**, Please mention the person who you want to ban.`)
+    }
+    
+    
     if (target.id === message.author.id) {
       let embed = new MessageEmbed()
         .setColor("070707")
@@ -36,7 +41,7 @@ module.exports = {
 
     let embed = new discord.MessageEmbed()
       .setTitle("Action : Ban")
-      .setDescription(`***${target} was Banned***`)
+      .setDescription(`***${target} was Banned***.`)
       .setColor("#00FFFF")
       .setThumbnail(target.avatarURL)
       .setFooter(`Banned by ${message.author.tag}`);
