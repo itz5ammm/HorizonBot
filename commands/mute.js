@@ -34,7 +34,7 @@ module.exports = {
     if (user.id === message.author.id) {
       let embed = new MessageEmbed()
         .setColor("070707")
-        .setDescription("Yᴏᴜ Cᴀɴ'ᴛ Mᴜᴛᴇ Yᴏᴜʀsᴇʟғ.");
+        .setDescription("You Can't Mute Yourself.");
       message.channel.send(embed);
     }
 
@@ -47,7 +47,7 @@ module.exports = {
     if (!muterole) {
       let embed = new MessageEmbed()
         .setcolor("070707")
-        .setDescription("Tʜɪs Sᴇʀᴠᴇʀ Dᴏᴇs Nᴏᴛ Hᴀᴠᴇ A Rᴏʟᴇ Cᴀʟʟᴇᴅ `Muted`.");
+        .setDescription("This Server Does Not Have A `Muted` Role.");
       message.channel.send(embed);
     }
 
@@ -64,11 +64,11 @@ module.exports = {
       .setColor("070707")
       .setDescription(
         `***${user
-        } Wᴀs Mᴜᴛᴇᴅ*** | \`${reason}\``
+        } Was Muted*** | \`${reason}\``
       );
     message.channel.send(embed);
 
-    user.send(`You are muted in **${message.guild.name}** For \`${reason}\``);
+    user.send(`You Were Muted In **${message.guild.name}**: ${reason}.`);
 
     //WE ARE DONE HERE
   }
