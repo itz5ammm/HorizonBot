@@ -2,19 +2,26 @@ const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
 
 module.exports = {
-  name: "clearwarns",
+  name: "clearwarn",
   aliases: ["cwarns"],
-  usage: "cwarns <@user>",
+  usage: "clearwarn <@user>",
   description: "Rᴇsᴇᴛ Wᴀʀɴs Oғ Tʜᴇ Mᴇɴᴛɪᴏɴᴇᴅ Usᴇʀ.",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.");
+      message.channel.send(embed);
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ.");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("Mention The User");
+
+      message.channel.send(embed);
     }
 
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
@@ -22,17 +29,13 @@ module.exports = {
     if (warnings === null) {
       let embed = new MessageEmbed()
         .setColor("070707")
-        .setDescription(
-          `${message.mentions.users.first().username} do not have any warnings`
-        );
+        .setDescription(`${user.user.tag} Don't Have Any Warnings`);
       message.channel.send(embed);
     }
 
     let embed = new MessageEmbed()
       .setColor("070707")
-      .setDescription(
-        `Cʟᴇᴀʀᴇᴅ ${warnings} Fᴏʀ ${user}`
-      );
+      .setDescription(`Cleared ${warnings} For ${user.user.tag}`);
     message.channel.send(embed);
   }
 };
