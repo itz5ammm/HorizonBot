@@ -13,8 +13,11 @@ module.exports = {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o => {});
     let embed = new MessageEmbed()
+      .setTitle(`Aʙᴏᴜᴛ Bᴏᴛ.`)
       .setColor("RANDOM")
-      .setDescription(sayMessage);
+      .setDescription(sayMessage)
+      .setFooter(`Requested By: ${message.author.tag}`)
+      .setTimestamp();
     message.channel.send(embed);
   }
 };
