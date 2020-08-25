@@ -8,13 +8,21 @@ module.exports = {
   description: "Wᴀʀɴ Aɴʏᴏɴᴇ Iɴ Tʜᴇ Sᴇʀᴠᴇʀ.",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Wᴀʀɴ Sᴏᴍᴇᴏɴᴇ.");
+      return 
+      let embed = new MessageEmbed()
+      .setColor("00FFFF")
+      .setDescription("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Wᴀʀɴ Sᴏᴍᴇᴏɴᴇ.");
+      message.channel.send(embed)
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ Yᴏᴜ Wᴀɴᴛ Tᴏ Wᴀʀɴ.");
+      return;
+      let embed = new MessageEmbed()
+        .setDescription("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ Yᴏᴜ Wᴀɴᴛ Tᴏ Wᴀʀɴ.")
+        .setColor("00ffff");
+      message.channel.send(embed);
     }
 
     if (message.mentions.users.first().bot) {

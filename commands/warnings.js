@@ -1,5 +1,5 @@
 const db = require("quick.db");
-
+const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "warnings",
   description: "Get the warnings of yours or mentioned person",
@@ -11,6 +11,9 @@ module.exports = {
 
     if (warnings === null) warnings = 0;
 
-    message.channel.send(`${user} Hᴀs **${warnings}** Wᴀʀɴs.`);
+    let embed = new MessageEmbed()
+      .setColor("00FFFF")
+      .setDescription(`${user} Hᴀs **${warnings}** Wᴀʀɴs.`);
+    message.channel.send(embed);
   }
 };
