@@ -10,13 +10,6 @@ module.exports = {
     if (!message.member.hasPermission("BAN_MEMBERS"))
       return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Bᴀɴ.");
 
-    let logchannel = message.guild.channels.cache.find(
-      ch => ch.name === "horizon-modlogs"
-    );
-    if (!logchannel)
-      return message.channel.send(
-        "Cᴀɴ'ᴛ Fɪɴᴅ Tʜᴇ Lᴏɢ Cʜᴀɴɴᴇʟ.||Mᴀᴋᴇ Sᴜʀᴇ Yᴏᴜ Hᴀᴠᴇ A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ horizon-modlogs||"
-      );
 
     let user = message.mentions.members.first();
     if (!user) return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ.");
@@ -26,6 +19,7 @@ module.exports = {
 
     if (user.hasPermission("BAN_MEMBERS"))
       return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Bᴀɴ Mᴇᴍʙᴇʀs.");
+   
     let logembed = new discord.MessageEmbed()
       .setColor("00FFFF")
       .setTitle(`Usᴇʀ Bᴀɴɴᴇᴅ | ${user.user.tag}`)
