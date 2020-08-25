@@ -50,7 +50,7 @@ module.exports = {
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
-          `Wᴀʀɴᴇᴅ **${message.mentions.users.first().username}** | ${reason}`
+          `***Wᴀʀɴᴇᴅ ${message.mentions.users.first().username}*** | ${reason}`
         );
       message.channel.send(embed);
     } else if (warnings !== null) {
@@ -60,7 +60,9 @@ module.exports = {
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
-          `Wᴀʀɴᴇᴅ **${message.mentions.users.first().username}** | ${reason}`
+          `***${
+            message.mentions.users.first().username
+          } Wᴀs Wᴀʀɴᴇᴅ*** | ${reason}`
         );
       message.channel.send(embed);
     }

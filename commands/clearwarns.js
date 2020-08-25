@@ -7,7 +7,7 @@ module.exports = {
   usage: "cwarns <@user>",
   description: "Rᴇsᴇᴛ Wᴀʀɴs Oғ Tʜᴇ Mᴇɴᴛɪᴏɴᴇᴅ Usᴇʀ.",
   execute: async (client, message, args) => {
-    if (!message.member.hasPermission("ADMINISTRATOR")) {
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
       return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.");
     }
 
@@ -30,10 +30,14 @@ module.exports = {
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
 
     if (warnings === null) {
-      let embed(
-        `${message.mentions.users.first().username} do not have any warnings`
-      );
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription(
+          `${message.mentions.users.first().username} do not have any warnings`
+        );
+      message.channel.send(embed);
     }
+
     let embed = new MessageEmbed()
       .setColor("070707")
       .setDescription(
