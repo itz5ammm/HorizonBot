@@ -1,41 +1,43 @@
-const { MessageEmbed } = require("discord.js")
-
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "suggest",
   usage: "suggest <message>",
   description: "Send your Suggestion",
-  category: "main",
-  run: (client, message, args) => {
-    
-    if(!args.length) {
-      return message.channel.send("Please Give the Suggestion")
+  category: "Utility",
+  execute: (client, message, args) => {
+    if (!args.length) {
+      return message.channel.send("Gɪᴠᴇ A Sᴜɢɢᴇsᴛɪᴏɴ.");
     }
-    
-    let channel = message.guild.channels.cache.find((x) => (x.name === "suggestion" || x.name === "suggestions" || x.name === "ug))
-    
-    
-    if(!channel) {
-      return message.channel.send("there is no channel with name - suggestions")
-    }
-                                                    
-    
-    let embed = new MessageEmbed()
-    .setAuthor("SUGGESTION: " + message.author.tag, message.author.avatarURL())
-    .setThumbnail(message.author.avatarURL())
-    .setColor("#ff2050")
-    .setDescription(args.join(" "))
-    .setTimestamp()
-    
-    
-    channel.send(embed).then(m => {
-      m.react("✅")
-      m.react("❌")
-    })
-    
 
-    
-    message.channel.send("Sended Your Suggestion to " + channel)
-    
+    let channel = message.guild.channels.cache.find(
+      x =>
+        x.name === "suggestion" ||
+        x.name === "suggestions" ||
+        x.name === "suggest"
+    );
+
+    if (!channel) {
+      return message.channel.send(
+        "Mᴀᴋᴇ Sᴜʀᴇ Yᴏᴜ Hᴀᴠᴇ A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ `suggestion`"
+      );
+    }
+
+    let embed = new MessageEmbed()
+      .setAuthor(
+        "Sᴜɢɢᴇsᴛɪᴏɴ: " + message.author.tag,
+        message.author.avatarURL()
+      )
+      .setThumbnail(message.author.avatarURL())
+      .setColor("#070707")
+      .setDescription(args.join(" "))
+      .setTimestamp();
+
+    channel.send(embed).then(m => {
+      m.react("✅");
+      m.react("❌");
+    });
+
+    message.channel.send("Sᴇɴᴛ Yᴏᴜʀ Sᴜɢɢᴇsᴛɪᴏɴ Tᴏ" + channel)
   }
-}
+};
