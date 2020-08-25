@@ -7,8 +7,10 @@ module.exports = {
   usage: "mute <@mention> <reason>",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send(
-        "`Missing Perms, Make Sure You Have The MANAGE_ROLES Perm."
+      
+      let embed = new MessageEmbed()
+       .setDescription(
+        "Missing Perms, Make Sure You Have The `MANAGE ROLES` Perm."
       );
     }
 
