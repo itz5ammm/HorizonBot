@@ -28,15 +28,11 @@ module.exports = {
     if (user.id === message.guild.owner.id) {
       return message.channel.send("Yᴏᴜ Cᴀɴ'ᴛ Wᴀʀɴ Tʜᴇ Oᴡɴᴇʀ");
     }
-
-    const reason = args.slice(1).join(" ");
-
-    if (!reason) {
-      return message.channel.send("Pʟᴇᴀsᴇ Pʀᴏᴠɪᴅᴇ Rᴇᴀsᴏɴ.");
-    }
-
-   
     
+    const reason = args.slice(1).join(" ")
+
+    let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
+
     if (warnings === null) {
       db.set(`warnings_${message.guild.id}_${user.id}`, 1);
       user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ ${reason}`);
@@ -54,9 +50,9 @@ module.exports = {
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
-          `<a:verifwhite:737764673046315191>***${
-          message.mentions.users.first().username
-          } Wᴀs Wᴀʀɴᴇᴅ*** | ${reason}`
+          `***${
+            message.mentions.users.first().username
+          } was warned.*** | ${reason}`
         );
       message.channel.send(embed);
     }
