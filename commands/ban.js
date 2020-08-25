@@ -1,4 +1,5 @@
 const discord = require("discord.js");
+const { MessageEmbed } = require("discord.js")
 
 module.exports = {
   name: "ban",
@@ -23,17 +24,16 @@ module.exports = {
     let logembed = new discord.MessageEmbed()
       .setColor("00FFFF")
       .setDescription(`${user.user.tag} ***Was Banned***`)
- 
-    
-    try {  
+    message.channel.send(embed);
+  {  
     user.send(
-        `Banned From ${message.guild.name} Bʏ ${message.author.tag}${reason}`
+        `Banned From ${message.guild.name}: ${reason}`
       );
     } catch (err) {
       console.log(err);
     }
 
     await user.ban();
-    message.channel.send(`${user} Wᴀs Bᴀɴɴᴇᴅ.`);
+    message.channel.send(`${user} Was Banned.`);
   }
 };
