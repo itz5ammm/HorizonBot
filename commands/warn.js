@@ -5,58 +5,44 @@ module.exports = {
   name: "warn",
   category: "moderation",
   usage: "warn <@mention> <reason>",
-  description: "Wᴀʀɴ Aɴʏᴏɴᴇ Iɴ Tʜᴇ Sᴇʀᴠᴇʀ.",
+  description: "Warn The Rule Breakers",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Wᴀʀɴ Sᴏᴍᴇᴏɴᴇ.");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescriptipn("You Need The Manage Messages Perm.");
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ Yᴏᴜ Wᴀɴᴛ Tᴏ Wᴀʀɴ.");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("Mention The User.");
+
+      message.channel.send(embed);
     }
 
-    if (message.mentions.users.first().bot) {
-      return message.channel.send("Yᴏᴜ Cᴀɴ'ᴛ Wᴀʀɴ A Bᴏᴛ.");
-    }
-
-    if (message.author.id === user.id) {
-      return message.channel.send("Yᴏᴜ Cᴀɴ'ᴛ Wᴀʀɴ Yᴏᴜʀsᴇʟғ.");
-    }
-
-    if (user.id === message.guild.owner.id) {
-      return message.channel.send("Yᴏᴜ Cᴀɴ'ᴛ Wᴀʀɴ Tʜᴇ Oᴡɴᴇʀ");
-    }
-
-    const reason = args
-      .slice(1)
-      .join(" ")
-      .split(" | ");
+    const reason = args.slice(1).join(" ");
 
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
 
     if (warnings === null) {
       db.set(`warnings_${message.guild.id}_${user.id}`, 1);
-      user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ: ${reason}`);
-
+      user.send(`Warned In **${message.guild.name}:** ${reason}`);
       let embed = new MessageEmbed()
         .setColor("070707")
-        .setDescription(
-          `***Wᴀʀɴᴇᴅ ${message.mentions.users.first().username}***  ${reason}`
-        );
+        .setDescription(`***${user.user.tag} was Warned.***  | ${reason}`);
       message.channel.send(embed);
     } else if (warnings !== null) {
       db.add(`warnings_${message.guild.id}_${user.id}`, 1);
-      user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ:  ${reason}`);
+      user.send(
+        `You have been warned in **${message.guild.name}** | ${reason}`
+      );
 
       let embed = new MessageEmbed()
         .setColor("070707")
-        .setDescription(
-          `***${
-            message.mentions.users.first().username
-          } was warned.*** ${reason}`
-        );
+        .setDescription(`***${user.user.tag}was Warned.***  | ${reason}`);
       message.channel.send(embed);
     }
   }
