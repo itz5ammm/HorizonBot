@@ -7,11 +7,12 @@ module.exports = {
   usage: "mute <@mention> <reason>",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_ROLES")) {
-      
       let embed = new MessageEmbed()
-       .setDescription(
-        "Missing Perms, Make Sure You Have The `MANAGE ROLES` Perm."
-      );
+        .setColor("00ffff")
+        .setDescription(
+          "Missing Perms, Make Sure You Have The `MANAGE ROLES` Perm."
+        );
+      message.channel.send(embed);
     }
 
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {

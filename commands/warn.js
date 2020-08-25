@@ -38,7 +38,7 @@ module.exports = {
 
     if (warnings === null) {
       db.set(`warnings_${message.guild.id}_${user.id}`, 1);
-      user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ ${reason}`);
+      user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ: ${reason}`);
 
       let embed = new MessageEmbed()
         .setColor("070707")
@@ -48,7 +48,7 @@ module.exports = {
       message.channel.send(embed);
     } else if (warnings !== null) {
       db.add(`warnings_${message.guild.id}_${user.id}`, 1);
-      user.send(`Wᴀʀʀɴᴇᴅ Iɴ **${message.guild.name}**  ${reason}`);
+      user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ:  ${reason}`);
 
       let embed = new MessageEmbed()
         .setColor("070707")
