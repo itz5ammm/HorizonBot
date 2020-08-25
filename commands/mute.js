@@ -16,7 +16,10 @@ module.exports = {
     }
 
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      return message.send("Make Sure I Have Enough Perms To Manage Roles.");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("Make Sure I Have Perms To Manage Roles.");
+      message.channel.send(embed);
     }
 
     const user = message.mentions.members.first();
