@@ -45,11 +45,14 @@ module.exports = {
     let muterole = message.guild.roles.cache.find(x => x.name === "Muted");
 
     if (!muterole) {
-      return message.channel.send(
-        "This server do not have role with name `Muted`"
+      let embed = new MessageEmbed
+      .setcolor("070707")
+      .setDescription(
+        "Tʜɪs Sᴇʀᴠᴇʀ Dᴏᴇs Nᴏᴛ Hᴀᴠᴇ A Rᴏʟᴇ Cᴀʟʟᴇᴅ `Muted`."
       );
+     message.channel.send(embed)
     }
-
+    
     if (user.roles.cache.has(muterole)) {
       return message.channel.send("Given User is already muted");
     }
