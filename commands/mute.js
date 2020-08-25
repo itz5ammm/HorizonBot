@@ -25,20 +25,20 @@ module.exports = {
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send(
-        "Please mention the member to who you want to mute"
-      );
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("Please mention the member to who you want to mute");
+      message.channel.send(embed);
     }
 
     if (user.id === message.author.id) {
-      return message.channel.send("I won't mute you -_-");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("Yᴏᴜ Cᴀɴ'ᴛ Mᴜᴛᴇ Yᴏᴜʀsᴇʟғ.");
+      message.channel.send(embed);
     }
 
     let reason = args.slice(1).join(" ");
-
-    if (!reason) {
-      return message.channel.send("Please Give the reason to mute the member");
-    }
 
     //TIME TO LET MUTED ROLE
 
