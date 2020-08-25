@@ -35,7 +35,6 @@ module.exports = {
     }
 
     await user.ban();
-    logchannel.send(logembed);
     message.channel.send(`${user} Wᴀs Bᴀɴɴᴇᴅ.`);
   }
 };

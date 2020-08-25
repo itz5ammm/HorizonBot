@@ -62,10 +62,7 @@ module.exports = {
 
     let embed = new MessageEmbed()
       .setColor("070707")
-      .setDescription(
-        `***${user
-        } Was Muted*** | \`${reason}\``
-      );
+      .setDescription(`***${user.user.tag} Was Muted*** | \`${reason}\``);
     message.channel.send(embed);
 
     user.send(`You Were Muted In **${message.guild.name}**: ${reason}.`);
