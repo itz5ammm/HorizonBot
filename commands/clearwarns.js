@@ -41,7 +41,7 @@ module.exports = {
     let embed = new MessageEmbed()
       .setColor("070707")
       .setDescription(
-        `Cʟᴇᴀʀᴇᴅ ${warnings} Fᴏʀ ${message.mentions.users.first().username}`
+        `:verifwhite: Cʟᴇᴀʀᴇᴅ ${warnings} Fᴏʀ ${message.mentions.users.first().username}`
       );
     message.channel.send(embed);
   }
