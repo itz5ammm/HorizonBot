@@ -27,7 +27,7 @@ module.exports = {
     if (!user) {
       let embed = new MessageEmbed()
         .setColor("070707")
-        .setDescription("Please mention the member to who you want to mute");
+        .setDescription("Mention The User.");
       message.channel.send(embed);
     }
 
@@ -45,16 +45,17 @@ module.exports = {
     let muterole = message.guild.roles.cache.find(x => x.name === "Muted");
 
     if (!muterole) {
-      let embed = new MessageEmbed
-      .setcolor("070707")
-      .setDescription(
-        "Tʜɪs Sᴇʀᴠᴇʀ Dᴏᴇs Nᴏᴛ Hᴀᴠᴇ A Rᴏʟᴇ Cᴀʟʟᴇᴅ `Muted`."
-      );
-     message.channel.send(embed)
+      let embed = new MessageEmbed()
+        .setcolor("070707")
+        .setDescription("Tʜɪs Sᴇʀᴠᴇʀ Dᴏᴇs Nᴏᴛ Hᴀᴠᴇ A Rᴏʟᴇ Cᴀʟʟᴇᴅ `Muted`.");
+      message.channel.send(embed);
     }
-    
+
     if (user.roles.cache.has(muterole)) {
-      return message.channel.send("Given User is already muted");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("User is already muted.");
+      message.channel.send(embed);
     }
 
     user.roles.add(muterole);
@@ -62,9 +63,8 @@ module.exports = {
     let embed = new MessageEmbed()
       .setColor("070707")
       .setDescription(
-        `**${
-          message.mentions.users.first().username
-        }** Wᴀs Mᴜᴛᴇᴅ |  \`${reason}\``
+        `***${user
+        } Wᴀs Mᴜᴛᴇᴅ*** | \`${reason}\``
       );
     message.channel.send(embed);
 
