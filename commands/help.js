@@ -7,6 +7,7 @@ module.exports = {
   aliases: ["h"],
   category: "Utility",
   execute(client, message, args) {
+    let info = [];
     let music = [];
     let utility = [];
     let fun = [];
@@ -39,6 +40,8 @@ module.exports = {
       }
     } else {
       client.commands
+        .filter(cmd => cmd.category === "
+      client.commands
         .filter(cmd => cmd.category === "Music")
         .forEach(cmd => music.push(cmd.name));
       client.commands
@@ -50,7 +53,7 @@ module.exports = {
       client.commands
         .filter(cmd => cmd.category === "Moderation")
         .forEach(cmd => moderation.push(cmd.name));
-
+      
       let embed = new MessageEmbed()
         .setAuthor("❝Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ❞", client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL())
