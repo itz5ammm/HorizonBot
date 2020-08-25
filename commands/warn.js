@@ -32,17 +32,11 @@ module.exports = {
     const reason = args.slice(1).join(" ");
 
     if (!reason) {
-      return message.channel.send("Pʟᴇᴀsᴇ Pʀᴏᴠɪᴅᴇ Rᴇᴀsᴏᴍ.");
+      return message.channel.send("Pʟᴇᴀsᴇ Pʀᴏᴠɪᴅᴇ Rᴇᴀsᴏɴ.");
     }
 
-    let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
-
-    if (warnings === 3) {
-      return message.channel.send(
-        `${message.mentions.users.first().username} 3 Wᴀʀᴍs Rᴇᴀᴄʜᴇᴅ.`
-      );
-    }
-
+   
+    
     if (warnings === null) {
       db.set(`warnings_${message.guild.id}_${user.id}`, 1);
       user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ ${reason}`);
@@ -60,8 +54,8 @@ module.exports = {
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
-          `***${
-            message.mentions.users.first().username
+          `<a:verifwhite:737764673046315191>***${
+          message.mentions.users.first().username
           } Wᴀs Wᴀʀɴᴇᴅ*** | ${reason}`
         );
       message.channel.send(embed);
