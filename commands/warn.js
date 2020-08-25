@@ -8,21 +8,13 @@ module.exports = {
   description: "Wᴀʀɴ Aɴʏᴏɴᴇ Iɴ Tʜᴇ Sᴇʀᴠᴇʀ.",
   execute: async (client, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-      return 
-      let embed = new MessageEmbed()
-      .setColor("00FFFF")
-      .setDescription("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Wᴀʀɴ Sᴏᴍᴇᴏɴᴇ.");
-      message.channel.send(embed)
+      return message.channel.send("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Wᴀʀɴ Sᴏᴍᴇᴏɴᴇ.");
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
-      return;
-      let embed = new MessageEmbed()
-        .setDescription("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ Yᴏᴜ Wᴀɴᴛ Tᴏ Wᴀʀɴ.")
-        .setColor("00ffff");
-      message.channel.send(embed);
+      return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ Yᴏᴜ Wᴀɴᴛ Tᴏ Wᴀʀɴ.");
     }
 
     if (message.mentions.users.first().bot) {
@@ -53,13 +45,13 @@ module.exports = {
 
     if (warnings === null) {
       db.set(`warnings_${message.guild.id}_${user.id}`, 1);
-      user.send(`Wᴀʀᴍᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ ${reason}`);
+      user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ ${reason}`);
       await message.channel.send(
         `Wᴀʀɴᴇᴅ **${message.mentions.users.first().username}** Fᴏʀ ${reason}`
       );
     } else if (warnings !== null) {
       db.add(`warnings_${message.guild.id}_${user.id}`, 1);
-      user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ ${reason}`);
+      user.send(`Wᴀʀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ ${reason}`);
       await message.channel.send(
         `Wᴀʀɴᴇᴅ **${message.mentions.users.first().username}** Fᴏʀ ${reason}`
       );

@@ -1,3 +1,5 @@
+const { MessageEmbed } = require("discord.js")
+
 module.exports = {
   name: "unmute",
   category: "Moderation",
@@ -24,16 +26,19 @@ module.exports = {
 
     if (user.roles.cache.has(muterole)) {
       return message.channel.send(
-        "Given User do not have mute role so what i am suppose to take"
+        "Mᴇɴᴛɪᴏɴᴇᴅ Usᴇʀ Is Nᴏᴛ Mᴜᴛᴇᴅ."
       );
     }
 
     user.roles.remove(muterole);
 
-    await message.channel.send(
+    let embed = new MessageEmbed()
+    .setColor("00ffff")
+    .setDescription(
       `**${message.mentions.users.first().username}** is unmuted`
     );
-
+    message.channel.send(embed);
+    
     user.send(`You are now unmuted from **${message.guild.name}**`);
   }
 };
