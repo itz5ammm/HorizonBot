@@ -13,7 +13,7 @@ module.exports = {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o => {});
     let embed = new MessageEmbed()
-      .setTitle(`Aʙᴏᴜᴛ Bᴏᴛ.`)
+      .setTitle(`Horizon Support`)
       .setColor("RANDOM")
       .setDescription(sayMessage)
       .setFooter(`Requested By: ${message.author.tag}`)
