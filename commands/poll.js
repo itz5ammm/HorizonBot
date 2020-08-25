@@ -13,7 +13,7 @@ module.exports = {
       ); //If he doesn't specify a text it will stop and tell him to type a text for the poll
 
     const embed = new discord.MessageEmbed() //Creating an embed because it looks better for everything and just cleaner.
-      .setTitle("Poll!") //This is a title and it is a "New Poll", you can cange it if you'd like or remove it
+      .setTitle("Aʙᴏᴜᴛ Bᴏᴛ") //This is a title and it is a "New Poll", you can cange it if you'd like or remove it
       .setColor("00ffff")
       .setDescription(`${text}`) //This is where the text will be sent, i would like to remind you that in embed titles and in titles and in footers you cannot have any mentions thats why im using a description
       .setFooter(`Requested By: ${message.author.tag}`)
