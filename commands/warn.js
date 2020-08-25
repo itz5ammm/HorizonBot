@@ -28,8 +28,11 @@ module.exports = {
     if (user.id === message.guild.owner.id) {
       return message.channel.send("Yᴏᴜ Cᴀɴ'ᴛ Wᴀʀɴ Tʜᴇ Oᴡɴᴇʀ");
     }
-    
-    const reason = args.slice(1).join(" ")
+
+    const reason = args
+      .slice(1)
+      .join(" ")
+      .split(" | ");
 
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
 
@@ -40,19 +43,19 @@ module.exports = {
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
-          `***Wᴀʀɴᴇᴅ ${message.mentions.users.first().username}*** | ${reason}`
+          `***Wᴀʀɴᴇᴅ ${message.mentions.users.first().username}***  ${reason}`
         );
       message.channel.send(embed);
     } else if (warnings !== null) {
       db.add(`warnings_${message.guild.id}_${user.id}`, 1);
-      user.send(`Wᴀʀʀɴᴇᴅ Iɴ **${message.guild.name}** | ${reason}`);
+      user.send(`Wᴀʀʀɴᴇᴅ Iɴ **${message.guild.name}**  ${reason}`);
 
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
           `***${
             message.mentions.users.first().username
-          } was warned.*** | ${reason}`
+          } was warned.*** ${reason}`
         );
       message.channel.send(embed);
     }
