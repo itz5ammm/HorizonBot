@@ -1,3 +1,4 @@
+const { MessageEmbed } = require("discord.js");
 const db = require("quick.db");
 
 module.exports = {
@@ -29,12 +30,15 @@ module.exports = {
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`);
 
     if (warnings === null) {
-      return message.channel.send(
+      let embed(
         `${message.mentions.users.first().username} do not have any warnings`
       );
     }
-    await message.channel.send(
-      `Cʟᴇᴀʀᴇᴅ ${warnings} Fᴏʀ ${message.mentions.users.first().username.tag}`
-    );
+    let embed = new MessageEmbed()
+      .setColor("070707")
+      .setDescription(
+        `Cʟᴇᴀʀᴇᴅ ${warnings} Fᴏʀ ${message.mentions.users.first().username}`
+      );
+    message.channel.send(embed);
   }
 };

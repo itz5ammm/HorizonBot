@@ -46,11 +46,13 @@ module.exports = {
     if (warnings === null) {
       db.set(`warnings_${message.guild.id}_${user.id}`, 1);
       user.send(`Wᴀʀɴᴇᴅ Iɴ **${message.guild.name}** Fᴏʀ ${reason}`);
-      
-      let embed 
-      await message.channel.send(
-        `Wᴀʀɴᴇᴅ **${message.mentions.users.first().username}** | ${reason}`
-      );
+
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription(
+          `Wᴀʀɴᴇᴅ **${message.mentions.users.first().username}** | ${reason}`
+        );
+      message.channel.send(embed);
     } else if (warnings !== null) {
       db.add(`warnings_${message.guild.id}_${user.id}`, 1);
       user.send(`Wᴀʀʀɴᴇᴅ Iɴ **${message.guild.name}** | ${reason}`);
