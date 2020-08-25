@@ -50,11 +50,14 @@ module.exports = {
 
     user.roles.add(muterole);
 
-    await message.channel.send(
-      `You muted **${
-        message.mentions.users.first().username
-      }** For \`${reason}\``
-    );
+    let embed = new MessageEmbed()
+      .setColor("070707")
+      .setDescription(
+        `**${
+          message.mentions.users.first().username
+        }** Wᴀs Mᴜᴛᴇᴅ |  \`${reason}\``
+      );
+    message.channel.send(embed);
 
     user.send(`You are muted in **${message.guild.name}** For \`${reason}\``);
 

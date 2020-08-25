@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "unmute",
@@ -25,20 +25,18 @@ module.exports = {
     let muterole = message.guild.roles.cache.find(x => x.name === "Muted");
 
     if (user.roles.cache.has(muterole)) {
-      return message.channel.send(
-        "Mᴇɴᴛɪᴏɴᴇᴅ Usᴇʀ Is Nᴏᴛ Mᴜᴛᴇᴅ."
-      );
+      return message.channel.send("Mᴇɴᴛɪᴏɴᴇᴅ Usᴇʀ Is Nᴏᴛ Mᴜᴛᴇᴅ.");
     }
 
     user.roles.remove(muterole);
 
     let embed = new MessageEmbed()
-    .setColor("00ffff")
-    .setDescription(
-      `**${message.mentions.users.first().username}** is unmuted`
-    );
+      .setColor("070707")
+      .setDescription(
+        `**${message.mentions.users.first().username}** is unmuted`
+      );
     message.channel.send(embed);
-    
+
     user.send(`You are now unmuted from **${message.guild.name}**`);
   }
 };

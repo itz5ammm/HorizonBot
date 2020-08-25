@@ -13,7 +13,7 @@ module.exports = {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o => {});
     let embed = new MessageEmbed()
-      .setColor("00FFFF")
+      .setColor("RANDOM")
       .setDescription(sayMessage);
     message.channel.send(embed);
   }

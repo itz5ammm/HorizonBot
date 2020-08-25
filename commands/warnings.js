@@ -12,7 +12,7 @@ module.exports = {
     if (warnings === null) warnings = 0;
 
     let embed = new MessageEmbed()
-      .setColor("00FFFF")
+      .setColor("070707")
       .setDescription(`${user} Hᴀs **${warnings}** Wᴀʀɴs.`);
     message.channel.send(embed);
   }
