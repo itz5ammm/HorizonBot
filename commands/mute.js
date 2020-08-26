@@ -42,7 +42,9 @@ module.exports = {
 
     //TIME TO LET MUTED ROLE
 
-    let muterole = message.guild.roles.cache.find(x => x.name === "Muted");
+    let muterole = message.guild.roles.cache.find(
+      x => x.name === "Muted" || x.name === "MUTED"
+    );
 
     if (!muterole) {
       let embed = new MessageEmbed()
