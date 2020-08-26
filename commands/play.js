@@ -19,7 +19,7 @@ module.exports = {
     //FIRST OF ALL WE WILL ADD ERROR MESSAGE AND PERMISSION MESSSAGE
     if (!args.length) {
       //IF AUTHOR DIDENT GIVE URL OR NAME
-      embed.setAuthor("WRONG SYNTAX : Type `play <URL> or text`");
+      embed.setAuthor("Use Name Or URL Of Song");
       return message.channel.send(embed);
     }
 
@@ -36,7 +36,7 @@ module.exports = {
     const targetsong = args.join(" ");
     const videoPattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
     const playlistPattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
-    const urlcheck = videoPattern.test(args[0]);
+    const URLcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       embed.setAuthor("Cᴀɴɴᴏᴛ Pʟᴀʏ Tʜᴇ Sᴏɴɢ.");
@@ -63,7 +63,7 @@ module.exports = {
     let songData = null;
     let song = null;
 
-    if (urlcheck) {
+    if (URLcheck) {
       try {
         songData = await ytdl.getInfo(args[0]);
 
