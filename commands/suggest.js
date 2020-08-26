@@ -18,9 +18,10 @@ module.exports = {
     );
 
     if (!channel) {
-      return message.channel.send(
-        "Mᴀᴋᴇ Sᴜʀᴇ Yᴏᴜ Hᴀᴠᴇ A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ `suggestion`"
-      );
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .etDescription("Mᴀᴋᴇ Sᴜʀᴇ Yᴏᴜ Hᴀᴠᴇ A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ `suggestion`");
+      message.channel.send(embed);
     }
 
     let embed = new MessageEmbed()
@@ -38,6 +39,10 @@ module.exports = {
       m.react("❌");
     });
 
-    message.channel.send("Sᴇɴᴛ Yᴏᴜʀ Sᴜɢɢᴇsᴛɪᴏɴ Tᴏ" + channel)
+    embed = new MessageEmbed()
+      .setColor("070707")
+      .setDescription(Sᴇɴᴛ Yᴏᴜʀ Sᴜɢɢᴇsᴛɪᴏɴ Tᴏ" + <#channel>);
+
+    message.channel.send(embed);
   }
 };
