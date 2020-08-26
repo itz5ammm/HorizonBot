@@ -17,7 +17,7 @@ module.exports = {
 
     try {
       var stream = await ytdlDiscord(song.url, {
-        highWaterMark: 1 << 25
+        highWaterMark: 1 << 30
       });
     } catch (error) {
       if (queue) {
