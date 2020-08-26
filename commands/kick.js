@@ -51,7 +51,7 @@ module.exports = {
       .setTitle("Action: Kick")
       .setDescription(`***${target.user.tag} was Kicked.***`)
       .setColor("#070707")
-      .setFooter(`Kicked by ${message.author.tag}`);
+      .setFooter(`Kicked by: ${message.author.tag}`);
 
     message.channel.send(embed);
 

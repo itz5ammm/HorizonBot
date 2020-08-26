@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 let giveMeAJoke = require("give-me-a-joke");
 
 module.exports = {
@@ -7,7 +7,10 @@ module.exports = {
   category: "Fun",
   execute: async (bot, message, args) => {
     giveMeAJoke.getRandomDadJoke(function(joke) {
-      message.channel.send(joke);
+      let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription(joke);
+   message.channel.send(embed);
     });
   }
 };

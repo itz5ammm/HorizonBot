@@ -41,7 +41,7 @@ module.exports = {
 
     embed = new MessageEmbed()
       .setColor("070707")
-      .setDescription(Sᴇɴᴛ Yᴏᴜʀ Sᴜɢɢᴇsᴛɪᴏɴ Tᴏ" + <#channel>);
+      .setDescription(`Sᴇɴᴛ Yᴏᴜʀ Sᴜɢɢᴇsᴛɪᴏɴ Tᴏ ${channel}`);
 
     message.channel.send(embed);
   }
