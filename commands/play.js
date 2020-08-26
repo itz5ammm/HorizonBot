@@ -36,7 +36,7 @@ module.exports = {
     const targetsong = args.join(" ");
     const videoPattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
     const playlistPattern = /^.*(youtu.be\/|list=)([^#\&\?]*).*/gi;
-    const URLcheck = videoPattern.test(args[0]);
+    const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       embed.setAuthor("Cᴀɴɴᴏᴛ Pʟᴀʏ Tʜᴇ Sᴏɴɢ.");
@@ -63,7 +63,7 @@ module.exports = {
     let songData = null;
     let song = null;
 
-    if (URLcheck) {
+    if (urlcheck) {
       try {
         songData = await ytdl.getInfo(args[0]);
 

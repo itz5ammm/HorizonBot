@@ -2,7 +2,7 @@
 const ytdlDiscord = require("ytdl-core-discord");
 const { MessageEmbed } = require("discord.js");
 const { QUEUE_LIMIT, COLOR } = require("../config.json");
-const youtube = require("youtube-api")
+const youtube = require("youtube-api");
 
 module.exports = {
   async play(song, message) {
@@ -18,7 +18,7 @@ module.exports = {
 
     try {
       var stream = await ytdlDiscord(song.url, {
-        highWaterMark: 1 >> 30
+        highWaterMark: 1 << 25
       });
     } catch (error) {
       if (queue) {
