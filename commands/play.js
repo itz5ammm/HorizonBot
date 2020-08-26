@@ -38,7 +38,7 @@ module.exports = {
     const urlcheck = videoPattern.test(args[0]);
 
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
-      embed.setAuthor("Unable To Play Playlist For Now.");
+      embed.setAuthor("Uɴᴀʙʟᴇ Tᴏ Pʟᴀʏ Tʜᴇ Sᴏɴɢ.");
       return message.channel.send(embed);
     }
 
