@@ -82,7 +82,7 @@ client.on("message", message => {
     } catch (err) {
       //IF IT CATCH ERROR
       console.log(err);
-      message.reply("Gᴇᴛᴛɪɴɢ Eʀʀᴏʀ `${error}`");
+      message.reply("Gᴇᴛᴛɪɴɢ Eʀʀᴏʀ Usɪɴɢ Tʜɪs Cᴏᴍᴍᴀɴᴅ.");
     }
   }
 });

@@ -3,10 +3,10 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "kick",
-  category: "moderation",
+  category: "Moderation",
   description: "Kick Anyone From The Server.",
   usage: "kick <@user> <reason>",
-  execute: (client, message, args) => {
+  execute: async (client, message, args) => {
     if (!message.member.hasPermission("KICK_MEMBERS")) {
       let embed = new MessageEmbed()
         .setColor("070707")
@@ -21,7 +21,7 @@ module.exports = {
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
-          `**${message.author.tag}**, I Don't Have Enough Perms.`
+          `**${message.author.tag}**, Make Sure The Bot Has Kick Members Permission.`
         );
 
       message.channel.send(embed);
@@ -33,7 +33,7 @@ module.exports = {
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
-          `**${message.author.tag}**, Please mention the person who you want to kick.`
+          `**${message.author.tag}**, Mention The User You Want To Kick.`
         );
 
       message.channel.send(embed);
