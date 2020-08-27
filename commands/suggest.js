@@ -5,7 +5,7 @@ module.exports = {
   usage: "suggest <message>",
   description: "Send your Suggestion",
   category: "Utility",
-  execute: (client, message, args) => {
+  execute: async (client, message, args) => {
     if (!args.length) {
       return message.channel.send("Gɪᴠᴇ A Sᴜɢɢᴇsᴛɪᴏɴ.");
     }
@@ -19,7 +19,7 @@ module.exports = {
 
     if (!channel) {
       let embed = new MessageEmbed()
-        .setColor("070707")
+        .setColor("RANDOM")
         .setDescription("Mᴀᴋᴇ Sᴜʀᴇ Yᴏᴜ Hᴀᴠᴇ A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ `suggestion`");
       message.channel.send(embed);
     }
@@ -30,7 +30,7 @@ module.exports = {
         message.author.avatarURL()
       )
       .setThumbnail(message.author.avatarURL())
-      .setColor("#070707")
+      .setColor("RANDOM")
       .setDescription(args.join(" "))
       .setTimestamp();
 
