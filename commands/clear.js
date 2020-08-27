@@ -24,11 +24,7 @@ module.exports = {
         message.channel.send(embed);
       }
 
-      await message.channel
-        .bulkDelete(deleteCount)
-        .catch(error =>
-          message.reply(`Couldn't delete messages because of: ${error}`)
-        );
+      await message.channel.bulkDelete(deleteCount);
     }
   }
 };
