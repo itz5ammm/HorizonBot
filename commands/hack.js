@@ -1,4 +1,5 @@
 const discord = require("discord.js");
+const Disord = require("discord.js");
 const ms = require("ms");
 
 module.exports = {
@@ -13,7 +14,10 @@ module.exports = {
       .setDescription("Specify who do you want to hack");
     if (!args[0]) return message.channel.send(embed1);
 
-    let msg = await message.channel.send(`Beginning hacking ${args[0]}`);
+    let msg = embed = new MessageEmbed().setDescription(
+      `Beginning hacking ${args[0]}`
+    );
+    message.channel.send(embed);
 
     let time1 = "3s";
     setTimeout(function() {
