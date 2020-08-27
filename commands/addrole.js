@@ -1,4 +1,5 @@
 const discord = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "addrole",
