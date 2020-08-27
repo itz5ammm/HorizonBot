@@ -17,7 +17,7 @@ module.exports = {
 
     let embed = new discord.MessageEmbed()
       .setTitle(movie.title)
-      .setColor("#ff2050")
+      .setColor("RANDOM")
       .setThumbnail(movie.poster)
       .setDescription(movie.plot)
       .setFooter(`Rᴀᴛɪɴɢ: ${movie.rating}`)
