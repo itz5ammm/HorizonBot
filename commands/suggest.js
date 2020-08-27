@@ -20,7 +20,7 @@ module.exports = {
     if (!channel) {
       let embed = new MessageEmbed()
         .setColor("070707")
-        .etDescription("Mᴀᴋᴇ Sᴜʀᴇ Yᴏᴜ Hᴀᴠᴇ A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ `suggestion`");
+        .setDescription("Mᴀᴋᴇ Sᴜʀᴇ Yᴏᴜ Hᴀᴠᴇ A Cʜᴀɴɴᴇʟ Nᴀᴍᴇᴅ `suggestion`");
       message.channel.send(embed);
     }
 
