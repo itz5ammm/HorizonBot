@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "prune",
-  description: "Prunes Messages Of Mentioned Amount.",
+  name: "clear",
+  description: "Clears Messages Of Mentioned Amount.",
   category: "Moderation",
   execute: async (client, message, args) => {
     const deleteCount = parseInt(args[0], 10);
