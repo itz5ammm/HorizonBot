@@ -15,7 +15,7 @@ module.exports = {
       message.channel.send(embed);
     } else {
       // Ooooh nice, combined conditions. <3
-      if (!deleteCount || deleteCount < 2 || deleteCount > 1000) {
+      if (!deleteCount || deleteCount < 2 || deleteCount > 100) {
         let embed = new MessageEmbed()
           .setColor("070707")
           .setDescription("Provide The Number Of Messages.");
