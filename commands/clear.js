@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "clear",
-  description: "Clears Messages Of Mentioned Amount",
+  name: "prune",
+  description: "Prunes Messages Of Mentioned Amount.",
   category: "Moderation",
   execute: async (client, message, args) => {
     const deleteCount = parseInt(args[0], 10);
@@ -18,9 +18,7 @@ module.exports = {
       if (!deleteCount || deleteCount < 2 || deleteCount > 1000) {
         let embed = new MessageEmbed()
           .setColor("070707")
-          .setDescription(
-            "Please provide a number between 2 and 1000 for the number of messages to delete"
-          );
+          .setDescription("Provide The Number Of Messages.");
         message.channel.send(embed);
       }
 
