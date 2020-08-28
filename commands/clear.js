@@ -22,7 +22,7 @@ module.exports = {
         message.channel.send(embed);
       }
 
-      await message.channel.bulkDelete(deleteCount);
+      await message.channel.bulkDelete(deleteCount).catch(console.log);
     }
   }
 };
