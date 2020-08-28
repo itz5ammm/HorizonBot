@@ -1,5 +1,6 @@
 const discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+
 module.exports = {
   name: "ban",
   category: "moderation",
@@ -16,7 +17,6 @@ module.exports = {
     }
 
     if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
-      return;
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
@@ -31,7 +31,6 @@ module.exports = {
     const reason = args.slice(1).join(" ");
 
     if (!target) {
-      return;
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(
@@ -40,9 +39,8 @@ module.exports = {
 
       message.channel.send(embed);
     }
-
+    
     if (target.id === message.author.id) {
-      return;
       let embed = new MessageEmbed()
         .setColor("070707")
         .setDescription(`**${message.author.tag}**, Yᴏᴜ Cᴀɴ'ᴛ Bᴀɴ Yᴏᴜʀsᴇʟғ.`);
@@ -50,15 +48,16 @@ module.exports = {
       message.channel.send(embed);
     }
 
-    if (!args[1]) {
+    
+    if  (!args[1]) {
       return message.channel.send(
         `**${message.author.username}**, Please Give Reason To ban Member`
       );
     }
-
+    
     let embed = new discord.MessageEmbed()
       .setTitle("Action : Ban")
-      .setDescription(`***${target} was Banned.*** (${target.id})`)
+      .setDescription(`***${target} was Banned.***: ${reason}`)
       .setColor("#ff2050")
       .setThumbnail(target.avatarURL)
       .setFooter(`Banned by ${message.author.tag}`);
