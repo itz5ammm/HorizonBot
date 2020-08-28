@@ -69,10 +69,12 @@ client.on("message", message => {
     if (!client.commands.has(command)) {
       return;
     }
-
+    
     try {
+      
       //TRY TO GET COMMAND AND EXECUTE
       client.commands.get(command).execute(client, message, args);
+      
       //COMMAND LOGS
       const o = client.channels.cache.get("748919962235568330");
       const embed = new discord.MessageEmbed()
