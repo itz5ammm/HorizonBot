@@ -1,56 +1,60 @@
 const discord = require("discord.js");
-const { MessageEmbed } = require("discord.js");
-
+const { MessageEmbed } = require("discord.js")
 module.exports = {
   name: "ban",
-  category: "Moderation",
-  description: "Ban Anyone From The Server",
+  category: "moderation",
+  description: "Ban anyone with one shot whithout knowing anyone xD",
   usage: "ban <@user> <reason>",
   execute: async (client, message, args) => {
-    if (!message.member.hasPermission("BAN_MEMBERS")) {
+    
+    if(!message.member.hasPermission("BAN_MEMBERS")) {
+      return 
       let embed = new MessageEmbed()
-        .setColor("070707")
-        .setDescription(
-          `**${message.author.tag}**, You Don't Have Perms To Ban Someone.`
-        );
-      message.channel.send(embed);
+      .setColor("070707")
+      .setDescription(`**${message.author.tag}**, Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Bᴀɴ Sᴏᴍᴇᴏɴᴇ.`)
     }
-
-    if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
+    
+    if(!message.guild.me.hasPermission("BAN_MEMBERS")) {
+      return 
       let embed = new MessageEmbed()
-        .setColor("070707")
-        .setDescription(
-          `**${message.author.tag}**, I Don't Have Perms To Ban Someone.`
-        );
-      message.channel.send(embed);
+      .setColor("070707")
+      .setDescription(`**${message.author.tag}**, Mᴀᴋᴇ Sᴜʀᴇ I Hᴀᴠᴇ Tʜᴇ Rᴇǫᴜɪʀᴇᴅ Pᴇʀᴍs.`)
     }
-
+    
     const target = message.mentions.members.first();
-
+    
     const reason = args.slice(1).join(" ");
     
-    if (!target) {
+    if(!target) {
+      return 
       let embed = new MessageEmbed()
-        .setColor("070707")
-        .setDescription(`**${message.author.tag}**, Mention The User.`);
+      .setColor("070707")
+      .setDescription(`**${message.author.username}**, Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ Yᴏᴜ Wᴀɴᴛ Tᴏ Bᴀɴ.`)
+ 
       message.channel.send(embed);
+      }
+    
+    if(target.id === message.author.id) {
+      return message.channel.send(`**${message.author.username}**, You can not ban yourself!`)
     }
-
-    if (target.id === message.author.id) {
-      let embed = new MessageEmbed()
-        .setColor("070707")
-        .setDescription(`**${message.author.tag}**, You Can't Ban Yourself.`);
-      message.channel.send(embed);
-    }
-
+    
+   
+    
+   if(!args[1]) {
+     return message.channel.send(`**${message.author.username}**, Please Give Reason To ban Member`)
+   }
+    
     let embed = new discord.MessageEmbed()
-      .setTitle("Action : Ban")
-      .setDescription(`***${target.user.tag} was Banned.*** | ${reason}.`)
-      .setColor("#00FFFF")
-      .setThumbnail(target.avatarURL)
-      .setFooter(`Banned by: ${message.author.tag}`);
-
-    message.channel.send(embed);
-    target.ban(args[1]);
+    .setTitle("Action : Ban")
+    .setDescription(`Banned ${target} (${target.id})`)
+    .setColor("#ff2050")
+    .setThumbnail(target.avatarURL)
+    .setFooter(`Banned by ${message.author.tag}`);
+    
+    message.channel.send(embed)
+    target.ban(args[1])
+    
+    
+    
   }
-};
+}
