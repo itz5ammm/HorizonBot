@@ -8,9 +8,12 @@ const ytdl = require("ytdl-core");
 const YoutubeAPI = require("simple-youtube-api");
 const youtube = new YoutubeAPI(YOUTUBE_API_KEY);
 const { play } = require("../system/music.js");
+
+
 module.exports = {
   name: "play",
   description: "Play The Song You Like.",
+  aliases: [ "p" ], 
   category: "Music",
   async execute(client, message, args) {
     let embed = new MessageEmbed().setColor(COLOR);
