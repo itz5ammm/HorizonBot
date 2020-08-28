@@ -11,14 +11,14 @@ module.exports = {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
       let embed = new MessageEmbed()
         .setColor("070707")
-        .setDescription("You don't have the permissions to use this command!");
+        .setDescription("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.");
       message.channel.send(embed);
     } else {
       // Ooooh nice, combined conditions. <3
       if (!deleteCount || deleteCount < 2 || deleteCount > 100) {
         let embed = new MessageEmbed()
           .setColor("070707")
-          .setDescription("Provide The Number Of Messages.");
+          .setDescription("Pʀᴏᴠɪᴅᴇ Tʜᴇ Nᴜᴍʙᴇʀ Oғ Mᴇssᴀɢᴇs.");
         message.channel.send(embed);
       }
 
