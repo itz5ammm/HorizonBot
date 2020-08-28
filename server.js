@@ -69,12 +69,11 @@ client.on("message", message => {
     if (!client.commands.has(command)) {
       return;
     }
-    
+
     try {
-      
       //TRY TO GET COMMAND AND EXECUTE
       client.commands.get(command).execute(client, message, args);
-      
+
       //COMMAND LOGS
       const o = client.channels.cache.get("748919962235568330");
       const embed = new discord.MessageEmbed()
@@ -95,6 +94,25 @@ in **${message.channel.name}**`
     }
   }
 });
+
+{ client.commands = new Collection();
+client.aliases = new Collection();
+
+["command"].forEach(handler => {
+    require(`./handlers/${handler}`)(client);
+});
+
+client.snipes = new Map()
+client.on('messageDelete', function(message, channel){
+  
+  client.snipes.set(message.channel.id, {
+    content:message.content,
+    author:message.author.tag,
+    image:message.attachments.first() ? message.attachments.first().proxyURL : null
+  })
+  
+})
+
 
 client.on("message", async message => {
   if (message.author.bot) return;
@@ -130,3 +148,4 @@ app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 app.listen(3000);
+}
