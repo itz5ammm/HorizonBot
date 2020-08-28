@@ -1,48 +1,28 @@
-//THIS IS THE CODE FOR THE COMMAND ONLY 
-  
-    const messageArray = message.content.split(' '); 
-const args = messageArray.slice(1); 
-   const { MessageEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-name: "clear",
-category: "Moderation",
-description: "Clears Messages.",
-usage: "clear <amount>",
-execute: async (client, message, args) => {
-       const deleteAmount = parseInt(args[0], 10);
+  name: "clear",
+  description: "Clears Messages Of Mentioned Amount.",
+  category: "Moderation",
+  execute: async (client, message, args) => {
+    const deleteCount = parseInt(args[0], 10);
 
-    if (!message.member.permissions.has("MANAGE_MESSAGES")) { let embed = new MessageEmbed()
-.setColor("070707")
-.setDescription('Lack of Perms!'); 
-    
-message.channel.send(embed);
-}
-  {  let deleteAmount; 
-
-   { if (isNaN(args[0]) || parseInt(args[0]) <= 0) { 
-let embed = new MessageEmbed()
-.setColor("070707")
-.setDescription('Please put a number only!') } 
-
-message.channel.send(embed);
-}
-
-    if (parseInt(args[0]) > 100) { 
+    // get the delete count, as an actual number.
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("Yᴏᴜ Dᴏɴ'ᴛ Hᴀᴠᴇ Pᴇʀᴍs Tᴏ Usᴇ Tʜɪs.");
+      message.channel.send(embed);
+    } else {
+      // Ooooh nice, combined conditions. <3
+      if (!deleteCount || deleteCount < 2 || deleteCount > 100) {
         let embed = new MessageEmbed()
-.setColor("070707")
-.setDescription('You can only delete 100 messages at a time!') 
- message.channel.send(embed);
-   } else { 
-        deleteAmount = parseInt(args[0]); 
-    } 
-
-    message.channel.bulkDelete(deleteAmount + 1, true); {
-    let embed = new MessageEmbed()
-.setColor("070707")
-.setDescription(`**Successfully** Deleted ***${deleteAmount}*** Messages.`)
-message.channel.send(embed);
+          .setColor("070707")
+          .setDescription("Pʀᴏᴠɪᴅᴇ Tʜᴇ Nᴜᴍʙᴇʀ Oғ Mᴇssᴀɢᴇs.");
+        message.channel.send(embed);
       }
-   }
+
+      await message.channel.bulkDelete(deleteCount).catch(console.log);
+    }
   }
-  }
+};
