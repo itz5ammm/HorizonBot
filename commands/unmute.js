@@ -33,7 +33,7 @@ module.exports = {
     let embed = new MessageEmbed()
       .setColor("070707")
       .setDescription(
-        `**${message.mentions.users.first().username}** is unmuted`
+        `**${user.tag}** Is unmuted.`
       );
     message.channel.send(embed);
 
