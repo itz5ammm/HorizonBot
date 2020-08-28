@@ -95,25 +95,6 @@ in **${message.channel.name}**`
   }
 });
 
-{ client.commands = new Collection();
-client.aliases = new Collection();
-
-["command"].forEach(handler => {
-    require(`./handlers/${handler}`)(client);
-});
-
-client.snipes = new Map()
-client.on('messageDelete', function(message, channel){
-  
-  client.snipes.set(message.channel.id, {
-    content:message.content,
-    author:message.author.tag,
-    image:message.attachments.first() ? message.attachments.first().proxyURL : null
-  })
-  
-})
-
-
 client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.guild) return;
@@ -148,4 +129,3 @@ app.get("/", (req, res) => {
   res.sendStatus(200);
 });
 app.listen(3000);
-}
