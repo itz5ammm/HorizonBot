@@ -27,6 +27,8 @@ module.exports = {
 
     const target = message.mentions.members.first();
 
+    const reason = args.slice(1).join(" ");
+    
     if (!target) {
       let embed = new MessageEmbed()
         .setColor("070707")
@@ -43,10 +45,10 @@ module.exports = {
 
     let embed = new discord.MessageEmbed()
       .setTitle("Action : Ban")
-      .setDescription(`***${target.user.tag} was Banned***.`)
+      .setDescription(`***${target.user.tag} was Banned.*** | ${reason}.`)
       .setColor("#00FFFF")
       .setThumbnail(target.avatarURL)
-      .setFooter(`Banned by ${message.author.tag}`);
+      .setFooter(`Banned by: ${message.author.tag}`);
 
     message.channel.send(embed);
     target.ban(args[1]);
