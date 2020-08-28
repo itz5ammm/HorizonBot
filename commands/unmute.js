@@ -11,15 +11,21 @@ module.exports = {
     }
 
     if (!message.guild.me.hasPermission("MANAGE_ROLES")) {
-      return message.channel.send("I do not have permission to manage roles.");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription("Mᴀᴋᴇ Sᴜʀᴇ I Hᴀᴠᴇ Tʜᴇ `Manage Messages` Pᴇʀᴍ.");
+
+      message.channel.send(embed);
     }
 
     const user = message.mentions.members.first();
 
     if (!user) {
-      return message.channel.send(
-        "Please mention the member to who you want to unmute"
-      );
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescription(`Mᴇɴᴛɪᴏɴ Tʜᴇ Usᴇʀ Tᴏ Uɴᴍᴜᴛᴇ.`);
+
+      message.channel.send(embed);
     }
 
     let muterole = message.guild.roles.cache.find(x => x.name === "Muted");
@@ -32,9 +38,7 @@ module.exports = {
 
     let embed = new MessageEmbed()
       .setColor("070707")
-      .setDescription(
-        `**${user.tag}** Is unmuted.`
-      );
+      .setDescription(`***${user.tag} Is Uɴᴍᴜᴛᴇᴅ.***`);
     message.channel.send(embed);
 
     user.send(`You are now unmuted from **${message.guild.name}**`);
