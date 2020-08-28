@@ -79,7 +79,8 @@ client.on("message", message => {
         .setTitle("Bot Command Used")
         .setDescription(
           `**${message.guild.name}** :
-**${message.author.tag} Used: ${client.commands.get(command).name}**`
+**${message.author.tag}** Used: **\`${client.commands.get(command).name}\`**
+in **${message.channel.name}**`
         )
         .setColor("00FFFF")
         .setThumbnail(message.author.avatarURL())
