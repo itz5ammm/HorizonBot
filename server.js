@@ -74,11 +74,17 @@ client.on("message", message => {
       //TRY TO GET COMMAND AND EXECUTE
       client.commands.get(command).execute(client, message, args);
       //COMMAND LOGS
-      console.log(
-        `${message.guild.name}: ${message.author.tag} Used ${
-          client.commands.get(command).name
-        } in #${message.channel.name}`
-      );
+      const o = client.channels.cache.get("748919962235568330");
+      const embed = new discord.MessageEmbed()
+        .setTitle("Bot Command Used")
+        .setDescription(
+          `**${message.guild.name}** :
+**${message.author.tag} Used: ${client.commands.get(command).name}**`
+        )
+        .setColor("00FFFF")
+        .setThumbnail(message.author.avatarURL())
+        .setTimestamp();
+      o.send(embed);
     } catch (err) {
       //IF IT CATCH ERROR
       console.log(err);
