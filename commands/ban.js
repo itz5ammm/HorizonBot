@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 module.exports = {
   name: "ban",
-  category: "moderation",
+  category: "Moderation",
   description: "ban a members",
   execute: async (client, message, args, guild) => {
     let banned =
