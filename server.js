@@ -80,7 +80,7 @@ client.on("message", message => {
         .setTitle("Cᴏᴍᴍᴀɴᴅ Lᴏɢ.")
         .setDescription(
           `Gᴜɪʟᴅ: **\`${message.guild.name}\`**
-Cʜᴀɴɴᴇʟ:**\`${message.channel.name}\`**
+Cʜᴀɴɴᴇʟ: **\`${message.channel.name}\`**
 Exᴇᴄᴜᴛᴏʀ: **${message.author.tag}** 
 Cᴏᴍᴍᴀɴᴅ Usᴇᴅ: **\`${client.commands.get(command).name}\`**`
         )

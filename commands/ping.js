@@ -8,7 +8,7 @@ module.exports = {
     let embed = new MessageEmbed()
       .setTitle("Pᴏɴɢ!")
       .setColor("00FFFF")
-      .setDescription(`Pᴏɴɢ! ${client.ws.ping}ms.`);
+      .setDescription(`Lᴀᴛᴇɴᴄʏ: ${client.ws.ping}ms.`);
     return message.channel.send(embed);
   }
 };
