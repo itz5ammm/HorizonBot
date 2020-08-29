@@ -1,5 +1,6 @@
 const discord = require("discord.js");
 const imdb = require("imdb-api");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "imdb",
@@ -8,7 +9,10 @@ module.exports = {
   usage: "imdb <name>",
   execute: async (client, message, args, color) => {
     if (!args.length) {
-      return message.channel.send("Pʟᴇᴀsᴇ Gɪᴠᴇ Nᴀᴍᴇ Oғ A Mᴏᴠɪᴇ Oʀ Sᴇʀɪᴇs.");
+      let embed = new MessageEmbed()
+        .setColor("00FFFF")
+        .setDescription("Pʟᴇᴀsᴇ Gɪᴠᴇ Nᴀᴍᴇ Oғ A Mᴏᴠɪᴇ Oʀ Sᴇʀɪᴇs.");
+      message.channel.send(embed);
     }
 
     const imob = new imdb.Client({ apiKey: "5e36f0db" }); //You need to paste you imdb api
