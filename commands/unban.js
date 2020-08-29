@@ -15,7 +15,7 @@ module.exports = {
 
     if (!unbanned) {
       let unbaninfoembed = new Discord.MessageEmbed()
-        .setTitle("Command: unban")
+        .setTitle("Cᴏᴍᴍᴀɴᴅ: unban")
         .setDescription(
           `**Dᴇsᴄʀɪᴘᴛɪᴏɴ:** Unban a member. \n` +
             "**Sᴜʙ Cᴏᴍᴍᴀɴᴅs:**\n" +
@@ -26,7 +26,7 @@ module.exports = {
             "+unban <@597253939469221891> good guy \n" +
             "+unban 597253939469221891 good guy "
         )
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(unbaninfoembed);
 
       return;
@@ -35,7 +35,7 @@ module.exports = {
     if (!ban.get(member.id)) {
       let notbannedembed = new Discord.MessageEmbed()
         .setDescription("This user is not banned")
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(notbannedembed);
 
       return;
@@ -46,7 +46,7 @@ module.exports = {
         .setDescription(
           "I do not have permissions, please contact an administrator"
         )
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(botnoperms);
 
       return;
@@ -57,7 +57,7 @@ module.exports = {
         .setDescription(
           "You do not have permission `BAN MEMBERS` contact an administrator"
         )
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(nopermsembed);
 
       return;
@@ -67,7 +67,7 @@ module.exports = {
     message.guild.members.unban(member);
     let successfullyembed = new Discord.MessageEmbed()
       .setTitle(`***${member.tag} was Unbanned.***`)
-      .setColor("#2C2F33");
+      .setColor("#00FFFF");
 
     message.channel.send(successfullyembed);
   }

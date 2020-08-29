@@ -12,7 +12,7 @@ module.exports = {
 
     if (!banned) {
       let baninfoembed = new Discord.MessageEmbed()
-        .setTitle("Command: ban")
+        .setTitle("Cᴏᴍᴍᴀɴᴅ: ban")
         .setDescription(
           `**Dᴇsᴄʀɪᴘᴛɪᴏɴ:** Ban a member, optional time limit. \n` +
             "**Sᴜʙ Cᴏᴍᴍᴀɴᴅs:**\n" +
@@ -24,7 +24,7 @@ module.exports = {
             "+ban <@597253939469221891> 48h spam \n" +
             "+ban save <@597253939469221891> 48h spam "
         )
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(baninfoembed);
 
       return;
@@ -33,7 +33,7 @@ module.exports = {
     if (message.author === banned) {
       let sanctionyourselfembed = new Discord.MessageEmbed()
         .setDescription(`You Can't Ban Yourself.`)
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(sanctionyourselfembed);
 
       return;
@@ -42,7 +42,7 @@ module.exports = {
     if (!reason) {
       let noreasonembed = new Discord.MessageEmbed()
         .setDescription(`Enter a reason`)
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(noreasonembed);
 
       return;
@@ -53,7 +53,7 @@ module.exports = {
         .setDescription(
           "You do not have permission `BAN MEMBERS` contact an administrator"
         )
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(nopermsembed);
 
       return;
@@ -64,7 +64,7 @@ module.exports = {
         .setDescription(
           "I do not have `BAN MEMBERS` permission, please contact an administrator"
         )
-        .setColor("#2C2F33");
+        .setColor("#00FFFF");
       message.channel.send(botnopermsembed);
 
       return;
@@ -74,7 +74,7 @@ module.exports = {
 
     let successfullyembed = new Discord.MessageEmbed()
       .setTitle(`***${banned.tag} was Banned successfully.***`)
-      .setColor("#2C2F33");
+      .setColor("#00FFFF");
 
     message.channel.send(successfullyembed);
   }
