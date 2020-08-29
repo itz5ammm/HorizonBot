@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const { MessageEmbed } = require("disco
+const { MessageEmbed } = require("discord.js")
+                                 
 module.exports = {
   name: "purge",
   description: "Purge up to 99 messages.",
