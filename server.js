@@ -80,9 +80,9 @@ client.on("message", message => {
         .setTitle("Cᴏᴍᴍᴀɴᴅ Lᴏɢ.")
         .setDescription(
           `Gᴜɪʟᴅ: **\`${message.guild.name}\`**
+Cʜᴀɴɴᴇʟ:**\`${message.channel.name}\`**
 Exᴇᴄᴜᴛᴏʀ: **${message.author.tag}** 
-Cᴏᴍᴍᴀɴᴅ Usᴇᴅ: **\`${client.commands.get(command).name}\`**
-Cʜᴀɴɴɴᴇʟ: **\`${message.channel.name}\`**`
+Cᴏᴍᴍᴀɴᴅ Usᴇᴅ: **\`${client.commands.get(command).name}\`**`
         )
         .setColor("00FFFF")
         .setThumbnail(message.author.avatarURL())
@@ -97,9 +97,9 @@ Cʜᴀɴɴɴᴇʟ: **\`${message.channel.name}\`**`
         .setTitle("Cᴏᴍᴍᴀɴᴅ Eʀʀᴏʀ.")
         .setDescription(
           `Gᴜɪʟᴅ: **\`${message.guild.name}\`**
+Cʜᴀɴɴᴇʟ: **\`${message.channel.name}\`**
 Cᴏᴍᴍᴀɴᴅ Nᴀᴍᴇ: **\`${client.commands.get(command).name}\`**
-Eʀʀᴏʀ: ${err}
-Cʜᴀɴɴᴇʟ: **${message.channel.name}**`
+Eʀʀᴏʀ: ${err}`
         )
         .setColor("00FFFF")
         .setThumbnail(message.author.avatarURL())

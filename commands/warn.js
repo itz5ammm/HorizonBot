@@ -42,7 +42,7 @@ module.exports = {
 
       let embed = new MessageEmbed()
         .setColor("070707")
-        .setDescription(`***${user.user.tag}was Warned.***  | ${reason}`);
+        .setDescription(`***${user.user.tag} was Warned.***  | ${reason}`);
       message.channel.send(embed);
     }
   }
