@@ -77,11 +77,12 @@ client.on("message", message => {
       //COMMAND LOGS
       const o = client.channels.cache.get("748919962235568330");
       const embed = new discord.MessageEmbed()
-        .setTitle("Bot Command Used")
+        .setTitle("Cᴏᴍᴍᴀɴᴅ Lᴏɢ.")
         .setDescription(
-          `**\`${message.guild.name}\`**
-**${message.author.tag}** Used: **\`${client.commands.get(command).name}\`**
-in **\`${message.channel.name}\`**`
+          `Gᴜɪʟᴅ: **\`${message.guild.name}\`**
+Exᴇᴄᴜᴛᴏʀ: **${message.author.tag}** 
+Cᴏᴍᴍᴀɴᴅ Usᴇᴅ: **\`${client.commands.get(command).name}\`**
+Cʜᴀɴɴɴᴇʟ: **\`${message.channel.name}\`**`
         )
         .setColor("00FFFF")
         .setThumbnail(message.author.avatarURL())
@@ -93,12 +94,12 @@ in **\`${message.channel.name}\`**`
       console.log(err);
       const o = client.channels.cache.get("749268670609621122");
       const embed = new discord.MessageEmbed()
-        .setTitle("Bot Command Error")
+        .setTitle("Cᴏᴍᴍᴀɴᴅ Eʀʀᴏʀ.")
         .setDescription(
-          `**${message.guild.name}**
-command name: **\`${client.commands.get(command).name}\`**
-error: ${err}
-**${message.channel.name}**`
+          `Gᴜɪʟᴅ: **\`${message.guild.name}\`**
+Cᴏᴍᴍᴀɴᴅ Nᴀᴍᴇ: **\`${client.commands.get(command).name}\`**
+Eʀʀᴏʀ: ${err}
+Cʜᴀɴɴᴇʟ: **${message.channel.name}**`
         )
         .setColor("00FFFF")
         .setThumbnail(message.author.avatarURL())

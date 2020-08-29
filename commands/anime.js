@@ -7,9 +7,12 @@ module.exports = {
   aliases: ["kitsu"],
   description: "Get anime information",
   usage: "anime <anime_name>",
-  run: (client, message, args) => {
+  execute: (client, message, args) => {
     if (!args.length) {
-      return message.channel.send("Pʟᴇᴀsᴇ Gɪᴠᴇ A Aɴɪᴍᴇ Nᴀᴍᴇ.");
+      let embed = new MessageEmbed()
+        .setColor("070707")
+        .setDescripton("Pʟᴇᴀsᴇ Gɪᴠᴇ A Aɴɪᴍᴇ Nᴀᴍᴇ.");
+      message.channel.send(embed);
     }
     //DEFINE OPTIONS
 
