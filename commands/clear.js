@@ -5,7 +5,7 @@ module.exports = {
   description: "Clears Messages Of Mentioned Amount.",
   category: "Moderation",
   execute: async (client, message, args) => {
-    const deleteCount = parseInt(args[0] + 1);
+    const deleteCount = parseInt(args[0]) + 1;
 
     // get the delete count, as an actual number.
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
