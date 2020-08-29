@@ -79,18 +79,31 @@ client.on("message", message => {
       const embed = new discord.MessageEmbed()
         .setTitle("Bot Command Used")
         .setDescription(
-          `**${message.guild.name}** :
+          `**\`${message.guild.name}\`**
 **${message.author.tag}** Used: **\`${client.commands.get(command).name}\`**
-in **${message.channel.name}**`
+in **\`${message.channel.name}\`**`
         )
         .setColor("00FFFF")
         .setThumbnail(message.author.avatarURL())
         .setTimestamp();
       o.send(embed);
     } catch (err) {
-      //IF IT CATCH ERROR
+      //IF IT CATCHES ERROR
+
       console.log(err);
-      message.reply("Gᴇᴛᴛɪɴɢ Eʀʀᴏʀ Usɪɴɢ Tʜɪs Cᴏᴍᴍᴀɴᴅ.");
+      const o = client.channels.cache.get("749268670609621122");
+      const embed = new discord.MessageEmbed()
+        .setTitle("Bot Command Error")
+        .setDescription(
+          `**${message.guild.name}**
+command name: **\`${client.commands.get(command).name}\`**
+error: ${err}
+**${message.channel.name}**`
+        )
+        .setColor("00FFFF")
+        .setThumbnail(message.author.avatarURL())
+        .setTimestamp();
+      o.send(embed);
     }
   }
 });

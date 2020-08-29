@@ -7,7 +7,7 @@ module.exports = {
   aliases: ["kitsu"],
   description: "Get anime information",
   usage: "anime <anime_name>",
-  execute: (client, message, args) => {
+  run: (client, message, args) => {
     if (!args.length) {
       return message.channel.send("Pʟᴇᴀsᴇ Gɪᴠᴇ A Aɴɪᴍᴇ Nᴀᴍᴇ.");
     }
