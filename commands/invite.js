@@ -13,7 +13,7 @@ module.exports = {
         true
       )
       .addField(
-        "Jᴏɪɴ Sᴘᴘᴏʀᴛ Sᴇʀᴠᴇʀ!",
+        "Jᴏɪɴ Sᴜᴘᴘᴏʀᴛ Sᴇʀᴠᴇʀ!",
         `[Join Here](https://discord.gg/UuXQMBm)`,
         true
       );

@@ -17,6 +17,9 @@ module.exports = {
     let role = message.mentions.roles.first();
     if (!role) return message.channel.send("Mᴇɴᴛɪᴏɴ Tʜᴇ Rᴏʟᴇ.");
 
+  }  else { 
+   
+    
     let embed = new discord.MessageEmbed()
       .setColor("00FFFF")
       .setDescription(`${user}, +${role}`);
