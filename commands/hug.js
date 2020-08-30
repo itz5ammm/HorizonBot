@@ -1,26 +1,28 @@
+const utils = require("utils");
+
 const Discord = require("discord.js");
-const client = new Discord.Client();
-const snekfetch = require("snekfetch");
+const superagent = require("snekfetch");
 
 module.exports = {
   name: "hug",
   category: "Action",
-  description: "Give User A Warm Hug",
+  description: "Allows you to hug another user",
+  usage: "[command | user]",
   execute: async (client, message, args) => {
-    if (message.mentions.users.size < 1)
-      return message.channel.send("you can't hug nobody");
-    let user = message.guild.member(message.mentions.users.first());
-    snekfetch
-      .get("https://nekos.life/api/hug")
-      .set("Key", "dnZ4fFJbjtch56pNbfrZeSRfgWqdPDgf")
-      .then(r =>
-        message.channel.send(`${message.author} Hugs ${user} ❤`, {
-          embed: {
-            image: {
-              url: r.body.url
-            }
-          }
-        })
-      );
+    //command
+    const user = message.mentions.users.first();
+    if (!user) return message.reply("Mention someone to give a hug to.");
+
+    superagent.get("https://nekos.life/api/v2/img/hug").end((err, response) => {
+      const lewdembed = new Discord.MessageEmbed()
+        .setImage(response.body.url)
+        .setColor(`RANDOM`)
+        .setDescription(
+          message.author.toString() + " *hugs* " + user.toString()
+        )
+        .setFooter(`Kawaiii!`)
+        .setURL(response.body.url);
+      message.channel.send(lewdembed);
+    });
   }
 };

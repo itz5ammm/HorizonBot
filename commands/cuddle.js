@@ -20,9 +20,9 @@ module.exports = {
           .setImage(response.body.url)
           .setColor(`RANDOM`)
           .setDescription(
-            user.toString() + " got a cuddle from " + user.toString()
+            message.author.toString() + " *cuddles* " + user.toString()
           )
-          .setFooter(`this is so cute`)
+          .setFooter(`Kawaiii!`)
           .setURL(response.body.url);
         message.channel.send(lewdembed);
       });
