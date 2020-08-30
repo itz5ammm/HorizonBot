@@ -10,8 +10,6 @@ module.exports = {
     const { body } = await snekfetch.get("https://nekos.life/api/lewd/neko");
 
     if (message.channel.nsfw)
-      return message.channel.send("Cannot send NSFW content in a SFW channel.");
-    const embed = new Discord.RichEmbed().setImage(body.neko);
-    message.channel.send(embed).catch(console.error);
+      return message.channel.send(`neko(body`);
   }
 };
