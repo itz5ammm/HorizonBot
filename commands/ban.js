@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "ban",
   category: "Moderation",
-  description: "ban a members",
+  description: "ban a member",
   execute: async (client, message, args, guild) => {
     let banned =
       message.mentions.users.first() || client.users.resolve(args[0]);
