@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const bot = new Discord.Client();
+const client = new Discord.Client();
 const snekfetch = require("snekfetch");
 
 module.exports = {
