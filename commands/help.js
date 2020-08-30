@@ -52,7 +52,9 @@ module.exports = {
       client.commands
         .filter(cmd => cmd.category === "Fun")
         .forEach(cmd => fun.push(cmd.name));
-      clientc
+      client.commands
+        .filter(cmd => cmd.category === "Action")
+        .forEach(cmd => action.push(cmd.name));
       client.commands
         .filter(cmd => cmd.category === "Moderation")
         .forEach(cmd => moderation.push(cmd.name));
@@ -80,6 +82,11 @@ module.exports = {
         .addField(
           `➸ Fᴜɴ`,
           "``" + prefix + fun.join("``, " + "``" + prefix) + "``",
+          true
+        )
+        .addField(
+          `➸ Aᴄᴛɪᴏɴ`,
+          "``" + prefix + action.join("``, " + "``" + prefix) + "``",
           true
         )
         .addField(
