@@ -14,7 +14,7 @@ module.exports = {
       .get("https://nekos.life/api/hug")
       .set("Key", "dnZ4fFJbjtch56pNbfrZeSRfgWqdPDgf")
       .then(r =>
-        message.channel.send(`${message.author} Hugs ${user.user.tag} ❤`, {
+        message.channel.send(`${message.author} Hugs ${user} ❤`, {
           embed: {
             image: {
               url: r.body.url
