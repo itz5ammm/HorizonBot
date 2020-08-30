@@ -13,6 +13,7 @@ module.exports = {
     let fun = [];
     let action = [];
     let moderation = [];
+    let nsfw = [];
     let prefix = "+";
 
     if (args[0]) {
@@ -58,7 +59,10 @@ module.exports = {
       client.commands
         .filter(cmd => cmd.category === "Moderation")
         .forEach(cmd => moderation.push(cmd.name));
-
+      client.commands
+        .filter(cmd => cmd.category === "Nsfw")
+        .forEach(cmd => nsfw.push(cmd.name));
+     
       let embed = new MessageEmbed()
         .setAuthor("❝Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ❞", client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL())
@@ -93,7 +97,10 @@ module.exports = {
           `➸ Mᴏᴅᴇʀᴀᴛɪᴏɴ`,
           "``" + prefix + moderation.join("``," + "``" + prefix) + "``",
           true
-        );
+        )
+       .addField(
+         `➸ Nsғᴡ`,
+         "``" + prefix + nsfw.join("``," + "``
       message.channel.send(embed).catch(console.log);
     }
 
