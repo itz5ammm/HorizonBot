@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const snekfetch = require("snekfetch");
-const { MessageEmbed } = require("discord.js")
-
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "kiss",
@@ -16,16 +15,17 @@ module.exports = {
       .get("https://nekos.life/api/kiss")
       .set("Key", "dnZ4fFJbjtch56pNbfrZeSRfgWqdPDgf");
     let embed = new MessageEmbed()
-    .setColor("070707")
-    .setTitle(
-        `${message.author} Kisses ${user.user.tag} ❤`.then(r => {
-          embed: {
-            image: {
-              url: r.body.url;
-            }
+      .setColor("070707")
+      .setAuthor(`${message.author} Kisses ${user.user.tag} ❤`)
+    
+      .then(r => {
+        embed: {
+          image: {
+            url: r.body.url;
           }
-        })
-      )
+        }
+      })
       .catch(console.error);
+  message.channel.send(embed);
   }
 };
