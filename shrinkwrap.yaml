@@ -17,6 +17,7 @@ dependencies:
   request-promise-native: 1.0.9
   simple-youtube-api: 5.2.1
   snekfetch: 4.0.4
+  sqlite: 4.0.14
   weather-js: 2.0.0
   youtube-api: 3.0.1
   youtube-node: 1.3.3
@@ -2187,6 +2188,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-dyycG9fvwtSJqKPfMVOpXt+60qvMGe7vWLwOJDiSJaiAx+hs2EnFChG2bXCWn7ulz+zGzrHdN9/yeEb0YqEPww==
+  /sqlite/4.0.14:
+    dev: false
+    resolution:
+      integrity: sha512-U80Xp7ERil4kWr2MDR51S0AR+A8CzPjYMXnWdtkD5e34vUCZCE48hSIxJsOQSI84mGI1Y4N4qty4NNPhIDHJwQ==
   /sshpk/1.16.1:
     dependencies:
       asn1: 0.2.4
@@ -2594,6 +2599,7 @@ specifiers:
   request-promise-native: ^1.0.9
   simple-youtube-api: ^5.2.1
   snekfetch: ^4.0.4
+  sqlite: ^4.0.14
   weather-js: ^2.0.0
   youtube-api: ^3.0.1
   youtube-node: ^1.3.3
