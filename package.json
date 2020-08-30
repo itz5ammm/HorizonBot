@@ -33,7 +33,8 @@
     "youtube-node": "^1.3.3",
     "youtube-api": "^3.0.1",
     "snekfetch": "^4.0.4",
-    "sqlite": "^4.0.14"
+    "sqlite": "^4.0.14",
+    "fs-nextra": "^0.5.1"
   },
   "engines": {
     "node": "12.x"

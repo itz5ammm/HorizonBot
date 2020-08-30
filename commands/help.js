@@ -62,7 +62,7 @@ module.exports = {
       client.commands
         .filter(cmd => cmd.category === "Nsfw")
         .forEach(cmd => nsfw.push(cmd.name));
-     
+
       let embed = new MessageEmbed()
         .setAuthor("❝Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ❞", client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL())
@@ -98,9 +98,11 @@ module.exports = {
           "``" + prefix + moderation.join("``," + "``" + prefix) + "``",
           true
         )
-       .addField(
-         `➸ Nsғᴡ`,
-         "``" + prefix + nsfw.join("``," + "``
+        .addField(
+          `➸ Nsғᴡ`,
+          "``" + prefix + nsfw.join("``," + "``" + prefix) + "``",
+          true
+        );
       message.channel.send(embed).catch(console.log);
     }
 
