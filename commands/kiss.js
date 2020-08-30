@@ -16,7 +16,7 @@ module.exports = {
       .set("Key", "dnZ4fFJbjtch56pNbfrZeSRfgWqdPDgf")
       .then(r =>
         message.channel.send(
-          `${message.author} Kisses ${user} ❤`,
+          `${message.author} *Kisses* ${user} ❤`,
           {
             embed: {
               image: {
