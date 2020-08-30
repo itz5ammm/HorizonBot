@@ -10,18 +10,12 @@ module.exports = {
     if (message.mentions.users.size < 1)
       return message.channel.send("you can't Cuddle nobody");
     let user = message.guild.member(message.mentions.users.first());
-   snekfetch
-   .get("https://nekos.life/api/cuddle)")
-   .set("key", "
-    message.channel.send(
-      `${message.author.username} *Cuddles* ${user}. Cuteee! ❤`,
-      {
-        embed: {
-          image: {
-            url: "https://i.imgur.com/0yAIWbg.gif"
-          }
+    message.channel.send(`${message.author} *Cuddles* ${user}. Cuteee! ❤`, {
+      embed: {
+        image: {
+          url: "https://i.imgur.com/0yAIWbg.gif"
         }
       }
-    );
+    });
   }
 };
