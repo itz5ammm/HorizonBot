@@ -11,6 +11,7 @@ module.exports = {
     let music = [];
     let utility = [];
     let fun = [];
+    let action = [];
     let moderation = [];
     let prefix = "+";
 
@@ -51,6 +52,7 @@ module.exports = {
       client.commands
         .filter(cmd => cmd.category === "Fun")
         .forEach(cmd => fun.push(cmd.name));
+      clientc
       client.commands
         .filter(cmd => cmd.category === "Moderation")
         .forEach(cmd => moderation.push(cmd.name));
