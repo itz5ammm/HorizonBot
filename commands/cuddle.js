@@ -1,21 +1,30 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
-const snekfetch = require("snekfetch");
+const superagent = require("snekfetch");
+const utils = require("utils");
 
 module.exports = {
   name: "cuddle",
   category: "Action",
-  description: "Cuddle Someone.",
+  description: "Allows you to cuddle another user",
+  usage: "[command | user]",
   execute: async (client, message, args) => {
-    if (message.mentions.users.size < 1)
-      return message.channel.send("you can't Cuddle nobody");
-    let user = message.guild.member(message.mentions.users.first());
-    message.channel.send(`${message.author} *Cuddles* ${user}. Cuteee! ❤`, {
-      embed: {
-        image: {
-          url: "https://i.imgur.com/0yAIWbg.gif"
-        }
-      }
-    });
+    //command
+    if (message.guild === null) return;
+    const user = message.mentions.users.first();
+    if (!user) return message.reply("Mention someone to cuddle.");
+
+    superagent
+      .get("https://nekos.life/api/v2/img/cuddle")
+      .end((err, response) => {
+        const lewdembed = new Discord.MessageEmbed()
+          .setImage(response.body.url)
+          .setColor(`RANDOM`)
+          .setDescription(
+            user.toString() + " got a cuddle from " + user.toString()
+          )
+          .setFooter(`this is so cute`)
+          .setURL(response.body.url);
+        message.channel.send(lewdembed);
+      });
   }
 };
