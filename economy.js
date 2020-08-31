@@ -127,40 +127,78 @@ client.on("message", async message => {
     var user = message.mentions.users.first();
     var amount = args[1];
 
-    if (!user)
-      const transfer("Mention the user you want to send money to!");
-    if (!amount) return message.reply("Specify the amount you want to pay!");
+    if (!user) {
+      let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription("Mention the user you want to send money to!");
+      
+      message.channel.send(embed);
+      }
+    
+    if (!amount) { 
+      let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription("Specify the amount you want to pay!");
 
+      message.channel.send(embed);
+      }
+    
     var output = await eco.FetchBalance(message.author.id);
-    if (output.balance < amount)
-      return message.reply(
+    if (output.balance < amount) {
+      let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription(
         "You have fewer coins than the amount you want to transfer!"
       );
-
+message.channel.send(embed);
+    }
+  
     var transfer = await eco.Transfer(message.author.id, user.id, amount);
-    message.reply(
+    let embed = new MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(
       `Transfering coins successfully done!\nBalance from ${message.author.tag}: ${transfer.FromUser}\nBalance from ${user.tag}: ${transfer.ToUser}`
     );
+ message.channel.send(embed);
+  
   }
 
   if (command === "coinflip") {
     var flip = args[0]; //Heads or Tails
     var amount = args[1]; //Coins to gamble
 
-    if (!flip || !["heads", "tails"].includes(flip))
-      return message.reply("Please specify the flip, either heads or tails!");
-    if (!amount) return message.reply("Specify the amount you want to gamble!");
-
+    if (!flip || !["heads", "tails"].includes(flip)) {
+      let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription("Please specify the flip, either heads or tails!");
+      message.channel.send(embed);
+      }
+    
+    if (!amount) { 
+      let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription("Specify the amount you want to gamble!");
+message.channel.send(embed);
+      }
+      
     var output = await eco.FetchBalance(message.author.id);
-    if (output.balance < amount)
-      return message.reply(
+    if (output.balance < amount) {
+      let embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setDescription(
         "You have fewer coins than the amount you want to gamble!"
       );
-
+message.channel.send(embed);
+      }
+    
     var gamble = await eco
       .Coinflip(message.author.id, flip, amount)
       .catch(console.error);
-    message.reply(`You ${gamble.output}! New balance: ${gamble.newbalance}`);
+    let embed = new MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(`You ${gamble.output}! New balance: ${gamble.newbalance}`);
+ 
+  message.channel.send(embed);
   }
 
   if (command === "dice") {
