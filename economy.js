@@ -1,5 +1,5 @@
 const config = require("./config.json");
-const { Mess/*
+/*
 If you want to make discord-economy guild based you have to use message.author.id + message.guild.id as ID for example:
 eco.Daily(message.author.id + message.guild.id)
  
@@ -9,7 +9,7 @@ This will create a unique ID for each guild member
 //Requiring Packages
 const Discord = require("discord.js"); //This can also be discord.js-commando or other node based packages!
 const eco = require("discord-economy");
-
+const { MesasgeEmbed } = require("discord.js");
 //Create the bot client
 const client = new Discord.Client();
 
@@ -37,9 +37,12 @@ client.on("message", async message => {
 
   if (command === "balance") {
     var output = await eco.FetchBalance(message.author.id);
-    message.channel.send(
-      `Hey ${message.author.tag}! You own ${output.balance} coins.`
-    );
+    const balance = new Discord.RichEmbed()
+      .setColor("070707")
+      .setDescription(
+        `Hey ${message.author.tag}! You own ${output.balance} coins.`
+      );
+    message.channel.send(balance);
   }
 
   if (command === "daily") {
@@ -48,11 +51,15 @@ client.on("message", async message => {
 
     if (output.updated) {
       var profile = await eco.AddToBalance(message.author.id, 100);
-      message.reply(
+      const daily = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setDescription(
         `You claimed your daily coins successfully! You now own ${profile.newbalance} coins.`
       );
+    message.channel.send(daily);
+    
     } else {
-      message.channel.send(
+      let embed = new Message(
         `Sorry, you already claimed your daily coins!\nBut no worries, over ${output.timetowait} you can daily again!`
       );
     }
