@@ -6,5 +6,5 @@
   "QUEUE_LIMIT": 0,
   "COLOR": "#00ffff",
   "inviteURL": "https://discord.com/api/oauth2/authorize?client_id=742375154654380082&permissions=8&scope=bot,",
-  "OWNER_ID": "606305489772609558"
+  "owner_id": "606305489772609558"
 }
