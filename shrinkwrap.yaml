@@ -14,6 +14,7 @@ dependencies:
   moment: 2.27.0
   ms: 2.1.2
   node-fetch: 2.6.0
+  node-superfetch: 0.1.10
   path: 0.12.7
   quick.db: 7.1.1
   request-promise-native: 1.0.9
@@ -1004,6 +1005,16 @@ packages:
       node: '>= 0.12'
     resolution:
       integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
+  /form-data/2.5.1:
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.27
+    dev: false
+    engines:
+      node: '>= 0.12'
+    resolution:
+      integrity: sha512-m21N3WOmEEURgk6B9GLOE4RuWOFf28Lhh9qGYeNlGq4VDXUlJy2th2slBNU8Gp8EzloYZOibZJ7t5ecIrFSjVA==
   /form-data/3.0.0:
     dependencies:
       asynckit: 0.4.0
@@ -1989,6 +2000,15 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-TwWAOZb0j7e9eGaf9esRx3ZcLaE5tQ2lvYy1pb5IAaG1a2e2Kv5Lms1Y4hpj+ciXJRofIxxlt5haeQ/2ANeE0Q==
+  /node-superfetch/0.1.10:
+    dependencies:
+      form-data: 2.5.1
+      node-fetch: 2.6.0
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-aM+4GmjwCSku1VLsVh/mjnxQHa3StRI8uB7eYSktstlMD6Dxvpk/tT6UFEg2NwlNPjLlwsFmexduNUahckCm2A==
   /noop-logger/0.1.1:
     dev: false
     resolution:
@@ -3108,6 +3128,7 @@ specifiers:
   moment: ^2.27.0
   ms: ^2.1.2
   node-fetch: ^2.6.0
+  node-superfetch: ^0.1.10
   path: ^0.12.7
   quick.db: ^7.1.1
   request-promise-native: ^1.0.9
