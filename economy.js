@@ -1,5 +1,5 @@
 const config = require("./config.json");
-/*
+const { Mess/*
 If you want to make discord-economy guild based you have to use message.author.id + message.guild.id as ID for example:
 eco.Daily(message.author.id + message.guild.id)
  
