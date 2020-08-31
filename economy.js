@@ -9,7 +9,7 @@ This will create a unique ID for each guild member
 //Requiring Packages
 const Discord = require("discord.js"); //This can also be discord.js-commando or other node based packages!
 const eco = require("discord-economy");
-const { MesasgeEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 //Create the bot client
 const client = new Discord.Client();
 
@@ -59,9 +59,12 @@ client.on("message", async message => {
     message.channel.send(daily);
     
     } else {
-      let embed = new Message(
+      let embed = new MessageEmbed()
+      .setColor("RANDOM")
+          .setDescription(
         `Sorry, you already claimed your daily coins!\nBut no worries, over ${output.timetowait} you can daily again!`
       );
+   message.channel.send(embed);
     }
   }
 
@@ -76,11 +79,15 @@ client.on("message", async message => {
         filter: x => x.balance > 50,
         search: message.mentions.users.first().id
       });
-      message.channel.send(
+    const leaderboard = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setDescription(
         `The user ${
           message.mentions.users.first().tag
-        } is number ${output} on my leaderboard!`
+        } is ${output} on the leaderboard!`
       );
+    message.channel.send(leaderboard);
+    
     } else {
       eco
         .Leaderboard({
@@ -97,7 +104,9 @@ client.on("message", async message => {
           if (users[2])
             var thirdplace = await client.fetchUser(users[2].userid); //Searches for the user object in discord for third place
 
-          message.channel.send(`My Global leaderboard:
+          let leaboard = new Discord.RichEmbed()
+          .setColor("RANDOM")
+          .setDescription(`My Global leaderboard:
  
 1 - ${(firstplace && firstplace.tag) || "Nobody Yet"} : ${(users[0] &&
             users[0].balance) ||
@@ -108,16 +117,18 @@ client.on("message", async message => {
 3 - ${(thirdplace && thirdplace.tag) || "Nobody Yet"} : ${(users[2] &&
             users[2].balance) ||
             "None"}`);
-        });
-    }
+       message.channel.send(leaboard);
+     
+      });
   }
-
+}
+  
   if (command === "transfer") {
     var user = message.mentions.users.first();
     var amount = args[1];
 
     if (!user)
-      return message.reply("Reply the user you want to send money to!");
+      const transfer("Mention the user you want to send money to!");
     if (!amount) return message.reply("Specify the amount you want to pay!");
 
     var output = await eco.FetchBalance(message.author.id);
