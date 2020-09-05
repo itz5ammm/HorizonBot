@@ -5,7 +5,7 @@ module.exports = {
   category: "Fun",
   description: "Encode Stuff.",
   execute: async (client, message, args) => {
-    if (!args[0]) message.channel.send("What you want me to encode?");
+    if (!args[0]) return message.channel.send("What you want me to encode?");
 
     let Encodemsg = args.slice(0).join(" ");
 
@@ -15,12 +15,12 @@ module.exports = {
       encoded += Array(8 - bin.length + 1).join("0") + bin;
     }
 
-    let embed = new MessageEmbed()
+    const boomer = new Discord.MessageEmbed()
       .setTitle("Eɴᴄᴏᴅᴇᴅ")
       .setColor("RANDOM")
       .setDescription(encoded);
 
     message.delete().catch();
-    message.channel.send(embed);
+    message.channel.send(boomer);
   }
 };

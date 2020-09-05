@@ -6,10 +6,13 @@ const client = new discord.Client({
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { TOKEN, PREFIX } = require("./config.json");
-
+const ascii = require("ascii-table");
+const { Cilent, Collection } = require("discord.js");
+const table = new ascii("Commands");
+const db = require("quick.db");
 //CLIENT EVENTS
 client.on("ready", () => {
-  console.log("Ready to play song | Bot created by SAM");
+  console.log("Ready To Work. | Bot created by SAM");
   client.user.setActivity("+help | Horizon - A Cᴏᴏʟ Mᴜʟᴛɪ-ᴘᴜʀᴘᴏsᴇ Bᴏᴛ.");
 });
 
@@ -19,6 +22,7 @@ client.on("error", console.error);
 
 //DEFINIING
 client.commands = new discord.Collection();
+client.aliases = new discord.Collection();
 client.prefix = PREFIX;
 client.queue = new Map();
 client.vote = new Map();
@@ -44,24 +48,45 @@ client.capitalize = string => {
 };
 
 //LETS LOAD ALL FILES
-const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file =>
-  file.endsWith(".js")
-);
+const cmdFiles = readdirSync("./commands").filter(file => file.endsWith(".js"));
 for (const file of cmdFiles) {
-  const command = require(join(__dirname, "commands", file));
+  const command = require(`./commands/${file}`);
   client.commands.set(command.name, command);
-} //LOADING DONE
+  /* command.aliases.forEach(alias => {
+      client.aliases.set(alias, command.name)
+    })*/
+  table.setHeading("Command", "Load Status");
+  table.addRow(command.name, "✅");
+}
+console.log(table.toString()); //LOADING DONE
+
+/*(require("fs")).readdir("./commands/", (err, files) => {
+  if(err) throw err
+  
+ table.setHeading("Command", "Load Status")
+  
+  files.forEach(f => {
+    let command = require(`./commands/${f}/`)
+    table.addRow(command.name, '✅')
+    if(command.name) client.commands.set(command.name, command)
+    if(command.aliases) command.aliases.forEach(alias => client.aliases.set(alias, command.name))
+  })
+  console.log(table.toString())
+})*/
 
 //WHEN SOMEONE MESSAGE
-client.on("message", message => {
+client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.guild) return;
 
-  if (message.content.startsWith(PREFIX)) {
+  let prefix = await db.fetch(`prefixes_${message.guild.id}`);
+  if(!prefix) prefix = PREFIX;
+
+  if (message.content.startsWith(prefix)) {
     //IF MESSSAGE STARTS WITH MINE BOT PREFIX
 
     const args = message.content
-      .slice(PREFIX.length)
+      .slice(prefix.length)
       .trim()
       .split(/ +/); //removing prefix from args
     const command = args.shift().toLowerCase();
@@ -109,7 +134,7 @@ Eʀʀᴏʀ: ${err}`
   }
 });
 
-client.on("message", async message => {
+/*client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.guild) return;
   if (!message.content.startsWith(PREFIX)) return;
@@ -128,11 +153,11 @@ client.on("message", async message => {
   // Get the command
   let command = client.commands.get(cmd);
   // If none is found, try to find it by alias
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
+//  if (!command) command = client.commands.get(client.aliases.get(cmd)); 
 
   // If a command is finally found, run the command
-  if (command) command.run(client, message, args);
-});
+  if (command) command.execute(client, message, args);
+});*/
 
 //DONT DO ANYTHING WITH THIS TOKEN lol
 client.login(TOKEN);

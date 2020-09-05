@@ -1,10 +1,10 @@
 {
-  "PREFIX": " ",
-  "TOKEN": " ",
-  "YOUTUBE_API_KEY": " ",
-  "PREFIX": " ",
+  "PREFIX": "+",
+  "TOKEN": "NzQyMzc1MTU0NjU0MzgwMDgy.XzFMvQ.xJDMn4ES0QV907rcRDOmoepNmcA",
+  "YOUTUBE_API_KEY": "AIzaSyBJ-zF75_PwWVxifAaYEVKd4810o0rWXfk",
+  "PREFIX": "+",
   "QUEUE_LIMIT": 0,
   "COLOR": "#00ffff",
-  "inviteURL": " ",
-  "owner_id": " "
+  "inviteURL": "https://discord.com/api/oauth2/authorize?client_id=742375154654380082&permissions=8&scope=bot,",
+  "owner_id": "606305489772609558"
 }

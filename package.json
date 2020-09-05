@@ -37,8 +37,10 @@
     "fs-nextra": "^0.5.1",
     "superagent": "^6.1.0",
     "utils": "^0.3.1",
-    "discord-economy": "^1.2.2",
-    "node-superfetch": "^0.1.10"
+    "node-superfetch": "^0.1.10",
+    "command": "^0.0.5",
+    "url": "^0.11.0",
+    "ascii-table": "^0.0.9"
   },
   "engines": {
     "node": "12.x"

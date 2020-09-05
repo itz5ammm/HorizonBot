@@ -8,11 +8,11 @@ module.exports = {
   category: "Info",
   execute(client, message, args) {
     let info = [];
-    let action = [];
-    let fun = [];
-    let moderation = [];
     let music = [];
     let utility = [];
+    let fun = [];
+    let action = [];
+    let moderation = [];
     let prefix = "+";
 
     if (args[0]) {
@@ -44,44 +44,29 @@ module.exports = {
         .filter(cmd => cmd.category === "Info")
         .forEach(cmd => info.push(cmd.name));
       client.commands
-        .filter(cmd => cmd.category === "Action")
-        .forEach(cmd => action.push(cmd.name));
-      client.commands
-        .filter(cmd => cmd.category === "Fun")
-        .forEach(cmd => fun.push(cmd.name));
-      client.commands
-        .filter(cmd => cmd.category === "Moderation")
-        .forEach(cmd => moderation.push(cmd.name));
-      client.commands
         .filter(cmd => cmd.category === "Music")
         .forEach(cmd => music.push(cmd.name));
       client.commands
         .filter(cmd => cmd.category === "Utility")
         .forEach(cmd => utility.push(cmd.name));
+      client.commands
+        .filter(cmd => cmd.category === "Fun")
+        .forEach(cmd => fun.push(cmd.name));
+      client.commands
+        .filter(cmd => cmd.category === "Action")
+        .forEach(cmd => action.push(cmd.name));
+      client.commands
+        .filter(cmd => cmd.category === "Moderation")
+        .forEach(cmd => moderation.push(cmd.name));
 
       let embed = new MessageEmbed()
         .setAuthor("❝Cᴏᴍᴍᴀɴᴅ Sᴇᴄᴛɪᴏɴ❞", client.user.displayAvatarURL())
         .setThumbnail(client.user.displayAvatarURL())
         .setColor(COLOR)
-        .setDescription(`♪ Cᴏᴍᴍᴀɴᴅ Lɪꜱᴛ Oғ **${client.user.username}**.`)
+        .setDescription(`♪ Cᴏᴍᴍᴀɴᴅ Lɪsᴛ Oғ ${client.user.username}.`)
         .addField(
           `➳ Iɴғᴏ`,
           "``" + prefix + info.join("``, " + "``" + prefix) + "``",
-          true
-        )
-        .addField(
-          `➸ Aᴄᴛɪᴏɴ`,
-          "``" + prefix + action.join("``, " + "``" + prefix) + "``",
-          true
-        )
-        .addField(
-          `➸ Fᴜɴ`,
-          "``" + prefix + fun.join("``, " + "``" + prefix) + "``",
-          true
-        )
-        .addField(
-          `➸ Mᴏᴅᴇʀᴀᴛɪᴏɴ`,
-          "``" + prefix + moderation.join("``, " + "``" + prefix) + "``",
           true
         )
         .addField(
@@ -91,7 +76,22 @@ module.exports = {
         )
         .addField(
           `➸ Uᴛɪʟɪᴛʏ`,
-          "``" + prefix + utility.join("``," + "``" + prefix) + "``",
+          "``" + prefix + utility.join("``, " + "``" + prefix) + "``",
+          true
+        )
+        .addField(
+          `➸ Fᴜɴ`,
+          "``" + prefix + fun.join("``, " + "``" + prefix) + "``",
+          true
+        )
+        .addField(
+          `➸ Aᴄᴛɪᴏɴ`,
+          "``" + prefix + action.join("``, " + "``" + prefix) + "``",
+          true
+        )
+        .addField(
+          `➸ Mᴏᴅᴇʀᴀᴛɪᴏɴ`,
+          "``" + prefix + moderation.join("``," + "``" + prefix) + "``",
           true
         );
       message.channel.send(embed).catch(console.log);

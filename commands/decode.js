@@ -1,26 +1,31 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+
 module.exports = {
-  name: "encode",
+  name: "decode",
   category: "Fun",
-  description: "Encode Stuff.",
+  description: "Decode Anything",
   execute: async (client, message, args) => {
-    if (!args[0]) message.channel.send("What you want me to encode?");
+    if (!args[0]) {
+      let embed = new MessageEmbed()
+        .setColor("RANDOM")
+        .setDescription("What you want me to decode?");
 
-    let Encodemsg = args.slice(0).join(" ");
+      message.channel.send(embed);
+    }
+    let Decodemsg = args.slice(0).join(" ");
 
-    let encoded = "";
-    for (var i = 0; i < Encodemsg.length; i++) {
-      let bin = Encodemsg[i].charCodeAt().toString(2);
-      encoded += Array(8 - bin.length + 1).join("0") + bin;
+    let decoded = "";
+    let arr = Decodemsg.match(/.{1,8}/g);
+    for (var i = 0; i < arr.length; i++) {
+      decoded += String.fromCharCode(parseInt(arr[i], 2).toString(10));
     }
 
-    let embed = new MessageEmbed()
-      .setTitle("Eɴᴄᴏᴅᴇᴅ")
+    const ok = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setDescription(encoded);
-
+      .setTitle("Dᴇᴄᴏᴅᴇᴅ")
+      .setDescription(decoded);
     message.delete().catch();
-    message.channel.send(embed);
+    message.channel.send(ok);
   }
 };
