@@ -19,7 +19,7 @@
     "ytdl-core-discord": "^1.2.0",
     "@discordjs/opus": "^0.3.2",
     "genius-lyrics": "^3.0.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "ms": "^2.1.2",
     "got": "^11.5.1",
     "mathjs": "^7.1.0",
